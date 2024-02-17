@@ -1,0 +1,11 @@
+.svg_icon {
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+.svg_icon:hover {
+  transform: scaleX(-1);
+}
+
+.custom-usp__description {
+  opacity: 0.6;
+}

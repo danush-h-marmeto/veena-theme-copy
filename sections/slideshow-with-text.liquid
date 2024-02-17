@@ -1,0 +1,271 @@
+{{ 'slideshow-with-text.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+   }
+   {% for block in section.blocks %}
+      .slideshow-with-text__textContent-inner-{{block.id}}{
+          text-align: {{ block.settings.text_alignment }};
+      }
+    .slideshow-with-text__button-{{ block.id }}{
+        background-color:{{ block.settings.button_bg_color }}
+    }
+    .slideshow-with-text__textContent-{{ block.id }}{
+        justify-content: {{ block.settings.horizantal_alignment }};
+        align-items:  {{ block.settings.vertical_alignment }};
+    }
+    {% endfor %}
+{% endstyle %}
+
+{% capture sliderSettings %}
+            {
+               "type": "loop",
+               "perPage": 1,
+               "arrows": true,
+               "pagination": {{ section.settings.show_pagination }},
+               "perMove": 1,
+               "interval": {{ section.settings.autoplay_duration }},
+               "autoplay": {{ section.settings.autoplay }}
+            }
+  {% endcapture %}
+
+<div class="slideshow-with-text padding-{{ section.id }}">
+  <div class="page-width">
+    <slide-slider class="slideshow-with-text__wrapper">
+      <section class="splide" data-slider-settings='{{ sliderSettings }}' aria-label="Slide Show Content">
+        <div class="splide__track custom-border-radius">
+          <ul class="splide__list">
+            {% for block in section.blocks %}
+              <li class="splide__slide">
+                <div class="splide__wrapper-image">
+                  {%- if block.settings.image != blank or block.settings.image_mobile != blank -%}
+                    {% render 'responsive-picture',
+                      desktopImage: block.settings.image,
+                      mobileImage: block.settings.image_mobile
+                    %}
+                  {%- endif -%}
+                </div>
+                <div class="slideshow-with-text__textContent slideshow-with-text__textContent-{{ block.id }}">
+                  <div class="slideshow-with-text__textContent-inner slideshow-with-text__textContent-inner-{{ block.id }}">
+                    {% if block.settings.block_badge_text != blank %}
+                      <ul class="bnr_caption inline-richtext out-text ">
+                        <li>{{ block.settings.block_badge_text }}</li>
+                      </ul>
+                    {% endif %}
+                    {% if block.settings.block_title_text != blank %}
+                      <h2 class="h1 slideshow-with-text__title">{{ block.settings.block_title_text }}</h2>
+                    {% endif %}
+                    {% if block.settings.block_button_text != blank %}
+                      <a
+                        class="slideshow-with-text__button-{{ block.id }} button"
+                        href=" {{ block.settings.button_link }}"
+                      >
+                        <h2 class="h2 slideshow-with-text__button">{{ block.settings.block_button_text }}</h2>
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </li>
+            {% else %}
+              {% for i in (1..3) %}
+                <li class="splide__slide">
+                  {{ 'collection-' | append: i | placeholder_svg_tag }}
+                </li>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+    </slide-slider>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Slideshow With Text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Slider Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show Pagination Dots",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_duration",
+      "min": 1000,
+      "max": 9000,
+      "step": 1000,
+      "unit": "ms",
+      "label": "Autoplay Duration",
+      "default": 5000
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slider-elements",
+      "name": "Slider Slides",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Desktop Image Suggested Settings 1240*550"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image (Mobile)",
+          "info": "Mobile Image Suggested Settings 450*450"
+        },
+        {
+          "type": "text",
+          "id": "block_badge_text",
+          "default": "Trendy Classics",
+          "label": "Badge Text"
+        },
+        {
+          "type": "richtext",
+          "id": "block_title_text",
+          "label": "Title",
+          "default": "<p>Elevate your wardrobe with our limited-time fashion offer!</p>"
+        },
+        {
+          "type": "text",
+          "id": "block_button_text",
+          "default": "Shop Now",
+          "label": "Button Text"
+        },
+        {
+            "type": "color",
+            "id": "button_color_text",
+            "label": "Button Text Color"
+        },
+        {
+            "type": "color",
+            "id": "button_bg_color",
+            "label": "Button Background Color"
+        },
+        {
+          "type": "url",
+          "id": "block_button_link",
+          "label": "Button Link"
+        },
+         {
+        "type": "header",
+        "content": "Alignment Options"
+        },
+        {
+        "type": "select",
+        "id": "text_alignment",
+        "label": "Text Alignment",
+        "options": [
+            {
+            "value": "start",
+            "label": "Left"
+            },
+            {
+            "value": "center",
+            "label": "Center"
+            },
+            {
+            "value": "end",
+            "label": "Right"
+            }
+        ],
+        "default": "center"
+        },
+
+        {
+        "type": "select",
+        "id": "vertical_alignment",
+        "label": "Vertical alignment",
+        "options": [
+            {
+            "value": "start",
+            "label": "Top"
+            },
+            {
+            "value": "center",
+            "label": "Center"
+            },
+            {
+            "value": "end",
+            "label": "End"
+            }
+        ],
+        "default": "center"
+        },
+        {
+        "type": "select",
+        "id": "horizantal_alignment",
+        "label": "Horizantal alignment",
+        "options": [
+            {
+            "value": "start",
+            "label": "Left"
+            },
+            {
+            "value": "center",
+            "label": "Center"
+            },
+            {
+            "value": "end",
+            "label": "Right"
+            }
+        ],
+        "default": "center"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slideshow With Text"
+    }
+  ]
+}
+{% endschema %}

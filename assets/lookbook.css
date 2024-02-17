@@ -1,0 +1,102 @@
+.lookbook__image {
+  position: relative;
+}
+.lookbook__dot {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  
+}
+.lookbook__content {
+  margin-top: 15px;
+}
+.lookbook__content-button {
+  margin-top: 15px;
+}
+.lookbook__product-image img {
+  border-radius: 10px;
+}
+
+.lookbook__product-description-title:hover {
+  color: red;
+}
+.lookbook__product {
+  background: white;
+  padding: 6px;
+  opacity: 0;
+  width: 200px;
+  position: absolute;
+  left: 10%;
+  transition: 0.3s ease;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
+  border-radius: 12px;
+}
+.lookbook__product-inner {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.lookbook__product-image {
+  width: 30%;
+}
+.lookbook__product-description {
+  width: 70%;
+}
+
+.look_content {
+  margin-top: 15px;
+}
+
+.lookbook__dot:hover .lookbook__product {
+  opacity: 1;
+  pointer-events: unset;
+  visibility: unset;
+  margin-left: 25px;
+}
+
+.product-card__compareprice {
+  font-size: 14px;
+  font-weight: 400;
+}
+.product-card__price {
+  font-size: 15px;
+  font-weight: 600;
+}
+.lookbook__product-description-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 750px) {
+  .lookbook__product-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .lookbook__product {
+    width: 98px;
+    top: 30%;
+  }
+  .lookbook__product-image {
+    width: 100%;
+  }
+  .product-card__compareprice,.product-card__price {
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .lookbook__product-description-title,
+  .product-card__price {
+    font-size: 13px;
+    font-weight: 600;
+  }
+}

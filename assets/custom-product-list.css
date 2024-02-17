@@ -1,0 +1,28 @@
+.custom-product-list__header{
+    display: flex;
+    justify-content: space-between;
+
+}
+.product-card__title{
+    font-size: 18px ;
+    font-weight: 500;
+}
+.custom-product-card{
+    margin-top: 15px;
+}
+.product-card__price{
+    font-size: 18px ;
+}
+
+.product-card__inventory_quantity{
+    color: green;
+}
+.productcard-image__wrapper{
+    pos
+}
+
+@media only screen and (max-width: 750px) {
+    .custom-product-list__header{
+        display: block;
+    }
+}

@@ -1,0 +1,132 @@
+{{ 'custom-rich-text.css' |  asset_url |  stylesheet_tag }}
+<script src="{{ 'custom-rich-text.js' |  asset_url }}" defer></script>
+
+{% style %}
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .custom-richtext__pre-heading{
+    color: {{ section.settings.pre_heading_color}};
+  }
+  .custom-richtext__text{
+    color: {{ section.settings.heading_text_color }}
+  }
+  .custom-richtext__button{
+    color: {{ section.settings.button_color }};
+    background :{{ section.settings.button_background }}
+  }
+{% endstyle %}
+
+<div class="custom-richtext padding-{{ section.id }}">
+      <div class = "page-width custom-richtext__text">
+        {% if section.settings.pre_heading != blank %}
+            <p class="custom-richtext__pre-heading" >{{ section.settings.pre_heading }}</p>
+        {% endif %}
+         {% if section.settings.heading_text != blank %}
+            <div class="hxl richtext h1 custom-richtext__heading">
+              {{ section.settings.heading_text }}
+            </div>
+         {% endif %}
+         {% if section.settings.button_label != blank %}
+            <a
+                class="button custom-richtext__button"
+                href="{{ section.settings.button_link }}"
+              >
+                {{ section.settings.button_label }}
+              </a>
+         {% endif %}
+      </div>
+</div>
+{% schema %}
+{
+"name": "Custom Rich Text",
+"tag": "section",
+"settings": [
+      {
+        "type": "header",
+        "content": "customize this section"
+      },
+      {
+        "type": "text",
+        "id": "pre_heading",
+        "label": "Pre Heading",
+        "default": "Pre Heading"
+        },
+        {
+        "type": "color",
+        "id": "pre_heading_color",
+        "label": "Pre Heading color",
+        "default": "#fff"
+        },
+        {
+        "type": "richtext",
+        "id": "heading_text",
+        "label": "Heading Text",
+        "default": "<p>Heading Of the Section</p>"
+        },
+        {
+        "type": "color",
+        "id": "heading_text_color",
+        "label": "Heading Text color",
+        "default": "#ffffff"
+        },
+        {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "Explore More"
+        },
+        {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+        },
+        {
+        "type": "color",
+        "id": "button_background",
+        "label": "Button background"
+        },
+        {
+        "type": "color",
+        "id": "button_color",
+        "label": "Button color"
+        },
+      {
+        "type": "header",
+        "content": "Section padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+      }
+],
+"presets": [
+    {
+    "name": "Custom Rich Text"
+    }
+]
+}
+{% endschema %}

@@ -413,6 +413,123 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "logo_list_i4kJCX": {
+      "type": "logo-list",
+      "blocks": {
+        "add_logos_PFFyTq": {
+          "type": "add-logos",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8.webp"
+          }
+        },
+        "add_logos_8WjLRM": {
+          "type": "add-logos",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_26caca81-ef1b-413a-b2e8-dacb4042a47f.webp"
+          }
+        },
+        "add_logos_Y78Vf8": {
+          "type": "add-logos",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7.webp"
+          }
+        },
+        "add_logos_8gUDMg": {
+          "type": "add-logos",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5.webp"
+          }
+        },
+        "add_logos_EUrXXY": {
+          "type": "add-logos",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_526ac6af-9bcf-4f5a-a1f0-3b004c6d93b3.webp"
+          }
+        },
+        "add_logos_xkbe4H": {
+          "type": "add-logos",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6.webp"
+          }
+        },
+        "add_logos_V3FiW9": {
+          "type": "add-logos",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_cd395017-1471-444b-a792-aee354390d67.webp"
+          }
+        },
+        "add_logos_4hjgTj": {
+          "type": "add-logos",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5.webp"
+          }
+        }
+      },
+      "block_order": [
+        "add_logos_PFFyTq",
+        "add_logos_8WjLRM",
+        "add_logos_Y78Vf8",
+        "add_logos_8gUDMg",
+        "add_logos_EUrXXY",
+        "add_logos_xkbe4H",
+        "add_logos_V3FiW9",
+        "add_logos_4hjgTj"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "testimonials_fwQF6R": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonia_blocks_NfN3By": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_2db38707-707e-4fd6-ab12-35397e8935de.webp",
+            "heading": "Emma Watson",
+            "designation": "Fashion Blogger",
+            "comment": "<p>\"Absolutely love the trendy collection! The quality is unmatched, and each piece tells a unique style story. My followers can't get enough. His empathy, patience and expertise in fostering a positive environment is truly commendable.<\/p>"
+          }
+        },
+        "testimonia_blocks_gK8tJz": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_0b300886-b49e-4ef1-a786-f0b7f7ab2f2d.webp",
+            "heading": "James Harper",
+            "designation": "Fashion Editor",
+            "comment": "<p>\"As a fashion editor, I've seen it all. This store stands out with its curated selection and attention to detail. The clothing is not just fashion; it's art in motion. His effective communication and ability to motivate and guide the sales team is second to none.\"<\/p>"
+          }
+        },
+        "testimonia_blocks_BmP8M4": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_b85a25e7-eff6-49ab-9fc7-ecdf71bb4ef1.webp",
+            "heading": "Sarah Mitchell",
+            "designation": "Stylist",
+            "comment": "<p>\"A go-to destination for my clients. The diversity in styles is impressive, catering to every taste. The quality and elegance never disappoint. Her quick response and innovative solutions make him an invaluable asset to our team.\"<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonia_blocks_NfN3By",
+        "testimonia_blocks_gK8tJz",
+        "testimonia_blocks_BmP8M4"
+      ],
+      "settings": {
+        "section_heading": "Our Customers Review",
+        "slider_autoplay": true,
+        "slide_dots": true,
+        "slide_arrows": true,
+        "infinite_scroll": true,
+        "slide_animation": "loop",
+        "slider_autoplay_duration": 3000,
+        "text_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -422,6 +539,8 @@
     "custom_usp_dCfdgh",
     "lookbook_ij4NnJ",
     "color_swatch_QiTJdr",
-    "custom_product_list_EhCz8F"
+    "custom_product_list_EhCz8F",
+    "logo_list_i4kJCX",
+    "testimonials_fwQF6R"
   ]
 }

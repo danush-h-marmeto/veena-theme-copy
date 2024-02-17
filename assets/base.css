@@ -2207,6 +2207,11 @@ product-info .loading__spinner:not(.hidden) ~ *,
     width: fit-content;
     margin: auto;
   }
+   .grid--8-col-desktop .grid__item {
+        width: calc(12.5% - var(--grid-desktop-horizontal-spacing) * 7 / 8);
+        max-width: calc(12.5% - var(--grid-desktop-horizontal-spacing) * 7 / 8)
+    }
+
 }
 
 .announcement-bar,
@@ -3792,3 +3797,7 @@ details-disclosure > details {
   font-weight: 600;
   opacity: .6;
 }
+
+
+
+

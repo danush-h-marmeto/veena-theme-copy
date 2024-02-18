@@ -28,6 +28,8 @@
 
 .testimonial__comment p {
   margin: 20px 0 0 0;
+  font-size: 16px ;
+  font-weight: 400;
 }
 
 .splide__arrow--next {

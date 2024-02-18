@@ -22,11 +22,11 @@
 .custom-image-grid__heading {
   margin-bottom: 20px;
 }
-.custom-image-grid__button a {
+.custom-collection-card__button a {
   position: relative;
 }
 
-.custom-image-grid__button a::before {
+.custom-collection-card__button a::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -38,6 +38,6 @@
   transition: background-position 0.3s ease-in-out;
 }
 
-.custom-image-grid__button a:hover::before {
+.custom-collection-card__button a:hover::before {
   background-position: -100% 0;
 }

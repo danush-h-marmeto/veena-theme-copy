@@ -519,7 +519,15 @@ h6:empty {
   margin-bottom: 4.5rem;
   white-space: nowrap;
 }
-
+.link-animation{
+color: white ;
+}
+.link-animation:hover{
+color: red;
+}
+.white{
+  color: #fff;
+}
 .link-with-icon .icon {
   width: 1.5rem;
   margin-left: 1rem;

@@ -1,0 +1,117 @@
+{{ 'custom-questions.css' |  asset_url |  stylesheet_tag }}
+
+{% style %}
+  
+{% endstyle %}
+<div class="custom-question padding-{{ section.id }}">
+  <div class="custom-question__wrapper color-{{ section.settings.section_colorScheme }}">
+    <div class="page-width">
+     
+        <div class="custom-question__header">
+          <div>
+            {% if section.settings.section_heading != blank %}
+              <h2 class="h1">{{ section.settings.section_heading }}</h2> 
+            {% endif %}
+            {% if section.settings.section_description != blank %}
+              <div class="section-description richtext">
+                {{ section.settings.section_description}}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+{% if section.blocks.size > 0 %}
+  {% for block in section.blocks %}
+    <div class="custom-question__content">
+      <details class="accordion">
+        <summary>
+          <div class="collapsible-content__heading">
+            <h3 class="question-text"> {{ forloop.index }}.{{ block.settings.question_text }}</h3>
+          </div>
+        </summary>
+        <div class="collapsible-content__content">
+          <div class="answer-text richtext">
+            {{ block.settings.answer_text}}
+          </div>
+        </div>
+      </details>
+      </div>
+  {% endfor %}
+{% endif %}
+      </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Questions",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "FAQ"
+    },
+    {
+      "type": "richtext",
+      "id": "section_description",
+      "label": "Section Description",
+      "default": "<p>Ensure that your FAQs are regularly updated based on common customer queries and changes in your business operations.</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "section_colorScheme",
+      "label": "Color Schema"
+    },
+    {
+      "type": "header",
+      "content": "Adjust Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "questions-answers",
+      "name": "Questions & Answers",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question_text",
+          "label": "Add Question",
+          "default": "How can I track my order?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer_text",
+          "label": "Add Answer",
+          "default": "<p>Once your order has been processed and shipped, you will receive a confirmation email with a tracking number. You can use this tracking number to monitor the status and location of your package through our shipping carrier's website.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Questions"
+    }
+  ]
+}
+{% endschema %}

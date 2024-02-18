@@ -37,40 +37,42 @@
 
 
 <div class="testimonial padding-{{ section.id }}">
-  <div class="page-width">
-    <div class="testimonial__heading-section">
-      <h2 class="h1"> {{ section.settings.section_heading }} </h2>
+  <div class="testimonial__wrapper color-{{ section.settings.section_colorScheme }}">
+    <div class="page-width">
+      <div class="testimonial__heading-section">
+        <h2 class="h1"> {{ section.settings.section_heading }} </h2>
+      </div>
+      <slide-slider>
+        <section class="splide" aria-label="Testimonial Splide" data-slider-settings='{{ slider-options-data }}'>
+          <div class="splide__track">
+            <ul class="splide__list">
+              {% for block in section.blocks %}
+                <li class="splide__slide testimonial__slide custom-border-radius-sm  text-{{ section.settings.text_alignment }}">
+                
+                {% if block.settings.image != blank %}
+                    <div class="testimonial__image"> 
+                      {% render "responsive-picture", desktopImage: block.settings.image, class:'' %}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.heading != blank %}
+                    <h2 class="h3 bold testimonial__heading"> {{ block.settings.heading }} </h2>
+                  {% endif %}  
+                  
+                  {% if block.settings.designation != blank %}
+                    <h2 class="h4 testimonial__designation"> {{ block.settings.designation }} </h2>
+                  {% endif %}  
+                  
+                  {% if block.settings.comment != blank %}
+                    <div class="testimonial__comment h3"> {{ block.settings.comment }} </div>
+                  {% endif %}  
+    
+                </li>
+              {% endfor %}  
+            </ul>
+          </div>
+        </section>
+      </slide-slider>
     </div>
-    <slide-slider>
-      <section class="splide" aria-label="Testimonial Splide" data-slider-settings='{{ slider-options-data }}'>
-        <div class="splide__track">
-          <ul class="splide__list">
-            {% for block in section.blocks %}
-              <li class="splide__slide testimonial__slide custom-border-radius-sm  text-{{ section.settings.text_alignment }}">
-              
-              {% if block.settings.image != blank %}
-                  <div class="testimonial__image"> 
-                    {% render "responsive-picture", desktopImage: block.settings.image, class:'' %}
-                  </div>
-                {% endif %}
-                {% if block.settings.heading != blank %}
-                  <h2 class="h3 bold testimonial__heading"> {{ block.settings.heading }} </h2>
-                {% endif %}  
-                
-                {% if block.settings.designation != blank %}
-                  <h2 class="h4 testimonial__designation"> {{ block.settings.designation }} </h2>
-                {% endif %}  
-                
-                {% if block.settings.comment != blank %}
-                  <div class="testimonial__comment h3"> {{ block.settings.comment }} </div>
-                {% endif %}  
-  
-              </li>
-            {% endfor %}  
-          </ul>
-        </div>
-      </section>
-    </slide-slider>
   </div>
 </div>
 
@@ -85,6 +87,12 @@
         "id": "section_heading",
         "label": "Section heading",
         "default": "Our Customers Review"
+      },
+      {
+      "type": "color_scheme",
+      "id": "section_colorScheme",
+      "label": "Color Schema",
+      "info": "choose the color scheme"
       },
       {
         "type" : "header",

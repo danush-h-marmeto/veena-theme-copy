@@ -1,3 +1,12 @@
-.logo-list__item{
-    max-width: 20%;
+.logo-list__images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-list__images img {
+  height: 50px;
+  width: 85px;
+}
+.logo-list__wrapper {
+  width: 100%;
 }

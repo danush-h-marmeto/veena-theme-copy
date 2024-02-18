@@ -1,0 +1,136 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+  @media only screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+  @keyframes scrollingAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+  .running-text {
+    overflow: hidden;
+  }
+
+  .running-text .slideshow {
+    display: flex;
+    flex-direction: column;
+    animation: scrollingAnimation 20s linear infinite;
+  }
+
+  .running-text .slideshow div {
+    margin: 20px 0;
+  }
+
+  .running-text img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .logo-container, .title-container, .button-container {
+    /* Add your styles for these containers */
+  }
+{%- endstyle -%}
+
+<div class="running-text section-{{ section.id }}-padding color-{{ section.settings.background_color }}">
+  <div class="page-width">
+    {% for block in section.blocks %}
+      <div class="running-text__content">
+        <div class="logo-container">
+          {{ block.settings.logo }}
+        </div>
+        <div class="title-container">
+          {{ block.settings.title }}
+        </div>
+        {% if block.settings.button_text != blank %}
+          <div class="button-container">
+            <a href="{{ block.settings.button_link }}" class="custom-button">{{ block.settings.button_text }}</a>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %} 
+{
+  "name": "Running Text",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "background-color",
+      "label": "Background color",
+      "info": "Choose the background color"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Running Block",
+      "type": "running-",
+      "settings": [
+        {
+          "type": "html",
+          "id": "logo",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title" 
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Running Text"
+    }
+  ]
+}
+{% endschema %}

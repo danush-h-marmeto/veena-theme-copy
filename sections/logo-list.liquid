@@ -13,27 +13,59 @@
 {% endstyle %}
 
 
-<div class="logo-list padding-{{ section.id }}">
-  <div class="color-{{ section.settings.color_scheme }}">  
-<div class="page-width">
-  {% if section.blocks.size > 0 %}
-    <div class="grid grid--8-col-desktop logo-list__wrapper">
-    {% for block in section.blocks %}
-    <div class="grid__item logo-list__item">
-     {% render 'responsive-picture', desktopImage:block.settings.image, mobileImage:block.settings.image_mobile %}
-     </div>
-    {% endfor %}
+{% capture sliderSettings %}
+      {
+          "perPage" : 8,
+          "arrows" : {{ section.settings.show_arrows }},
+          "pagination" : {{ section.settings.show_pagination }},
+          "autoplay": {{ section.settings.autoplay }},
+          "interval": {{ section.settings.autoplay_duration }},
+          "gap":"20px",
+          "breakpoints":{
+            "990":{
+              "perPage":4
+            },
+            "575":{
+              "perPage":3
+            }
+          }
+        }
+  {% endcapture %}
+
+<div class="logo-list padding-{{ section.id }} color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    <div class="logo-list__wrapper">
+     <slide-slider>
+      <section class="splide" data-slider-settings='{{ sliderSettings }}'>
+        <div class="splide__track">
+          <div class="splide__list">
+            {% for block in section.blocks %}
+              <div class="splide__slide">
+                {% if block.settings.image  != blank %}                  
+                  <div class="logo-list__images">    
+                    {% render 'responsive-picture', desktopImage:block.settings.image %}
+                  </div>
+                  {% else %}
+                    <div class="logo-list__images">    
+                    {{ 'image' |  placeholder_svg_tag }}
+                  </div>
+                {% endif %}
+              </div>
+              {%  else %}
+              {% for i in (1..8) %}
+                <li class="splide__slide">
+                  {{ 'collection-' | append: i | placeholder_svg_tag }}
+                </li>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    </slide-slider> 
     </div>
-  {% else %}
-      {% for i in (1..6) %}
-      <div class="">
-        {{  'product-' | append: i | placeholder_svg_tag }}
-      </div>
-      {% endfor %}
-{% endif %}
+  </div>
 </div>
-</div>
-</div>
+
 
 {% schema %}
 {
@@ -45,6 +77,38 @@
         "id": "color_scheme",
         "label": "Color Scheme",
         "default": "scheme_1"
+    },
+     {
+      "type": "header",
+      "content": "Slider Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show Pagination Dots",
+      "default": false
+    },
+     {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show Arrows",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_duration",
+      "min": 1000,
+      "max": 9000,
+      "step": 1000,
+      "unit": "ms",
+      "label": "Autoplay Duration",
+      "default": 5000
     },
     {
       "type": "header",

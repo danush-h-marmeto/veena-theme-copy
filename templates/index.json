@@ -477,7 +477,11 @@
         "add_logos_4hjgTj"
       ],
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
+        "autoplay": false,
+        "show_pagination": false,
+        "show_arrows": false,
+        "autoplay_duration": 5000,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -520,13 +524,151 @@
       ],
       "settings": {
         "section_heading": "Our Customers Review",
+        "section_colorScheme": "scheme-2",
         "slider_autoplay": true,
-        "slide_dots": true,
         "slide_arrows": true,
-        "infinite_scroll": true,
-        "slide_animation": "loop",
         "slider_autoplay_duration": 3000,
         "text_alignment": "center",
+        "padding_top": 63,
+        "padding_bottom": 68
+      }
+    },
+    "custom_collection_list_H6jLEr": {
+      "type": "custom-collection-list",
+      "blocks": {
+        "collection_card_RndfpT": {
+          "type": "collection-card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_1_b48c14ec-252e-4536-b7fb-c8331331a519.webp",
+            "heading": "Accessories",
+            "card_button_text": "Shop Now",
+            "card_button_link": ""
+          }
+        },
+        "collection_card_LF9hEG": {
+          "type": "collection-card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6_1.webp",
+            "heading": "Accessories",
+            "card_button_text": "Shop Now",
+            "card_button_link": ""
+          }
+        },
+        "collection_card_EMNCnH": {
+          "type": "collection-card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8_1.webp",
+            "heading": "T-shirts",
+            "card_button_text": "Shop Now",
+            "card_button_link": ""
+          }
+        },
+        "collection_card_MqKxPL": {
+          "type": "collection-card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hand-bag-collection.webp",
+            "heading": "Bags",
+            "card_button_text": "Shop Now",
+            "card_button_link": ""
+          }
+        },
+        "collection_card_HgjycP": {
+          "type": "collection-card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_1.webp",
+            "heading": "Shirts",
+            "card_button_text": "Shop Now",
+            "card_button_link": ""
+          }
+        },
+        "collection_card_XYJtLA": {
+          "type": "collection-card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_1.webp",
+            "heading": "Shoes",
+            "card_button_text": "Shop Now",
+            "card_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_RndfpT",
+        "collection_card_LF9hEG",
+        "collection_card_EMNCnH",
+        "collection_card_MqKxPL",
+        "collection_card_HgjycP",
+        "collection_card_XYJtLA"
+      ],
+      "settings": {
+        "title_text": "Captivating Collection",
+        "button_text": "See All",
+        "button_link": "",
+        "autoplay": false,
+        "show_pagination": false,
+        "show_arrows": true,
+        "autoplay_duration": 1000,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_questions_drUcyX": {
+      "type": "custom-questions",
+      "blocks": {
+        "questions_answers_WhJAHe": {
+          "type": "questions-answers",
+          "settings": {
+            "question_text": "How can I track my order?",
+            "answer_text": "<p>Once your order has been processed and shipped, you will receive a confirmation email with a tracking number. You can use this tracking number to monitor the status and location of your package through our shipping carrier's website.<\/p>"
+          }
+        },
+        "questions_answers_RcKXFk": {
+          "type": "questions-answers",
+          "settings": {
+            "question_text": "What is your return policy?",
+            "answer_text": "<p>We offer a hassle-free return policy. If you're not completely satisfied with your purchase, you can return it within 30 days for a full refund or exchange. Please visit our Returns & Exchanges page for more details on the process and any eligibility criteria.<\/p>"
+          }
+        },
+        "questions_answers_RM3RLQ": {
+          "type": "questions-answers",
+          "settings": {
+            "question_text": "Are the product images accurate representations of the items?",
+            "answer_text": "<p>Yes, we strive to provide accurate and high-quality images of our products. However, please note that colors may vary slightly due to differences in monitor settings. If you have any specific questions about a product, feel free to contact our customer support team<\/p>"
+          }
+        },
+        "questions_answers_rwCbtY": {
+          "type": "questions-answers",
+          "settings": {
+            "question_text": "How do I determine my size?",
+            "answer_text": "<p>To find the right size, please refer to our detailed size guide available on each product page. Measurements may vary by product, so it's essential to check the specific sizing information provided. If you have further questions or need assistance, our customer support team is here to help.<\/p>"
+          }
+        },
+        "questions_answers_mmNqGF": {
+          "type": "questions-answers",
+          "settings": {
+            "question_text": "What payment methods do you accept?",
+            "answer_text": "<p>We accept a variety of payment methods, including major credit cards (Visa, MasterCard, American Express), PayPal, and other secure payment options. During the checkout process, you can choose the payment method that suits you best.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "questions_answers_WhJAHe",
+        "questions_answers_RcKXFk",
+        "questions_answers_RM3RLQ",
+        "questions_answers_rwCbtY",
+        "questions_answers_mmNqGF"
+      ],
+      "settings": {
+        "section_heading": "FAQ",
+        "section_description": "<p>Ensure that your FAQs are regularly updated based on common customer queries and changes in your business operations.<\/p>",
+        "section_colorScheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "running_text_LhqXr7": {
+      "type": "running-text",
+      "settings": {
+        "background-color": "",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -541,6 +683,9 @@
     "color_swatch_QiTJdr",
     "custom_product_list_EhCz8F",
     "logo_list_i4kJCX",
-    "testimonials_fwQF6R"
+    "testimonials_fwQF6R",
+    "custom_collection_list_H6jLEr",
+    "custom_questions_drUcyX",
+    "running_text_LhqXr7"
   ]
 }

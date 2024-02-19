@@ -727,6 +727,21 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "custom_blog_KKbd7f": {
+      "type": "custom-blog",
+      "settings": {
+        "title_text": "Let You Know",
+        "button_text": "Read All",
+        "button_link": "",
+        "blog": "news",
+        "autoplay": false,
+        "show_pagination": false,
+        "show_arrows": true,
+        "autoplay_duration": 5000,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -741,6 +756,7 @@
     "testimonials_fwQF6R",
     "custom_collection_list_H6jLEr",
     "custom_questions_drUcyX",
-    "running_text_LhqXr7"
+    "running_text_LhqXr7",
+    "custom_blog_KKbd7f"
   ]
 }

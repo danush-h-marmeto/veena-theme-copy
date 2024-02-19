@@ -1,17 +1,165 @@
+{{ 'custom-blog.css' |  asset_url |  stylesheet_tag }}
 
+{% style %}
+    .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
 
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+   }
+{% endstyle %}
+
+{% capture sliderOptionsData %}
+  {
+    "autoplay": {{ section.settings.autoplay }},
+    "interval": {{ section.settings.autoplay_duration }},
+    "pagination": {{ section.settings.show_pagination }},
+    "type": "slide",
+    "perPage": 2,
+    "gap": "20px",
+    "arrows": {{ section.settings.show_arrows }},
+    "perMove": 1,
+     "breakpoints": {
+		"640": {
+			"perPage": 1
+		}
+  }
+  }
+{% endcapture %}
+
+<div class="custom-blogs">
+  <div class="page-width">
+    <div class="custom-blogs__heading color-{{ section.settings.color_scheme }}">
+      {% if section.settings.section_heading != blank %}
+        <h2 class="h1"> {{ section.settings.section_heading }} </h2>   
+      {% endif %}  
+      
+      {% if section.settings.section_button_text != blank %}
+        <div class="">
+          <a class="custom-button-secondary_color" 
+            {% if section.settings.section_button_link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ section.settings.section_button_link }}"
+            {% endif %}>
+            {{ section.settings.section_button_text }}
+          </a>
+        </div>    
+      {% endif %}  
+    </div>
+     <slide-slider>
+      <section class="splide" aria-label="Blogs Splide" data-slider-settings='{{ sliderOptionsData  }}'>
+        <div class="splide__track ">
+          <ul class="splide__list custom-blogs__content">
+                {% for article in section.settings.blog.articles %}
+                  <li class="splide__slide custom-blogs__slide">
+                   <div class="custom-blogs__image custom-border-radius-sm">
+                    {% if article.image != blank %}
+                        {% render "responsive-picture", desktopImage: article.image, class:'media media--square' %}
+                        {% else %}
+                            {{ 'image' |  placeholder_svg_tag }}
+                    {% endif %}
+                   </div>
+                    <div class="custom-blogs__blog-content">
+                      
+                      <div>
+                      {% if article.tags != blank %}
+                        <div class="custom-blogs__tags color-{{ section.settings.color_scheme }}">
+                          {% for tag in article.tags %}
+                            <span class="custom-blogs__tag"> {{ tag }} </span>
+                          {% endfor %}  
+                        </div>            
+                      {% endif %}  
+                      <h2 class="h3 custom-blogs__title bold"> {{ article.title }}</h2>
+                      <h2 class="h4 custom-blogs__author">Publish by: {{ article.author }}</h2>
+                      <div class="h4 custom-blogs__info"> {{ article.excerpt }} </div>
+                      </div>
+                      <div>
+                        <hr class="custom-blogs__line"/>
+                        <div class="custom-blogs__footer">
+                          
+                        <a href="{{ article.url }}">Read more</a>
+                        <div class="">{{ article.created_at | date: '%B %d, %Y'}}</div>
+                        </div>
+                      </div>            
+                    </div>
+                  </li>
+                {% endfor %}  
+            
+          </ul>
+        </div>
+      </section>
+    </slide-slider>
+    
+  </div>
+</div>
 
 {% schema %}
 {
-    "name": "Custom Blog Post",
-    "tag": "section",
-    "settings": [
-        {
-            "type": "blog",
-            "id": "blog",
-            "label":"Choose Blogs"
-        },
-         {
+  "name": "Custom Blog Post",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "default": "Let You Know",
+      "id": "section_heading",
+      "label": "Title text"
+    },
+    {
+      "type": "text",
+      "default": "Read All",
+      "id": "section_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "section_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Choose Blogs"
+    },
+    {
+      "type": "header",
+      "content": "Slider Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show Pagination Dots",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show Arrows",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_duration",
+      "min": 1000,
+      "max": 9000,
+      "step": 1000,
+      "unit": "ms",
+      "label": "Autoplay Duration",
+      "info": "ms - milliseconds",
+      "default": 5000
+    },
+    {
       "type": "range",
       "id": "padding_top",
       "min": 0,
@@ -31,6 +179,11 @@
       "label": "Padding bottom",
       "default": 36
     }
-        ]
+  ],
+  "presets": [
+    {
+        "name": "Custom Blog Post"
+    }
+  ]
 }
 {% endschema %}

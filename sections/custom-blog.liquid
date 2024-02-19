@@ -1,0 +1,36 @@
+
+
+
+{% schema %}
+{
+    "name": "Custom Blog Post",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "blog",
+            "id": "blog",
+            "label":"Choose Blogs"
+        },
+         {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+        ]
+}
+{% endschema %}

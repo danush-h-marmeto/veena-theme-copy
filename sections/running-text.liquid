@@ -9,38 +9,7 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-  
-  @keyframes scrollingAnimation {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
-  }
-
-  .running-text {
-    overflow: hidden;
-  }
-
-  .running-text .slideshow {
-    display: flex;
-    flex-direction: column;
-    animation: scrollingAnimation 20s linear infinite;
-  }
-
-  .running-text .slideshow div {
-    margin: 20px 0;
-  }
-
-  .running-text img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .logo-container, .title-container, .button-container {
-    /* Add your styles for these containers */
-  }
+ 
 {%- endstyle -%}
 
 <div class="running-text section-{{ section.id }}-padding color-{{ section.settings.background_color }}">

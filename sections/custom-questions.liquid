@@ -1,7 +1,17 @@
 {{ 'custom-questions.css' |  asset_url |  stylesheet_tag }}
 
 {% style %}
-  
+    .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+   }
 {% endstyle %}
 <div class="custom-question padding-{{ section.id }}">
   <div class="custom-question__wrapper color-{{ section.settings.section_colorScheme }}">
@@ -36,8 +46,10 @@
       </details>
       </div>
   {% endfor %}
+  
 {% endif %}
       </div>
+    
   </div>
 </div>
 

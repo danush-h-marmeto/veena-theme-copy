@@ -48,7 +48,7 @@
       {% for option in varient_option.values %}
         <div class="item-swatch">
           <div class="product-card__dots">
-          <input type="radio" value="{{ option }}" {% if varient_option.selected_value == option %}checked{% endif %} name="option-{{ current_variant.id }}">
+          <input type="radio" value="{{ option }}" class="required" {% if varient_option.selected_value == option %}checked{% endif %} name="option-{{ current_variant.id }}">
             <div data-value="{{ option |  handleize }}" class="swatch-circle" for="option-{{ current_variant.id }}">
             </div>
             </div>

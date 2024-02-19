@@ -55,12 +55,13 @@
   left: 0;
   z-index: -1;
 }
-.product-card__dots input{
+
+ .product-card__dots input{
      width: 17px;
   height: 17px;
     opacity: 0;
-    cursor: pointer;
-}
+    cursor: pointer; 
+} 
 .product-card__dots {
   position: relative;
 }

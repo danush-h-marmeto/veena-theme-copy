@@ -145,6 +145,7 @@
     .custom-blogs__content{
         display: flex;
         flex-direction: column;
+        gap: 10px;
     }
   .custom-blogs__heading {
     display: block;

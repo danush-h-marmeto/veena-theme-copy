@@ -776,6 +776,12 @@
           "settings": {
           }
         },
+        "judge_me_reviews_preview_badge_homepage_WGAfFf": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge_homepage\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": ""
+          }
+        },
         "buy_buttons_HWC7p4": {
           "type": "buy_buttons",
           "settings": {
@@ -796,6 +802,7 @@
         "price_h3kRKR",
         "variant_picker_Wze3Ap",
         "quantity_selector_hrf3W9",
+        "judge_me_reviews_preview_badge_homepage_WGAfFf",
         "buy_buttons_HWC7p4",
         "share_UjmiU6"
       ],

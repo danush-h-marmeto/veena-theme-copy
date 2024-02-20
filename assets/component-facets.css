@@ -1091,9 +1091,15 @@ input.mobile-facets__checkbox {
 
   .facets-vertical-form {
     display: flex;
-    justify-content: flex-end;
+    padding: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(var(--color-foreground),.04);
   }
-
+  .facet-filters__wrapper{
+  display: flex;
+  }
   .product-count-vertical {
     margin-left: 3.5rem;
     position: relative;
@@ -1117,7 +1123,17 @@ input.mobile-facets__checkbox {
   .facets-vertical .facets__price {
     padding: 0.5rem 0.5rem 0.5rem 0;
   }
-
+.grid-btn{
+  background-color: transparent;
+    border: none;
+    padding: 0;
+    transition: .3s ease;
+    margin-right: 10px;
+    vertical-align: middle;
+    min-width: 45px;
+    min-height: 45px;
+    text-align: center;
+}
   .facets-vertical .facets__price .field:last-of-type {
     margin-left: 1rem;
   }

@@ -1,3 +1,4 @@
+{{ 'runnig-text.css' |  asset_url |  stylesheet_tag }}
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
@@ -12,26 +13,32 @@
  
 {%- endstyle -%}
 
-<div class="running-text section-{{ section.id }}-padding color-{{ section.settings.background_color }}">
-  <div class="page-width">
-    {% for block in section.blocks %}
-      <div class="running-text__content">
-        <div class="logo-container">
-          {{ block.settings.logo }}
+<div class="scrolling-banner padding-{{ section.id}}">
+    <div class="scrolling-banner__scrolling-wrapper">
+        <div class="scrolling-banner__scrolling-items-wrapper">
+                {% for block in section.blocks %}
+                    <div class="scrolling-banner__scrolling-item">
+                        <div class="scrolling-banner__icon-wrapper">
+                            {% if block.settings.scrolling_item_icon != blank %}
+                                {{block.settings.scrolling_item_icon }}
+                            {% endif %}
+                        </div>
+                        <div class="scrolling-banner__scrolling-text">
+                            {{block.settings.scrolling_text}}
+                        </div>
+                        
+                            {% if block.settings.button_text != blank %}
+                                <a class="scrolling-banner__plain-button" href= '{{block.settings.button_url}}'>
+                                    <span>
+                                        {{ block.settings.button_text}}
+                                    </span>
+                                </a>
+                            {% endif %}
+                    </div>
+                {% endfor %}
         </div>
-        <div class="title-container">
-          {{ block.settings.title }}
-        </div>
-        {% if block.settings.button_text != blank %}
-          <div class="button-container">
-            <a href="{{ block.settings.button_link }}" class="custom-button">{{ block.settings.button_text }}</a>
-          </div>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
+    </div>
 </div>
-
 {% schema %} 
 {
   "name": "Running Text",

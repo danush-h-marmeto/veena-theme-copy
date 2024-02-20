@@ -59,7 +59,10 @@
 </div>
 
 <span class="h4">{{ product.vendor }}</span>
-    <a href="{{ product.url }}" class="product-card__title h3 full-unstyled-link">{{ product.title }}</a>
+    <a href="{{ product.url }}" class="product-card__title h3 full-unstyled-link">{{ product.title }}</a>  
+  <div class='jdgm-widget jdgm-preview-badge'>
+    {{ product.metafields.judgeme.badge }}
+  </div>
     {% if product.price_varies %}
       <span class="h3 bold">From {{ product.price_min | money_with_currency }}</span>
     {% else %}

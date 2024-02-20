@@ -166,7 +166,7 @@
             {%- if  product.metafields.reviews.rating.value != blank -%}
               {% liquid
                 assign rating_decimal = 0
-                assign decimal = card_product.metafields.reviews.rating.value.rating | modulo: 1
+                assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
                 if decimal >= 0.3 and decimal <= 0.7
                   assign rating_decimal = 0.5
                 elsif decimal > 0.7

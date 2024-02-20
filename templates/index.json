@@ -731,14 +731,85 @@
     "custom_blog_KKbd7f": {
       "type": "custom-blog",
       "settings": {
-        "title_text": "Let You Know",
-        "button_text": "Read All",
-        "button_link": "",
+        "section_heading": "Let You Know",
+        "section_button_text": "Read All",
+        "section_button_link": "",
         "blog": "news",
         "autoplay": false,
         "show_pagination": false,
         "show_arrows": true,
         "autoplay_duration": 5000,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_eb6ajB": {
+      "type": "featured-product",
+      "blocks": {
+        "text_yPzgtz": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_G6aipY": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_h3kRKR": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker_Wze3Ap": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_hrf3W9": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons_HWC7p4": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_UjmiU6": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_yPzgtz",
+        "title_G6aipY",
+        "price_h3kRKR",
+        "variant_picker_Wze3Ap",
+        "quantity_selector_hrf3W9",
+        "buy_buttons_HWC7p4",
+        "share_UjmiU6"
+      ],
+      "settings": {
+        "product": "nylon-waist-bag",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -757,6 +828,7 @@
     "custom_collection_list_H6jLEr",
     "custom_questions_drUcyX",
     "running_text_LhqXr7",
-    "custom_blog_KKbd7f"
+    "custom_blog_KKbd7f",
+    "featured_product_eb6ajB"
   ]
 }

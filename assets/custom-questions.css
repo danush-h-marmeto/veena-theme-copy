@@ -11,15 +11,15 @@
   line-height: 20px;
   max-width: 98%;
 }
-.custom-question__wrapper{
+.custom-question__wrapper {
   padding: 60px 0px;
 }
 .custom-question__content {
   position: relative;
   z-index: 0;
 }
-.custom-question__header{
-    padding-bottom: 30px;
+.custom-question__header {
+  padding-bottom: 30px;
 }
 .question-text {
   display: inline-block;
@@ -30,7 +30,7 @@
   font-size: 22px;
   font-weight: 600;
 }
-.accordion summary:after {
+.accordions summary:after {
   content: "+";
   font-size: 25px;
   position: absolute;
@@ -38,22 +38,20 @@
   top: 0;
 }
 
-.accordion summary.active {
+.accordions summary.active {
   content: "-";
-   font-size: 25px;
+  font-size: 25px;
   position: absolute;
   right: 0;
   top: 0;
 }
 
-.custom-question__content .accordion summary {
+.custom-question__content .accordions summary {
   align-items: center;
   padding: 1.5rem 0;
 }
 
-
 @media screen and (max-width: 750px) {
-
   .answer-text {
     padding-left: 15px;
     font-size: 13px;
@@ -61,7 +59,7 @@
     line-height: 20px;
     max-width: 98%;
   }
-   .question-text {
+  .question-text {
     display: inline-block;
     max-width: calc(100% - 6rem);
     margin: 0;
@@ -69,7 +67,7 @@
     font-size: 15px;
     font-weight: 600;
   }
-  .section-description{
+  .section-description {
     font-size: 13px;
     font-weight: 400;
     line-height: 20px;

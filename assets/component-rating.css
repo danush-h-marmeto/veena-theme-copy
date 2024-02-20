@@ -14,10 +14,11 @@
 }
 
 .rating-star {
-  --color-rating-star: rgb(var(--color-foreground));
+  --color-rating-star: yellow;
   --percent: calc(
     (
-        var(--rating) / var(--rating-max) + var(--rating-decimal) * var(--font-size) /
+        var(--rating) / var(--rating-max) + var(--rating-decimal) *
+          var(--font-size) /
           (var(--rating-max) * (var(--letter-spacing) + var(--font-size)))
       ) * 100%
   );
@@ -30,7 +31,7 @@
 }
 
 .rating-star::before {
-  content: '★★★★★';
+  content: "★★★★★";
   background: linear-gradient(
     90deg,
     var(--color-rating-star) var(--percent),

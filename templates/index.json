@@ -731,6 +731,9 @@
     "custom_blog_KKbd7f": {
       "type": "custom-blog",
       "settings": {
+        "section_heading": "Let You Know",
+        "section_button_text": "Read All",
+        "section_button_link": "",
         "blog": "news",
         "autoplay": false,
         "show_pagination": false,

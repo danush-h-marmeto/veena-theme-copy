@@ -38,8 +38,8 @@
  <script src = '{{ "splide.min.js" | asset_url }}' defer></script>
  <script src="{{ 'splide-slider.js' |  asset_url }}" defer></script>
  {% section 'color-swatch' %}
- <script src="{{'custom-product-card.js' | asset_url }}" defer></script>
  {{ 'product-card.css' | asset_url | stylesheet_tag }}
+ <script src="{{'custom-product-card.js' | asset_url }}" defer></script>
     {{ content_for_header }}
 
     {%- liquid
@@ -286,19 +286,18 @@
       }
     </script>
   </head>
-<body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-  <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+
+  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
-      </a>
-      
-      {%- if settings.cart_type == 'drawer' -%}
+    </a>
+
+    {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
     {% sections 'header-group' %}
-    <div class="page-width">
-      {% render 'breadcrumbs' %}
-    </div>
+{% render 'breadcrumbs' %}
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
@@ -308,8 +307,7 @@
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
       <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
-      </ul>
-     
+    </ul>
 
     <script>
       window.shopUrl = '{{ request.origin }}';
@@ -356,6 +354,5 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-   
   </body>
 </html>

@@ -267,7 +267,7 @@
                                 {% if filter.label == 'Color' %}     
                                   <span
                                    class="filter__swatch filter__colorswatch"
-                                   style="background-color: {{ value.label | escape }}; background-image: url({{ swatch_image }});"
+                                   style="border:2px solid {{ value.label | handleize |  escape }}; background-color: {{ value.label | escape }}; background-image: url({{ swatch_image }});"
                                   ></span>
                                 {% endif %}
                               

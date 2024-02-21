@@ -1,129 +1,155 @@
-{{ 'custom-questions.css' |  asset_url |  stylesheet_tag }}
+{{ 'custom-questions.css' | asset_url |stylesheet_tag }}
+
+
 
 {% style %}
-    .padding-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
-  }
-
-  @media only screen and (min-width: 750px) {
-    .padding-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+    .padding-{{ section.id }}{
+        padding-top:{{section.settings.padding_top}}px;
+        padding-bottom:{{section.settings.padding_bottom}}px;
     }
-   }
-{% endstyle %}
-<div class="custom-question padding-{{ section.id }}">
-  <div class="custom-question__wrapper color-{{ section.settings.section_colorScheme }}">
-    <div class="page-width">
-     
-        <div class="custom-question__header">
-          <div>
-            {% if section.settings.section_heading != blank %}
-              <h2 class="h1">{{ section.settings.section_heading }}</h2> 
-            {% endif %}
-            {% if section.settings.section_description != blank %}
-              <div class="section-description richtext">
-                {{ section.settings.section_description}}
-              </div>
-            {% endif %}
-          </div>
-        </div>
-{% if section.blocks.size > 0 %}
-  {% for block in section.blocks %}
-    <div class="custom-question__content">
-      <details class="accordions">
-        <summary>
-          <div class="collapsible-content__heading">
-            <h3 class="question-text"> {{ forloop.index }}.{{ block.settings.question_text }}</h3>
-          </div>
-        </summary>
-        <div class="collapsible-content__content">
-          <div class="answer-text richtext">
-            {{ block.settings.answer_text}}
-          </div>
-        </div>
-      </details>
-      </div>
-  {% endfor %}
-  
-{% endif %}
-      </div>
+    .faq-section__container{
+        background:{{section.settings.background_color}};
+        padding:30px 0px;
+        
+    }
+    @media screen and (min-width:749px){
+    .padding-{{ section.id }}{
+        padding-top:{{section.settings.padding_top}}px;
+        padding-bottom:{{section.settings.padding_bottom}}px;
+    }
+    .faq-section__container{
+        padding:60px 0px;
+    }
+    }
     
-  </div>
-</div>
+    {%  for block in section.blocks %}
+    .plus-and-minus{{ block.id }}::before {
+        content: "+";
+        font-weight:bold;
+        font-size:25px;
+        display: inline-block;
+        text-align: center;
+    }
+    details[open] .plus-and-minus{{ block.id }}::before {
+        content: "-";
+    }
+{% endfor %}
+{% endstyle %}
+
+<div class="faq-section padding-{{ section.id }}">
+    <div class="faq-section__container">
+        <div class="page-width">
+            <div class="faq-secttion_title-and-description">
+                {% if section.settings.section_title !=blank or section.settings.section_title !=blank  %}
+                    <h2 class="h1 faq-section__title">{{ section.settings.section_title}}</h2>
+                    <div class="h4 faq-section__description">{{ section.settings.section_description }}</div>
+                {% endif %}
+            </div>
+            <div class="faq-section__block-container">
+                {% for block in section.blocks %}
+                    <div class="faq-section__block">
+                        {% if block.settings.block_heading != blank and block.settings.block_description !=blank %}
+                            <details id="block{{ block.id }}">    
+                                <summary class="faq-section__block-question-and-symbol">
+                                    <div class="faq-section__block-count-and-question">
+                                        <h2 class="faq-section__block-question">{{ forloop.index }}.</h2>
+                                        <h2 class='faq-section__block-question'>{{block.settings.block_heading }}</h2>
+                                    </div>
+                                    <p class="plus-and-minus{{ block.id }}"> </p> 
+                                </summary>
+                                <div class="faq-section__block-answer">{{ block.settings.block_description }}</div>
+                            </details>   
+                        {% endif %}
+                    </div>
+
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div> 
+
+
+
+
+
 
 {% schema %}
-{
-  "name": "Custom Questions",
-  "tag": "section",
-  "settings": [
     {
-      "type": "text",
-      "id": "section_heading",
-      "label": "Section Heading",
-      "default": "FAQ"
-    },
-    {
-      "type": "richtext",
-      "id": "section_description",
-      "label": "Section Description",
-      "default": "<p>Ensure that your FAQs are regularly updated based on common customer queries and changes in your business operations.</p>"
-    },
-    {
-      "type": "color_scheme",
-      "id": "section_colorScheme",
-      "label": "Color Schema"
-    },
-    {
-      "type": "header",
-      "content": "Adjust Section padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Padding top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Padding bottom",
-      "default": 36
+        "name":"Custom faq",
+        "tag":"section",
+        "settings":[
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background color",
+                "default": "#f5f5f5"
+            },
+            {
+                "type": "richtext",
+                "id": "section_title",
+                "label": "Title",
+                "default":"<p>FAQ</p>"
+            },
+            {
+                "type": "text",
+                "id": "section_description",
+                "label": "Description",
+                "default": "Ensure that your FAQs are regularly updated based on common customer queries and changes in your business operations."
+            },
+            {
+                "type":"header",
+                "content":"Section padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 1,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding top",
+                "default": 16
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 1,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding bottom",
+                "default": 16
+            }
+        ],
+        "blocks":[
+            {
+                "type":"faq-with-ans",
+                "name":"Faq",
+                "settings":[
+                    {
+                        "type": "text",
+                        "id": "block_heading",
+                        "label": "Question",
+                        "default":"How can I track my order ?"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "block_description",
+                        "label": "Description",
+                        "default": "Once your order has been processed and shipped, you will receive a confirmation email with a tracking number. You can use this tracking number to monitor the status and location of your package through our shipping carrier's website."
+                    }
+                ]
+            }
+        ],
+        "presets":[
+            {
+                "name":"Custom faq"
+            }
+        ]
     }
-  ],
-  "blocks": [
-    {
-      "type": "questions-answers",
-      "name": "Questions & Answers",
-      "settings": [
-        {
-          "type": "text",
-          "id": "question_text",
-          "label": "Add Question",
-          "default": "How can I track my order?"
-        },
-        {
-          "type": "richtext",
-          "id": "answer_text",
-          "label": "Add Answer",
-          "default": "<p>Once your order has been processed and shipped, you will receive a confirmation email with a tracking number. You can use this tracking number to monitor the status and location of your package through our shipping carrier's website.</p>"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Custom Questions"
-    }
-  ]
-}
+
+
+
+
 {% endschema %}

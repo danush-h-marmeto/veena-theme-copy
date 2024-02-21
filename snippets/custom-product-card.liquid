@@ -6,7 +6,7 @@
 
   assign new_badge = ''
   for tag in product.tags
-    if tag contains 'New_'
+    if tag contains 'New'
       assign new_badge = tag | split: '_' | last
       break
     endif
@@ -14,7 +14,7 @@
 %}
 
 
-<product-card class="product-card" data-product-handle="{{ product.handle }}" data-section-id="{{ section_id }}">
+<product-card class="product-card" data-product-handle="{{ product.url |  within: collection }}" data-section-id="{{ section_id }}">
   <a href="{{ product.url }}">
     <div class="product-card__image">
       {% render "responsive-picture", desktopImage: featured_image, class: "media media--portrait custom-border-radius-sm" %}
@@ -24,18 +24,18 @@
   </a>
 
   <div class="product-card__quick-view">
-    <a href="#" class="custom-button-secondary_color product-card__quick-view-button"> Quick Look</a>    
+    <a href="{{ product.url }}" class="product-card__quick-view-button"> Quick Look</a>    
   </div>
 
   <div class="product-card__left-tags"> 
     {% if new_badge != '' %}
-      <span class="h5 product-card__badge">
+      <span class="product-card__badge">
         {{ new_badge }}
       </span>
     {% endif %}
     
     {% if discountPercentage > 0 %}
-      <span class="h5 product-card__discount">
+      <span class="product-card__discount ">
         {{ discountPercentage }}% off
       </span>
     {% endif %}
@@ -43,7 +43,7 @@
 
 
   
-  <div class="product-card__content {{ product_text_alignment }}">
+  <div class="product-card__content ">
     <div class="product-card-varients">
       {% form 'product', product %}
         <input type="hidden" name="id" value="{{ current_varient.id }}">
@@ -52,10 +52,7 @@
           <ul class="product-card__options">
             {% for product_option in product.options_with_values %}
               {% assign downcased_option_name = product_option.name | handleize %}
-              
               <li>
-               
-
                 <ul class="product-card__option">
                   {% for option_value in product_option.values %}
                     <li>
@@ -76,8 +73,6 @@
                             class="product-card__swatch product-card__colorswatch"
                             style="background-color: {{ downcased_option_value }};background-image: url({{ swatch_image }});"
                           ></span>
-                        {% else %}
-                          <span class="product-card__swatch">{{ option_value }}</span>
                         {% endif %}
                       </label>
                     </li>

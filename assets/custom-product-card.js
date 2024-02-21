@@ -5,24 +5,23 @@ class ProductCard extends HTMLElement {
     this.sectionId = this.dataset.sectionId;
     this.variantData = JSON.parse(this.querySelector("script").textContent);
     this.addEventListener("change", this.onOptionChange);
+    console.log(this.querySelectorAll('input[type="radio"]:checked'));
   }
 
   onOptionChange() {
-    this.selectedOptions = Array.from(
-      this.querySelectorAll('input[type="radio"]:checked'),
-      (input) => input.value
-    );
-    console.log("values", this.selectedOptions);
-    this.currentVariant = this.variantData.find(
-      (item) =>
-        JSON.stringify(item.options) == JSON.stringify(this.selectedOptions)
-    );
+this.selectedOptions = Array.from(
+  this.querySelectorAll("input[type=radio]:checked"),
+  (input) => input.value
+);
+this.currentVariant = this.variantData.find(
+  (item) => JSON.stringify(item.options) == JSON.stringify(this.selectedOptions)
+);
 
     this.getUpdatedCard();
   }
 
   getUpdatedCard() {
-    const url = `/products/${this.productHandle}?variant=${this.currentVariant.id}&section_id=${this.sectionId}`;
+    const url = `${this.productHandle}?variant=${this.currentVariant.id}&section_id=${this.sectionId}`;
     console.log(url)
     fetch(url)
       .then((response) => response.text())

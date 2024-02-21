@@ -1,76 +1,48 @@
-.section-description {
-  width: 40%;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0;
+.faq-section__block-count{
+    color: #000000;
 }
-.answer-text {
-  padding-left: 15px;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 20px;
-  max-width: 98%;
+.faq-section__title p{
+    margin:0px 0px 8px;
 }
-.custom-question__wrapper {
-  padding: 60px 0px;
+.faq-section__description{
+      max-width: 500px;
+    line-height: normal;
+    margin-bottom: 30px;
 }
-.custom-question__content {
-  position: relative;
-  z-index: 0;
+.faq-section__block{
+    border-bottom:1px solid #e7e7ec;
 }
-.custom-question__header {
-  padding-bottom: 30px;
+.faq-section__block-count-and-question{
+    display:flex;
+    align-items:center;
 }
-.question-text {
-  display: inline-block;
-  max-width: calc(100% - 6rem);
-  min-height: 1.6rem;
-  margin: 0;
-  word-break: break-word;
-  font-size: 22px;
-  font-weight: 600;
-}
-.accordions summary:after {
-  content: "+";
-  font-size: 25px;
-  position: absolute;
-  right: 0;
-  top: 0;
+.faq-section__block-question-and-symbol{
+    height: 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition: all 0.5s ease;
 }
 
-.accordions summary.active {
-  content: "-";
-  font-size: 25px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.custom-question__content .accordions summary {
-  align-items: center;
-  padding: 1.5rem 0;
-}
-
-@media screen and (max-width: 750px) {
-  .answer-text {
-    padding-left: 15px;
-    font-size: 13px;
+.faq-section__block-answer{  
+    margin:0px;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 20px;
-    max-width: 98%;
-  }
-  .question-text {
-    display: inline-block;
-    max-width: calc(100% - 6rem);
+    line-height: 28.8px;
+    padding-left :10px;
+    padding-right :10px;
+    margin-bottom: 15px;
+    transition: all 0.5s ease;
+    
+}
+.faq-section__block-container div:last-child{
+    border-bottom-width:0px;
+}
+.faq-section__block-question{
+      display: inline-block;
+    min-height: 2.6rem;
     margin: 0;
     word-break: break-word;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 600;
-  }
-  .section-description {
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 20px;
-    width: 98%;
-  }
 }

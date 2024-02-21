@@ -25,8 +25,8 @@ span.filter__swatch {
 .filter__colorswatch {
     border-radius: 50%;
 }
-span.filter__swatch:hover{
-  border: 2px solid red;
+.filter-color-container :hover{
+  
 }
 .visual-display.empty {
   border-style: dashed;

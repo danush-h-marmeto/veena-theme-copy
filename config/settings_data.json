@@ -130,6 +130,31 @@
         "settings": {
           "color_scheme": "scheme-1"
         }
+      },
+      "color-swatch": {
+        "type": "color-swatch",
+        "blocks": {
+          "color_settings_xd6HN7": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "black",
+              "color_code": "#000000"
+            }
+          },
+          "color_settings_NJJ4pW": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "",
+              "color_code": "#000000"
+            }
+          }
+        },
+        "block_order": [
+          "color_settings_xd6HN7",
+          "color_settings_NJJ4pW"
+        ],
+        "settings": {
+        }
       }
     },
     "content_for_index": [

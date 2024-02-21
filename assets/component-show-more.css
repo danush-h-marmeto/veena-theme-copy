@@ -8,3 +8,11 @@
 .button-show-less {
   margin-top: 1.5rem;
 }
+.facets-card__swatch-container{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 10px;
+}
+.facets-card__swatch{
+}

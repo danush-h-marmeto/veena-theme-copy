@@ -1,5 +1,158 @@
 {
   "sections": {
+    "color_swatch_QiTJdr": {
+      "type": "color-swatch",
+      "blocks": {
+        "color_settings_BjEqX9": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "black",
+            "color_code": "#000000"
+          }
+        },
+        "color_settings_qcGxrd": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "yellow",
+            "color_code": "#faf600"
+          }
+        },
+        "color_settings_aaeQKk": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "moccasin",
+            "color_code": "#ffe4b5"
+          }
+        },
+        "color_settings_rUA3mP": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "saddlebrown",
+            "color_code": "#000000"
+          }
+        },
+        "color_settings_6Q9AKd": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "darkslategray",
+            "color_code": "#2f4f4f"
+          }
+        },
+        "color_settings_bxUUmj": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "darkolivegreen",
+            "color_code": "#556b2f"
+          }
+        },
+        "color_settings_e34k6f": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "lightgray",
+            "color_code": "#d3d3d3"
+          }
+        },
+        "color_settings_w9U8k3": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "deeppink",
+            "color_code": "#ff1493"
+          }
+        },
+        "color_settings_ge7iW8": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "limegreen",
+            "color_code": "#1dfa00"
+          }
+        },
+        "color_settings_CB4WH7": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "blue",
+            "color_code": "#005eff"
+          }
+        },
+        "color_settings_fFRBxq": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "FloralWhite",
+            "color_code": "#f4e3e3"
+          }
+        },
+        "color_settings_UGj6Ym": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "peachpuff",
+            "color_code": "#ffdab9"
+          }
+        },
+        "color_settings_33HKYb": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "lightslategray",
+            "color_code": "#d3d3d3"
+          }
+        },
+        "color_settings_xRPBJb": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "darkblue",
+            "color_code": "#005fff"
+          }
+        },
+        "color_settings_i76Ptn": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "deepskyblue",
+            "color_code": "#09a9f2"
+          }
+        },
+        "color_settings_JHXaQD": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "navy",
+            "color_code": "#7a00ff"
+          }
+        },
+        "color_settings_dLAHjN": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "darkgreen",
+            "color_code": "#006400"
+          }
+        },
+        "color_settings_NqkTNa": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "whitesmoke",
+            "color_code": "#f5f5f5"
+          }
+        }
+      },
+      "block_order": [
+        "color_settings_BjEqX9",
+        "color_settings_qcGxrd",
+        "color_settings_aaeQKk",
+        "color_settings_rUA3mP",
+        "color_settings_6Q9AKd",
+        "color_settings_bxUUmj",
+        "color_settings_e34k6f",
+        "color_settings_w9U8k3",
+        "color_settings_ge7iW8",
+        "color_settings_CB4WH7",
+        "color_settings_fFRBxq",
+        "color_settings_UGj6Ym",
+        "color_settings_33HKYb",
+        "color_settings_xRPBJb",
+        "color_settings_i76Ptn",
+        "color_settings_JHXaQD",
+        "color_settings_dLAHjN",
+        "color_settings_NqkTNa"
+      ],
+      "settings": {
+      }
+    },
     "slideshow_with_text_JUVc4f": {
       "type": "slideshow-with-text",
       "blocks": {
@@ -234,159 +387,6 @@
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "color_swatch_QiTJdr": {
-      "type": "color-swatch",
-      "blocks": {
-        "color_settings_BjEqX9": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "black",
-            "color_code": "#000000"
-          }
-        },
-        "color_settings_qcGxrd": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "yellow",
-            "color_code": "#faf600"
-          }
-        },
-        "color_settings_aaeQKk": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "moccasin",
-            "color_code": "#ffe4b5"
-          }
-        },
-        "color_settings_rUA3mP": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "saddlebrown",
-            "color_code": "#000000"
-          }
-        },
-        "color_settings_6Q9AKd": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "darkslategray",
-            "color_code": "#2f4f4f"
-          }
-        },
-        "color_settings_bxUUmj": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "darkolivegreen",
-            "color_code": "#556b2f"
-          }
-        },
-        "color_settings_e34k6f": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "lightgray",
-            "color_code": "#d3d3d3"
-          }
-        },
-        "color_settings_w9U8k3": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "deeppink",
-            "color_code": "#ff1493"
-          }
-        },
-        "color_settings_ge7iW8": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "limegreen",
-            "color_code": "#1dfa00"
-          }
-        },
-        "color_settings_CB4WH7": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "blue",
-            "color_code": "#005eff"
-          }
-        },
-        "color_settings_fFRBxq": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "FloralWhite",
-            "color_code": "#f4e3e3"
-          }
-        },
-        "color_settings_UGj6Ym": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "peachpuff",
-            "color_code": "#ffdab9"
-          }
-        },
-        "color_settings_33HKYb": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "lightslategray",
-            "color_code": "#d3d3d3"
-          }
-        },
-        "color_settings_xRPBJb": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "darkblue",
-            "color_code": "#005fff"
-          }
-        },
-        "color_settings_i76Ptn": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "deepskyblue",
-            "color_code": "#09a9f2"
-          }
-        },
-        "color_settings_JHXaQD": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "navy",
-            "color_code": "#7a00ff"
-          }
-        },
-        "color_settings_dLAHjN": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "darkgreen",
-            "color_code": "#006400"
-          }
-        },
-        "color_settings_NqkTNa": {
-          "type": "colorSettings",
-          "settings": {
-            "title": "whitesmoke",
-            "color_code": "#f5f5f5"
-          }
-        }
-      },
-      "block_order": [
-        "color_settings_BjEqX9",
-        "color_settings_qcGxrd",
-        "color_settings_aaeQKk",
-        "color_settings_rUA3mP",
-        "color_settings_6Q9AKd",
-        "color_settings_bxUUmj",
-        "color_settings_e34k6f",
-        "color_settings_w9U8k3",
-        "color_settings_ge7iW8",
-        "color_settings_CB4WH7",
-        "color_settings_fFRBxq",
-        "color_settings_UGj6Ym",
-        "color_settings_33HKYb",
-        "color_settings_xRPBJb",
-        "color_settings_i76Ptn",
-        "color_settings_JHXaQD",
-        "color_settings_dLAHjN",
-        "color_settings_NqkTNa"
-      ],
-      "settings": {
       }
     },
     "custom_product_list_EhCz8F": {
@@ -745,12 +745,12 @@
     }
   },
   "order": [
+    "color_swatch_QiTJdr",
     "slideshow_with_text_JUVc4f",
     "custom_rich_text_MhyHGW",
     "custom_image_grid_LDcYjY",
     "custom_usp_dCfdgh",
     "lookbook_ij4NnJ",
-    "color_swatch_QiTJdr",
     "custom_product_list_EhCz8F",
     "logo_list_i4kJCX",
     "testimonials_fwQF6R",

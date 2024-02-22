@@ -54,8 +54,8 @@
     else
       assign swatch_value = nil
     endif
-  -%}
 
+  -%}
   {%- capture input_id -%}
     {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
   {%- endcapture -%}
@@ -87,6 +87,7 @@
       type="radio"
       id="{{ input_id }}"
       name="{{ option.name }}"
+     
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
       {% if option.selected_value == value %}
@@ -96,9 +97,11 @@
         class="disabled"
       {% endif %}
     >
-    <label for="{{ input_id }}">
+    <label class=" {%  if option.name == 'Color' %} product-variant-options__color-swatch {% endif %} %} " for="{{ input_id }}"  style="background-color:{{ value }}">
+      {%  if option.name == 'color' %} 
       {{ value -}}
       {{ label_unavailable }}
+      {% endif %} 
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option

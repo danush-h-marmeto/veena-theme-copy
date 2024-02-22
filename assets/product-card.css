@@ -34,10 +34,14 @@
   top: 0;
   left: 0;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: baseline;
 }
 
 .product-card__discount,.product-card__badge{
-  padding: 5px 10px;
+  padding: 2px 10px;
   background-color: #dd1d1d;
   color: #fff;
   font-size: 11px;

@@ -93,7 +93,7 @@ noscript .localization-form__select {
 }
 
 .localization-form__select .icon-caret {
-  position: absolute;
+ 
   content: '';
   height: 0.6rem;
   right: calc(var(--inputs-border-width) + 1.5rem);

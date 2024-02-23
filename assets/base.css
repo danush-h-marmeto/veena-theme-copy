@@ -3805,13 +3805,14 @@ details-disclosure > details {
   font-weight: 600;
   opacity: .6;
 }
+
  input[type="radio"]:checked + label {
 
  box-shadow: 0 0 0 3px white inset;
 }
 .product-variant-options__color-swatch{
   border-radius: 100%;
-  width: 40px;
+  width: 30px;
   height: 40px;
   border: 1px solid white;
 }

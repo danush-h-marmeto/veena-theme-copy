@@ -1119,7 +1119,9 @@ class VariantSelects extends HTMLElement {
         const html = new DOMParser().parseFromString(responseText, 'text/html');
          
         document.querySelector("#meta-product__description").innerHTML =
-          html.querySelector("#meta-product__description").innerHTML;
+        html.querySelector("#meta-product__description").innerHTML;
+    
+        
         const destination = document.getElementById(`price-${this.dataset.section}`);
         const source = html.getElementById(
           `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
@@ -1193,6 +1195,9 @@ class VariantSelects extends HTMLElement {
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
+    const price = document.getElementById(`price-${this.dataset.section}`);
+    const currentPrice = price.querySelector(".price-item").textContent;
+
     if (!addButton) return;
 
     if (disable) {
@@ -1200,7 +1205,7 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute('disabled');
-      addButtonText.textContent = window.variantStrings.addToCart;
+      addButtonText.textContent = window.variantStrings.addToCart + ' ' + currentPrice;
     }
 
     if (!modifyClass) return;

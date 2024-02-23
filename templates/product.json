@@ -50,6 +50,24 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "icon_with_text_7h8zF8": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "image_1": "shopify:\/\/shop_images\/1.svg",
+            "heading_1": "Daily deals",
+            "icon_2": "return",
+            "image_2": "shopify:\/\/shop_images\/2.svg",
+            "heading_2": "Return policy",
+            "icon_3": "truck",
+            "image_3": "shopify:\/\/shop_images\/3.svg",
+            "heading_3": "secure payment",
+            "icon_4": "truck",
+            "image_4": "shopify:\/\/shop_images\/4.svg",
+            "heading_4": "Help center 24\/7"
+          }
         }
       },
       "block_order": [
@@ -60,7 +78,8 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "icon_with_text_7h8zF8"
       ],
       "settings": {
         "enable_sticky_info": true,

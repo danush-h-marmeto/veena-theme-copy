@@ -90,7 +90,7 @@ variant-selects {
     var(--variant-pills-shadow-blur-radius) rgba(var(--color-shadow), var(--variant-pills-shadow-opacity));
 }
  input[type="radio"]:checked .product-variant-options__color-swatch{
-  
+   box-shadow: 0 0 0 1px rgba(208, 60, 63, 1);
  }
 .product-form__input--pill input[type='radio'] + label:hover {
   border-color: rgb(var(--color-foreground));

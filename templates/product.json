@@ -45,12 +45,6 @@
           "settings": {
           }
         },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        },
         "icon_with_text_7h8zF8": {
           "type": "icon-with-text",
           "settings": {
@@ -64,9 +58,15 @@
             "icon_3": "truck",
             "image_3": "shopify:\/\/shop_images\/3.svg",
             "heading_3": "secure payment",
-            "icon_4": "truck",
+            "icon_4": "leaf",
             "image_4": "shopify:\/\/shop_images\/4.svg",
             "heading_4": "Help center 24\/7"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
           }
         }
       },
@@ -78,8 +78,8 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share",
-        "icon_with_text_7h8zF8"
+        "icon_with_text_7h8zF8",
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,

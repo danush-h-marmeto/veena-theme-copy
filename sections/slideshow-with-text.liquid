@@ -66,10 +66,10 @@
                     {% endif %}
                     {% if block.settings.block_button_text != blank %}
                       <a
-                        class="slideshow-with-text__button-{{ block.id }} button"
+                        class="custom-button-primary slideshow-with-text__button-{{ block.id }} "
                         href=" {{ block.settings.button_link }}"
                       >
-                        <h2 class="h2 slideshow-with-text__button">{{ block.settings.block_button_text }}</h2>
+                        {{ block.settings.block_button_text }}
                       </a>
                     {% endif %}
                   </div>

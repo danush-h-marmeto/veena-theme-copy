@@ -3622,14 +3622,20 @@ details-disclosure > details {
   margin-bottom: 10px;
 }
 .bnr_caption.out-text {
-  border: 1px solid white;
-  border-radius: 31px;
-  padding: 0 13px 0 30px;
-  display: inline-block;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  vertical-align: middle;
-  word-break: break-word;
+    border: 1px solid white;
+    border-radius:31px;
+    padding: 0 13px 0 30px;
+    list-style: disc;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    word-break: break-word;
+}
+a{
+      color: rgb(var(--color-foreground));
+    text-decoration: none;
+    transition: all .3s ease;
 }
 
 .hxl {
@@ -3639,8 +3645,9 @@ details-disclosure > details {
   font-size: 32px;
 }
 .bnr_caption.out-text li {
-  list-style: circle;
-  color: white;
+  list-style: disc;
+  fill: white;
+  color: #fff;
 }
 .custom-border-radius {
   border-radius: 31px;
@@ -3652,9 +3659,6 @@ details-disclosure > details {
   margin: 0;
 }
 
-.bnr_caption.out-text li {
-  list-style: circle;
-}
 
 
 .text-center {

@@ -1036,7 +1036,21 @@ input.mobile-facets__checkbox {
   .facets-vertical {
     display: flex;
   }
-
+  .facets-vertical-sort__wrapper{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 16px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    background: rgba(var(--color-foreground),.04);
+  }
+  .custom-grid-change-container{
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
   .facets-wrap-vertical {
     border: none;
     padding-left: 0;

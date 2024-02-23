@@ -1117,6 +1117,9 @@ class VariantSelects extends HTMLElement {
         if (this.currentVariant.id !== requestedVariantId) return;
 
         const html = new DOMParser().parseFromString(responseText, 'text/html');
+         
+        document.querySelector("#meta-product__description").innerHTML =
+          html.querySelector("#meta-product__description").innerHTML;
         const destination = document.getElementById(`price-${this.dataset.section}`);
         const source = html.getElementById(
           `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`

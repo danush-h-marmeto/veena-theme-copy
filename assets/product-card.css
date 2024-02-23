@@ -141,14 +141,24 @@ ul.product-card__option {
 }
 
 span.product-card__swatch {
-    min-height: 20px;
-    min-width: 20px;
-    font-size: 10px;
+    min-height: 24px;
+    min-width: 24px;
     display: flex;
+    cursor: pointer;
     align-items: center;
     justify-content: center;
     padding: 10px;
     border: 1px solid lightgray;
+    font-size: 0;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 17px;
+    margin: 2px;
+    line-height: 1;
+    }
+
+   input[type="radio"]:checked + .product-card__swatch {
+  box-shadow: 0 0 0 1px rgba(208, 60, 63, 1);
 }
 
 .product-card__option input[type="radio"] {

@@ -40,6 +40,7 @@
   background: none;
   cursor: pointer;
   left: 43%;
+  height: 31px;
 }
 .slideshow-with-text .splide__arrows .splide__arrow--prev svg {
   fill: white;
@@ -54,6 +55,7 @@
   background: none;
   cursor: pointer;
   right: 43%;
+  height: 31px;
 }
 
 .slideshow-with-text__title a {

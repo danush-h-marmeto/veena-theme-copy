@@ -36,7 +36,7 @@
           {{ section.settings.title }}
         </h2>
         {%- if section.settings.button_label != blank and show_mobile_slider -%}
-          <a href="{{ section.settings.button_link }}" class="link underlined-link large-up-hide">
+          <a href="{{ section.settings.button_link }}" class="custom-button-secondary_color large-up-hide">
             {{- section.settings.button_label | escape -}}
           </a>
         {%- endif -%}
@@ -118,7 +118,7 @@
                   </div>
                 </div>
               {%- endif -%}
-              <div class="multicolumn-card__info">
+              <div class="multicolumn-card__info text-center">
                 {%- if block.settings.title != blank -%}
                   <h3 class="inline-richtext">{{ block.settings.title }}</h3>
                 {%- endif -%}
@@ -127,7 +127,7 @@
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
-                    class="link animate-arrow"
+                    class="custom-button-secondary_color"
                     {% if block.settings.link == blank %}
                       role="link" aria-disabled="true"
                     {% else %}
@@ -135,7 +135,7 @@
                     {% endif %}
                   >
                     {{- block.settings.link_label | escape -}}
-                    <span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span></a
+                    <span class="icon-wrap">&nbsp;</span></a
                   >
                 {%- endif -%}
               </div>
@@ -152,7 +152,7 @@
             name="previous"
             aria-label="{{ 'general.slider.previous_slide' | t }}"
           >
-            {% render 'icon-caret' %}
+           
           </button>
           <div class="slider-counter caption">
             <span class="slider-counter--current">1</span>
@@ -166,7 +166,7 @@
             name="next"
             aria-label="{{ 'general.slider.next_slide' | t }}"
           >
-            {% render 'icon-caret' %}
+           
           </button>
         </div>
       {%- endif -%}

@@ -89,7 +89,9 @@ variant-selects {
   box-shadow: var(--variant-pills-shadow-horizontal-offset) var(--variant-pills-shadow-vertical-offset)
     var(--variant-pills-shadow-blur-radius) rgba(var(--color-shadow), var(--variant-pills-shadow-opacity));
 }
-
+ input[type="radio"]:checked .product-variant-options__color-swatch{
+  
+ }
 .product-form__input--pill input[type='radio'] + label:hover {
   border-color: rgb(var(--color-foreground));
 }
@@ -120,6 +122,7 @@ variant-selects {
   color: rgba(var(--color-foreground), 0.6);
   text-decoration: line-through;
 }
+
 
 .product-form__input--pill input[type='radio'].disabled:checked + label,
 .product-form__input--pill input[type='radio']:disabled:checked + label {

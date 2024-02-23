@@ -3213,7 +3213,7 @@ details-disclosure > details {
 }
 
 .rte > *:last-child {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .rte table {
@@ -3805,12 +3805,31 @@ details-disclosure > details {
   font-weight: 600;
   opacity: .6;
 }
+ input[type="radio"]:checked + label {
+
+ box-shadow: 0 0 0 3px white inset;
+}
 .product-variant-options__color-swatch{
   border-radius: 100%;
   width: 40px;
   height: 40px;
-  box-shadow: 0 0 0 3px rgb(var(--color-background)) inset;
   border: 1px solid white;
 }
 
-
+.product-variant-options__line-through {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 12px;
+  transform: rotate(45deg);
+  border: none;
+  border-left: 1px solid rgba(var(--color-foreground));
+  opacity: 0.8;
+  border-radius: 0;
+  box-shadow: none;
+  width: auto;
+  height: auto;
+  margin: 1px;
+}

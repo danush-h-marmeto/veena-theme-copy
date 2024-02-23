@@ -21,9 +21,11 @@
   assign variants_option1_arr = product.variants | map: 'option1'
   assign variants_option2_arr = product.variants | map: 'option2'
   assign variants_option3_arr = product.variants | map: 'option3'
-
   assign product_form_id = 'product-form-' | append: section.id
 -%}
+<script>
+console.log({{ variants_available_arr }});
+</script>
 
 {%- for value in option.values -%}
   {%- liquid
@@ -44,6 +46,7 @@
             assign option_disabled = false
           endif
       endcase
+      
     endfor
 
     if value.swatch.image
@@ -97,11 +100,19 @@
         class="disabled"
       {% endif %}
     >
-    <label class=" {%  if option.name == 'Color' %} product-variant-options__color-swatch {% endif %} %} " for="{{ input_id }}"  style="background-color:{{ value }}">
-      {%  if option.name == 'color' %} 
-      {{ value -}}
-      {{ label_unavailable }}
-      {% endif %} 
+   <label for="{{ input_id }}"
+       {% if  option.name  == "Color" %} 
+          class="product-variant-options__color-swatch" style = "background-color: {{ value }}" 
+       {%  endif %}  
+      >
+      {% if  option.name  != "Color" %}
+        {{ value }} 
+        {{ label_unavailable }}
+    {%  endif %}
+      <span {% if option_disabled %}
+            class="product-variant-options__line-through"
+        {% endif %}  >
+      </span>
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
@@ -120,4 +131,5 @@
       {%- endif %}
     </option>
   {%- endif -%}
+
 {%- endfor -%}

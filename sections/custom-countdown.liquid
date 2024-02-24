@@ -1,0 +1,171 @@
+{{ 'custom-countdown.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'custom-countdown.js' |  asset_url  }}" defer></script>
+{% style %}
+  /* Add your custom styles here */
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+{% assign date = section.settings.target_date %}
+
+<div class="custom-countdown padding-{{ section.id }}">
+    <div class="page-width">
+        <div class="custom-countdown__wrapper">
+            <div class="">
+                {% if section.settings.heading  %}
+                  <h2 class="custom-countdown__heading bold">{{ section.settings.heading }}</h2>
+                {% endif %}
+                {% if section.settings.description  %}
+                   <p class="custom-countdown__description ">{{ section.settings.description }}</p>
+                {% endif %}
+                {% if section.settings.button_label  %}
+                    <a
+                        class="custom-button-{{ section.settings.button_type }}"
+                        href="{{ section.settings.button_link }}"
+                        >
+                        {{ section.settings.button_label }}
+                    </a>
+                {% endif %}
+            </div>   
+            <div data-target-date="{{ date }}" class="custom-countdown__time-wrapper">
+                <div class="custom-countdown__card custom-border-radius">
+                    <span class="custom-countdown__time " id="days">00</span>
+                    <span class="h4">Days</span>
+                </div>
+                <span class="h1 custom-timer__colon">:</span>
+                <div class="custom-countdown__card custom-border-radius">
+                    <span class="custom-countdown__time" id="hours">00</span>
+                    <span class="h4">Hours</span>
+                </div>
+                <span class="h1 custom-timer__colon">:</span>
+                <div class="custom-countdown__card custom-border-radius">
+                    <span class="custom-countdown__time" id="minutes">00</span>
+                    <span class="h4">Mins</span>
+                </div>
+                <span class="h1 custom-timer__colon">:</span>
+                <div class="custom-countdown__card custom-border-radius">
+                    <span class=" custom-countdown__time" id="seconds">00</span>
+                    <span class="h4">Sec</span>
+                </div>
+            </div>     
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Custom Countdown",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Timer Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Countdown Description</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "Choose Button Type",
+      "default": "primary",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "secondary_color",
+          "label": "Tertiary"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "target_date",
+      "label": "Target Date",
+      "default": "2024/08/21",
+      "info": "Enter the date and time you want the countdown to expire. Use the format YYYY/MM/DD"
+    },
+    {
+      "type": "header",
+      "content": "Adjust Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Countdown"
+    }
+  ]
+}
+{% endschema %}

@@ -80,6 +80,7 @@
           "type": "grid-items",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_4265.webp",
+            "media_size": "landscape",
             "tagline_text": "Tag Goes Here",
             "tagline_color": "#ffffff",
             "heading_text": "<p>Women's Clothing Collection Explore<\/p>",
@@ -87,6 +88,7 @@
             "button_label": "Explore",
             "button_link": "shopify:\/\/collections",
             "button_type": "primary",
+            "text_position": "middle-center",
             "text_alignment": "center"
           }
         },
@@ -94,6 +96,7 @@
           "type": "grid-items",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_4264.webp",
+            "media_size": "landscape",
             "tagline_text": "Tag Goes Here",
             "tagline_color": "#ffffff",
             "heading_text": "<p>Women's Sustainable Style Hub<\/p>",
@@ -101,6 +104,7 @@
             "button_label": "Explore",
             "button_link": "shopify:\/\/collections",
             "button_type": "primary",
+            "text_position": "middle-center",
             "text_alignment": "center"
           }
         }
@@ -292,6 +296,65 @@
       "settings": {
         "padding_top": 20,
         "padding_bottom": 20
+      }
+    },
+    "custom_image_grid_XCXzNR": {
+      "type": "custom-image-grid",
+      "blocks": {
+        "grid_items_yWYQJ8": {
+          "type": "grid-items",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_55.webp",
+            "media_size": "square",
+            "tagline_text": "Men's",
+            "tagline_color": "#ffffff",
+            "heading_text": "<p>Introducing Our Distinguished Men's Clothing Collection<\/p>",
+            "heading_text_color": "#ffffff",
+            "button_label": "Explore",
+            "button_link": "",
+            "button_type": "primary",
+            "text_position": "bottom-center",
+            "text_alignment": "center"
+          }
+        },
+        "grid_items_b3NHHf": {
+          "type": "grid-items",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_56.webp",
+            "media_size": "square",
+            "tagline_text": "Women's",
+            "tagline_color": "#ffffff",
+            "heading_text": "<p>Elevate Your Wardrobe With Our Women's Clothing Collection<\/p>",
+            "heading_text_color": "#ffffff",
+            "button_label": "Explore",
+            "button_link": "",
+            "button_type": "primary",
+            "text_position": "bottom-center",
+            "text_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "grid_items_yWYQJ8",
+        "grid_items_b3NHHf"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_countdown_TC6ei7": {
+      "type": "custom-countdown",
+      "settings": {
+        "heading": "Our Women's Clothing Collection.",
+        "description": "<p>where fashion meets flair, and every outfit becomes a statement.<\/p>",
+        "button_label": "View All",
+        "button_link": "",
+        "button_type": "secondary_color",
+        "text_alignment": "left",
+        "target_date": "2024\/08\/26",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "custom_usp_dCfdgh": {
@@ -509,12 +572,22 @@
             "designation": "Stylist",
             "comment": "<p>\"A go-to destination for my clients. The diversity in styles is impressive, catering to every taste. The quality and elegance never disappoint. Her quick response and innovative solutions make him an invaluable asset to our team.\"<\/p>"
           }
+        },
+        "testimonia_blocks_8KE7ah": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_e6c9abf8-cab4-4c51-8b5c-b87f6878ea97.webp",
+            "heading": "Alex Rodriguez",
+            "designation": "Fashion Enthusiast",
+            "comment": "<p>\"Being a fashion enthusiast, I'm always on the lookout for unique pieces. This store exceeds expectations with its exceptional customer service. Her attention to detail, and ability to meet deadlines have made every project a success.\"<\/p>"
+          }
         }
       },
       "block_order": [
         "testimonia_blocks_NfN3By",
         "testimonia_blocks_gK8tJz",
-        "testimonia_blocks_BmP8M4"
+        "testimonia_blocks_BmP8M4",
+        "testimonia_blocks_8KE7ah"
       ],
       "settings": {
         "section_heading": "Our Customers Review",
@@ -525,14 +598,6 @@
         "text_alignment": "center",
         "padding_top": 63,
         "padding_bottom": 68
-      }
-    },
-    "running_text_LhqXr7": {
-      "type": "running-text",
-      "disabled": true,
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "custom_blog_KKbd7f": {
@@ -612,11 +677,12 @@
     "custom_collection_list_H6jLEr",
     "custom_product_list_DyTkmf",
     "running_text_Eynba4",
+    "custom_image_grid_XCXzNR",
+    "custom_countdown_TC6ei7",
     "custom_usp_dCfdgh",
     "lookbook_ij4NnJ",
     "logo_list_i4kJCX",
     "testimonials_fwQF6R",
-    "running_text_LhqXr7",
     "custom_blog_KKbd7f",
     "custom_questions_tWfaJg"
   ]

@@ -31,21 +31,22 @@
                 {% if block.settings.image != blank %}
                     <div class="grid__item custom-image-grid__wrapper">
                         {% if block.settings.image != blank %}
-                            <div class="custom-image-grid__image-container">
+                            <div class="custom-image-grid__image-container media media--{{ block.settings.media_size }}">
                                 {% render 'responsive-picture',
-                                    class: 'media media--landscape custom-border-radius-sm custom-image-grid__image',
+                                    class: 'media media--{{ block.settings.media_size }} custom-border-radius-sm custom-image-grid__image',
                                     desktopImage: block.settings.image,
                                     mobileImage: block.settings.mobile_image
                                 %}
                             </div>
+
                         {% else %}
-                            <div class="media media--landscape custom-border-radius-sm">
-                                {{ 'detailed-apparel-1' | placeholder_svg_tag }}
+                            <div class="custom-image-grid__image-container media media--{{ block.settings.media_size }} custom-border-radius-sm">
+                                {{ 'image' | placeholder_svg_tag }}
                             </div>
                         {% endif %}
-                        <div class="custom-image-grid__text custom-image-grid__text-alignment-{{ block.id }}">
-                            <div class="custom-image-grid__text-inner">
-                                {% if block.settings.tagline_text  != blank %}
+                        <div class="custom-image-grid__text content-{{ block.settings.text_position }} ">
+                        <div class="custom-image-grid__text-wrapper text-{{ block.settings.text_alignment  }}">
+                          {% if block.settings.tagline_text  != blank %}
                                     <ul class="bnr_caption out-text-secondary">
                                         <li>{{ block.settings.tagline_text }}</li>
                                     </ul>
@@ -58,9 +59,10 @@
                                         {{ block.settings.button_label }}
                                     </a>
                                 {% endif %}
-                            </div>
+                        </div>      
+                          
+                      </div>
                         </div>
-                    </div>
                 {% else %}
                     <div class="grid__item custom-border-radius custom-image-grid__wrapper">
                         <div class="custom-image-grid__image-container">
@@ -125,6 +127,31 @@
           "label": "Image (Mobile)",
           "info": "Mobile Image Suggested Size 450*450"
         },
+         {
+        "type": "header",
+        "content": "Modify Media Sizes"
+      },
+      {
+        "type": "select",
+        "id": "media_size",
+        "label": "Choose Media Sizes",
+        "default": "portrait",
+        "info": "Choose Between the Customized Media Sizes",
+        "options": [
+            {
+            "value": "square",
+            "label": "Square"
+            },
+            {
+            "value": "landscape",
+            "label": "Landscape"
+            },
+            {
+            "value": "portrait",
+            "label": "Portrait"
+            }
+          ]
+        },
         {
           "type": "text",
           "id": "tagline_text",
@@ -180,6 +207,50 @@
             }
           ]
         },
+         {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text Position",
+      "default": "middle-center",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top Center"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "middle-left",
+          "label": "Middle Left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle Center"
+        },
+        {
+          "value": "middle-right",
+          "label": "Middle Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom Center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ]
+    },
           {
           "type": "select",
           "id": "text_alignment",

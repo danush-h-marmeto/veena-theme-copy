@@ -1,0 +1,130 @@
+.custom-countdown__heading{
+    font-size: 34px;
+    max-width: 600px;
+}
+.custom-countdown__description{
+    max-width: 500px;
+    line-height: normal;
+    margin-bottom: 30px;
+}
+.custom-countdown__wrapper{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+}
+
+.custom-countdown__time-wrapper {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 60px;
+    justify-content: end;
+}
+.custom-countdown__time-wrapper .custom-countdown__card {
+    position: relative;
+    background: rgba(var(--color-foreground),0.05);
+    border-radius: 16px;
+    min-width: 180px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 45px 0;
+}
+.custom-countdown__time {
+    font-size: 46px;
+    line-height: normal;
+    margin: 0;
+}
+
+.timebtn {
+    margin-top: 30px;
+}
+.count_t h2 {
+    max-width: 600px;
+}
+.count_t .heading {
+    margin: 0;
+}
+@media (min-width: 1400px) and (max-width: 1599px) {
+    .custom-countdown__time-wrapper .custom-countdown__card {
+        min-width: 150px;
+        padding: 30px 0;
+    }
+}
+@media (max-width: 1399px) {
+    .custom-countdown__time-wrapper {
+        gap: 14px;
+    }
+    .custom-countdown__time-wrapper .custom-countdown__card:after {
+        right: -17px;
+    }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .custom-countdown__time-wrapper .custom-countdown__card {
+        min-width: 140px;
+        padding: 25px 0;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .custom-countdown__time-wrapper .custom-countdown__card {
+        min-width: 120px;
+        padding: 25px 0;
+    }
+    .custom-countdown__time-wrapper span .custom-countdown__time {
+        font-size: 30px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .custom-countdown__time-wrapper .custom-countdown__card {
+        min-width: 85px;
+        padding: 12px 0;
+    }
+    .custom-countdown__time-wrapper span .custom-countdown__time {
+        font-size:  22px;
+    }
+}
+@media (max-width: 991px) {
+    .timebtn {
+        margin-top: 20px;
+    }
+}
+@media (max-width: 767px) {
+    .count_t {
+        grid-template-columns: auto;
+        gap: 15px;
+    }
+    .custom-countdown__time-wrapper {
+        justify-content: start;
+    }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+    .custom-countdown__time-wrapper .custom-countdown__card {
+        min-width: 100px;
+        padding: 18px 0;
+    }
+    .custom-countdown__time-wrapper span .custom-countdown__time {
+        font-size: 22px;
+    }
+    .custom-countdown__time-wrapper span {
+        font-size: 14px;
+    }
+}
+@media (max-width: 576px) {
+    .custom-countdown__time-wrapper .custom-countdown__card {
+        min-width: 60px;
+        padding: 7px 0;
+    }
+    .custom-countdown__time-wrapper span .custom-countdown__time {
+        font-size: 20px;
+    }
+    .custom-countdown__time-wrapper span {
+        font-size:  12px;
+        margin-top: 2px;
+    }
+    .custom-countdown__time-wrapper {
+        gap: 15px;
+    }
+    .custom-countdown__time-wrapper .custom-countdown__card:after {
+        right: -10px;
+    }
+}

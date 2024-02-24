@@ -1,6 +1,10 @@
 .custom-image-grid__wrapper {
   position: relative;
 }
+
+.custom-image-grid__image-container{
+  background: none;
+}
 .custom-image-grid__image-container img {
   transition: transform 0.3s ease-in-out;
 }
@@ -9,15 +13,13 @@
     transform: scale(1.1);
   }
 }
+
 .custom-image-grid__text {
+  flex-direction: column;
   display: flex;
-  height: 100%;
-  width: 100%;
+  padding: 30px;
   position: absolute;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
+ width: 100%;
 }
 .custom-image-grid__heading {
   margin-bottom: 20px;

@@ -3852,3 +3852,99 @@ a{
   height: auto;
   margin: 1px;
 }
+
+.flex-end{
+  align-items: flex-end;
+}
+.flex-start{
+  align-items: flex-start;
+}
+.align-center{
+  align-items: center;
+}
+.justify-center{
+  justify-content: center;
+}
+.justify-start{
+  justify-content: flex-start;
+}
+
+.justify-center{
+  justify-content: center;
+}
+.justify-end{
+  justify-content: flex-end;
+}
+/* Center */
+
+
+/* Top Left */
+.content-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Top Center */
+.content-top-center {
+  position: absolute;
+  top: 0;
+  left: 50%;
+   transform: translateX(-50%);
+}
+
+/* Top Right */
+.content-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* Middle Left */
+.content-middle-left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+   transform: translateY(-50%);
+ 
+}
+
+/* Middle Center */
+.content-middle-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+   transform: translate(-50%, -50%);
+ 
+}
+
+/* Middle Right */
+.content-middle-right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+    transform: translateY(-50%);
+}
+
+/* Bottom Left */
+.content-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Bottom Center */
+.content-bottom-center {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Bottom Right */
+.content-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+

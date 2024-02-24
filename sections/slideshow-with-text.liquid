@@ -16,9 +16,6 @@
       .slideshow-with-text__textContent-inner-{{block.id}}{
           text-align: {{ block.settings.text_alignment }};
       }
-    .slideshow-with-text__button-{{ block.id }}{
-        background-color:{{ block.settings.button_bg_color }}
-    }
     .slideshow-with-text__textContent-{{ block.id }}{
         justify-content: {{ block.settings.horizantal_alignment }};
         align-items:  {{ block.settings.vertical_alignment }};
@@ -66,7 +63,7 @@
                     {% endif %}
                     {% if block.settings.block_button_text != blank %}
                       <a
-                        class="custom-button-primary slideshow-with-text__button-{{ block.id }} "
+                        class="custom-button-{{ block.settings.button_type }}"
                         href=" {{ block.settings.button_link }}"
                       >
                         {{ block.settings.block_button_text }}
@@ -179,20 +176,31 @@
           "default": "Shop Now",
           "label": "Button Text"
         },
-        {
-            "type": "color",
-            "id": "button_color_text",
-            "label": "Button Text Color"
-        },
-        {
-            "type": "color",
-            "id": "button_bg_color",
-            "label": "Button Background Color"
-        },
-        {
+         {
           "type": "url",
           "id": "block_button_link",
           "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "button_type",
+          "label": "Choose Button Type",
+          "default": "primary",
+          "info": "Choose Between the Customized Buttons to Style the Button",
+          "options": [
+            {
+            "value": "primary",
+            "label": "Primary"
+            },
+            {
+            "value": "secondary",
+            "label": "Secondary"
+            },
+            {
+            "value": "secondary_color",
+            "label": "Tertiary"
+            }
+          ]
         },
          {
         "type": "header",

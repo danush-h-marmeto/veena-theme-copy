@@ -36,11 +36,12 @@
 .slideshow-with-text .splide__arrows .splide__arrow--prev {
   top: unset;
   bottom: 0;
+  user-select: none;
   transform: unset;
   background: none;
   cursor: pointer;
-  left: 43%;
-  height: 31px;
+  left: 41%;
+  height: 52px;
 }
 .slideshow-with-text .splide__arrows .splide__arrow--prev svg {
   fill: white;
@@ -51,11 +52,12 @@
 .slideshow-with-text .splide__arrows .splide__arrow--next {
   top: unset;
   bottom: 0;
+  user-select: none;
   transform: unset;
   background: none;
   cursor: pointer;
-  right: 43%;
-  height: 31px;
+  right: 41%;
+  height: 52px;
 }
 .slideshow-with-text__title a {
   color: inherit;
@@ -105,10 +107,13 @@
     object-fit: cover;
     object-position: center;
   }
+  .splide__pagination {
+    gap: 5px;
+  }
   .slideshow-with-text .splide__arrows .splide__arrow--prev {
-    left: 30%;
+    left: 27%;
   }
   .slideshow-with-text .splide__arrows .splide__arrow--next {
-    right: 30%;
+    right: 27%;
   }
 }

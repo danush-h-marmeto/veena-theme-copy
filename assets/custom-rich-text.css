@@ -5,7 +5,7 @@
   text-align: center;
 }
 .custom-richtext__text {
-  width: 53%;
+  width: 56%;
   margin-bottom: 50px;
 }
 .custom-richtext__heading a {
@@ -59,8 +59,7 @@
 }
 
 @media only screen and (max-width: 750px) {
-  .custom-richtext__text {
-    text-align: center;
-    width: 80%;
+  .custom-richtext__text{
+    width: 100%;
   }
 }

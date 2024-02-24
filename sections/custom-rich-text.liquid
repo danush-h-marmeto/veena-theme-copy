@@ -36,7 +36,7 @@
          {% endif %}
          {% if section.settings.button_label != blank %}
             <a
-                class="button custom-richtext__button"
+                class="custom-button-{{ section.settings.button_type }}"
                 href="{{ section.settings.button_link }}"
               >
                 {{ section.settings.button_label }}
@@ -89,14 +89,25 @@
         "label": "Button link"
         },
         {
-        "type": "color",
-        "id": "button_background",
-        "label": "Button background"
-        },
-        {
-        "type": "color",
-        "id": "button_color",
-        "label": "Button color"
+          "type": "select",
+          "id": "button_type",
+          "label": "Choose Button Type",
+          "default": "primary",
+          "info": "Choose Between the Customized Buttons to Style the Button",
+          "options": [
+            {
+            "value": "primary",
+            "label": "Primary"
+            },
+            {
+            "value": "secondary",
+            "label": "Secondary"
+            },
+            {
+            "value": "secondary_color",
+            "label": "Tertiary"
+            }
+          ]
         },
       {
         "type": "header",

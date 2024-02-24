@@ -37,7 +37,7 @@
   transition: background-position 0.3s ease-in-out;
 }
 .custom-richtext__heading {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .letter {
@@ -61,5 +61,9 @@
 @media only screen and (max-width: 750px) {
   .custom-richtext__text{
     width: 100%;
+    font-size:16px;
+  }
+  .custom-richtext__heading{
+    font-size: 30px;
   }
 }

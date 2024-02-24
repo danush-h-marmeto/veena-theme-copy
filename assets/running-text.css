@@ -1,0 +1,134 @@
+.scrolling-banner__scrolling-wrapper {
+    overflow: hidden;
+  }
+  
+  .scrolling-banner__scrolling-wrapper {
+    padding: 20px 0;
+    background-image: linear-gradient(
+      to right,
+      #da404440,
+      #fffa7e40,
+      #da404440,
+      #fffa7e40
+    );
+     position: relative;
+  }
+  .scrolling-banner__scrolling-wrapper:hover .scrolling-banner__scrolling-items-wrapper {
+  animation-play-state: paused; 
+}
+  
+  .scrolling-banner__scrolling-items-wrapper {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll-left 10s linear infinite;
+  }
+  
+  .scrolling-banner__scrolling-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 40px;
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .scrolling-banner__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .scrolling-banner__icon-wrapper svg {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .scrolling-banner__scrolling-text p {
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin: 0;
+    line-height: normal;
+    text-wrap: nowrap;
+  }
+  
+  .scrolling-banner__scrolling-item a span {
+    text-wrap: nowrap;
+    text-transform: uppercase;
+  }
+   .scrolling-text-secondary {
+    border: none;
+    text-decoration: underline;
+    color: #000000;
+  }
+  
+.scrolling-text-primary {
+  display: inline-flex;
+  color: black;
+  border: 1px solid black;
+  padding: 8px 20px;
+  border-radius: 10rem;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.scrolling-text-primary:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: white !important;
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+.scrolling-text-primary:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  color: white;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: black;
+  transition: all 0.3s ease;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.scrolling-text-primary:hover:before {
+  width: 100%;
+  color: white; 
+}
+
+.scrolling-text-primary:hover:after {
+  width: 100%;
+  color: white; 
+}
+
+  @media screen and (min-width: 750px) {
+    .scrolling-banner__scrolling-wrapper {
+      padding: 40px 0;
+    }
+  
+    .scrolling-banner__scrolling-text p {
+      font-size: 35px;
+    }
+  }

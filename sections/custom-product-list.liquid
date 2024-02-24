@@ -1,102 +1,241 @@
-{{ 'custom-product-list.css' |  asset_url |  stylesheet_tag }}
+{{ 'product-list.css' | asset_url | stylesheet_tag }}
+
 {% style %}
-    .padding-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
-  }
-  @media only screen and (min-width: 750px) {
-    .padding-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+  .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | divided_by: 2  }}px;
+      padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+    }
+
+    @media (min-width: 750px) {
+      .padding-{{ section.id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{% endstyle %}
+
+{% capture sliderSettings %}
+  {
+ "type": "slide",
+  "perPage": 3,
+  "drag":true,
+  "arrows": {{ section.settings.show_arrows }},
+  "gap":"20px",
+  "pagination": {{ section.settings.show_pagination }},
+  "perMove": 1,
+  "interval": {{ section.settings.autoplay_duration }},
+  "autoplay": {{ section.settings.autoplay }},
+  "breakpoints" : {
+        "750" : {
+          "perPage" : 2
+          }
     }
   }
+{% endcapture %}
 
-{% endstyle %} 
-
-<div class="custom-product-list padding-{{ section.id }}">
+<div class="product-list padding-{{ section.id }}">
   <div class="page-width">
-    <div class="custom-product-list__header">
-      {% if section.settings.title_text != blank %}
-        <h2 class="h1">{{ section.settings.title_text }}</h2>
-      {% endif %}
-      {% if section.settings.button_text != blank %}
-         <a href="{{ section.settings.button_link }}" class="custom-button-secondary">{{ section.settings.button_text }} </a>
+    <div class="product-list-two__heading-section">
+      {% if section.settings.section_heading != blank %}
+        <h2 class = "h1 product-list-two__heading-title">{{ section.settings.section_heading }}</h2>
       {% endif %}
 
+      {% if section.settings.section_button_text %}
+        <a  class="section-collection__button custom-button-{{ section.settings.button_type }}"
+            href="{{ section.settings.section_button_link }}"
+        >
+          {{ section.settings.section_button_text }}
+        </a>
+      {% endif %}
     </div>
-  <div class="grid grid--4-col-desktop grid--2-col">
-    {% if section.settings.product_list != blank %}
-      {% for product in section.settings.product_list %} 
-        <div class="grid__item custom-product-card">
-           {% render 'custom-product-card', product: product, section_id: section.id %}
+
+    <div class="product-list-two product-list-two__wrapper">
+      <div class="product-list-two__sidebar custom-border-radius-sm ">
+        <div class="product-list-two__sidebar-image custom-border-radius-sm media media--portrait">
+          {% render 'responsive-picture',
+            desktopImage: section.settings.sidebar_desktop_image,
+            mobileImage: section.settings.sidebar_mobile_image,
+            class: 'media media--portrait'
+          %}
         </div>
-      {% endfor %}  
-      {% else %}
-        {% for i in (1..4) %}
-      <div class="grid__item media media--portrait custom-border-radius-sm">
-        {{  'product-' | append: i | placeholder_svg_tag }}
+        <div class="product-list-two__sidebar-content">
+          {% if section.settings.pre_heading %}
+            <ul class="bnr_caption out-text">
+              <li>{{ section.settings.pre_heading }}</li>
+            </ul>
+          {% endif %}
+          {% if section.settings.sidebar_heading %}
+            <div class="h2 richtext  product-list-two__sidebar__heading ">{{ section.settings.sidebar_heading }}</div>
+          {% endif %}
+          {% if section.settings.sidebar_button_text %}
+            <a
+              class="product-list-two__sidebar-button  custom-button-{{ section.settings.sidebar_button_type }} "
+              href="{{ section.settings.sidebar_button_link }}"
+            >
+              {{ section.settings.sidebar_button_text }}
+            </a>
+          {% endif %}
+        </div>
       </div>
-      {% endfor %}
-    {% endif %}
-  </div>
+      
+      <div class="product-list-two__sidebar-slider">
+        <slide-slider>
+          <section class="splide" data-slider-settings='{{ sliderSettings }}' aria-label="Slide Show">
+            <div class="splide__track">
+              <ul class="splide__list ">                
+                {% for product in section.settings.product_list %}                  
+                  <li class="splide__slide custom-border-radius-sm">
+                    {% render 'custom-product-card', product: product, section_id: section.id %}
+                  </li>                  
+                {% else %}
+                  {% for i in (1..4) %}
+                    <li class="splide__slide custom-border-radius-sm">
+                      {{ 'product-' | append: i | placeholder_svg_tag }}
+                    </li>
+                  {% endfor %}
+                {% endfor %}         
+              </ul>
+            </div>
+          </section>
+        </slide-slider>
+      </div>
+    </div>
   </div>
 </div>
+
 {% schema %}
 {
-  "name": "Custom Product List",
-  "class": "section",
+  "name": "Custom Product List Two",
+  "tag": "section",
   "settings": [
     {
       "type": "text",
-      "default": "Featured Collection",
-      "id": "title_text",
-      "label": "Title text"
+      "id": "section_heading",
+      "label": "Section heading",
+      "default": "New Arrivals"
     },
     {
       "type": "text",
-      "default": "See All Products",
-      "id": "button_text",
-      "label": "Button text"
+      "id": "section_button_text",
+      "label": "Section button text",
+      "default": "View All"
     },
     {
       "type": "url",
-      "id": "button_link",
-      "label": "Button link"
+      "id": "section_button_link",
+      "label": "Section button link"
+    },
+     {
+          "type": "select",
+          "id": "button_type",
+          "label": "Choose Button Type",
+          "default": "primary",
+          "info": "Choose Between the Customized Buttons to Style the Button",
+          "options": [
+            {
+            "value": "primary",
+            "label": "Primary"
+            },
+            {
+            "value": "secondary",
+            "label": "Secondary"
+            },
+            {
+            "value": "secondary_color",
+            "label": "Tertiary"
+            }
+          ]
+        },
+    {
+      "type" : "header",
+      "content" : "Sidebar Image Card"
     },
     {
       "type": "image_picker",
-      "id": "image",
-      "label": "Card Image",
-      "info": "Desktop Image Suggested Settings 1240*650"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_mobile",
-      "label": "Card Image (Mobile)",
-      "info": "Mobile Image Suggested Settings 450*450"
-    },
-    {
+      "id": "sidebar_desktop_image",
+      "label": "Image"
+      },
+      {
+          "type": "image_picker",
+          "id": "sidebar_mobile_image",
+          "label": "Image (Mobile)"
+      },
+      {
+          "type" : "text",
+          "id" : "pre_heading",
+          "label" : "Pre Heading",
+          "default" : "Pre Heading"
+        },
+      {
       "type": "text",
-      "id": "card_badge_text",
-      "default": "Trendy Classics",
-      "label": "Card Badge Text"
-    },
-    {
+      "id": "sidebar_heading",
+      "label": "Heading",
+      "default": "Sidebar Heading"
+      },
+      {
       "type": "text",
-      "id": "card_title_text",
-      "label": "Card Image Title",
-      "default": "exclusive Best & New Arrivals collection"
-    },
-    {
-      "type": "text",
-      "id": "card_button_text",
-      "default": "Shop Now",
-      "label": "Card Button Text"
-    },
-    {
+      "id": "sidebar_button_text",
+      "label": "Section button text",
+      "default": "Explore"
+      },
+      {
       "type": "url",
-      "id": "card_button_link",
-      "label": "Card Button Link"
+      "id": "sidebar_button_link",
+      "label": "Section button link"
+      },
+       {
+          "type": "select",
+          "id": "sidebar_button_type",
+          "label": "Choose Button Type",
+          "default": "primary",
+          "info": "Choose Between the Customized Buttons to Style the Button",
+          "options": [
+            {
+            "value": "primary",
+            "label": "Primary"
+            },
+            {
+            "value": "secondary",
+            "label": "Secondary"
+            },
+            {
+            "value": "secondary_color",
+            "label": "Tertiary"
+            }
+          ]
+        },
+    {
+      "type" : "header",
+      "content" : "Slider settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Slide autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show slide dots",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show slide arrows",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_duration",
+      "min": 1000,
+      "max": 9000,
+      "step": 1000,
+      "unit": "ms",
+      "label": "Autoplay Duration",
+      "default": 5000,
+      "info": "ms- milliseconds"
     },
     {
       "type": "product_list",
@@ -104,14 +243,32 @@
       "label": "Products"
     },
     {
-      "type": "checkbox",
-      "id": "layout_type",
-      "label": "Enable Slider",
-      "default": false
+      "type" : "header",
+      "content" : "Alignment Settings"
     },
     {
-      "type": "header",
-      "content": "Section padding"
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type" : "header",
+      "content" : "Section padding settings"
     },
     {
       "type": "range",
@@ -120,7 +277,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "Padding top",
+      "label": "Section padding top",
       "default": 36
     },
     {
@@ -130,13 +287,13 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "Padding bottom",
+      "label": "Section padding bottom",
       "default": 36
     }
   ],
   "presets": [
     {
-      "name": "Custom Product List"
+      "name": "Custom Product List Two"
     }
   ]
 }

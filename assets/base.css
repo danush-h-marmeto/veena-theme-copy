@@ -3632,6 +3632,16 @@ details-disclosure > details {
     backdrop-filter: blur(10px);
     word-break: break-word;
 }
+.bnr_caption.out-text-secondary{
+  color: #fff;
+    border: 1px solid white;
+    border-radius:31px;
+    padding: 0 13px 0 30px;
+    list-style: disc;
+    display: inline-block;
+    vertical-align: middle;
+    word-break: break-word;
+}
 a{
       color: rgb(var(--color-foreground));
     text-decoration: none;
@@ -3659,7 +3669,11 @@ a{
   margin: 0;
 }
 
-
+.section-collection__button {
+  padding: 5px 33px;
+  display: flex;
+  height: 45px;
+}
 
 .text-center {
   text-align: center;

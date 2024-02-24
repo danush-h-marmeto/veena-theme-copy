@@ -1,9 +1,9 @@
-.custom-collection-list__header{
-    display: flex;
-    justify-content: space-between;
+.custom-collection-list__header {
+  display: flex;
+  justify-content: space-between;
 }
-.splide__image-wrapper{
-    margin-top: 15%;
+.splide__image-wrapper {
+  margin-top: 15%;
 }
 .custom-image-grid__button a {
   position: relative;
@@ -24,74 +24,48 @@
 .custom-image-grid__button a:hover::before {
   background-position: -100% 0;
 }
-.splide__image-wrapper{
-    position: relative;
+.splide__image-wrapper {
+  position: relative;
 }
-.splide__text-wrapper{
-    position: absolute;
-    display: flex;
-    gap: 15px;
-    top: 0;
-    left: 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+.splide__text-wrapper {
+  position: absolute;
+  display: flex;
+  gap: 15px;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 .custom-collection-list__button {
-  display: inline-flex;
-  padding: 8px 20px;
-  border-radius: 10rem;
-   justify-content: center;
-  align-items: center;
   color: white;
   border: 1px solid white;
-  text-transform: capitalize;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  font-size: 16px;
-  text-decoration: none;
 }
 .custom-collection-list__card:hover .splide__image-wrapper img {
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+.custom-collection-list__button:after {
+  background-color: transparent;
+}
+
+.custom-collection-list__button:hover {
+  color: #d03c3f;
+}
+.custom-collection-list__button:hover:before {
+  width: 100%;
+}
+
+
+@media only screen and (max-width: 750px) {
+  .custom-collection-list__title{
+    font-size: 24px;
+    letter-spacing: 0.3px;
+    line-height: 31.2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
- .custom-collection-list__button:after {
-	 content: '';
-	 position: absolute;
-	 bottom: 0;
-	 left: 0;
-	 width: 100%;
-	 height: 100%;
-	 background-color: transparent;
-	 border-radius: 10rem;
-	 z-index: -2;
-}
- .custom-collection-list__button:before {
-	 content: '';
-	 position: absolute;
-	 bottom: 0;
-	 left: 0;
-	 width: 0%;
-	 height: 100%;
-	 background-color: white;
-	 transition: all 0.3s ease;
-	 border-radius: 10rem;
-	 z-index: -1;
-}
- .custom-collection-list__button:hover {
-	 color: #d03c3f;
-}
- .custom-collection-list__button:hover:before {
-	 width: 100%;
-}
-
-@media only screen and (max-width: 750px){
-.custom-collection-list__header{
-    display: block;
-}
-
 }

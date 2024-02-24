@@ -36,12 +36,12 @@
   <div class="page-width">
     <div class="custom-collection-list__header">
       {% if section.settings.title_text != blank %}
-        <div class="h1">
+        <div class="h1 custom-collection-list__title">
           {{ section.settings.title_text }}
         </div>
       {% endif %}
       {% if section.settings.button_text != blank %}
-        <a href="{{ section.settings.button_link }}" class="custom-button-secondary">{{ section.settings.button_text }}</a>
+        <a href="{{ section.settings.button_link }}" class="section-collection__button custom-button-{{ section.settings.button_type }} ">{{ section.settings.button_text }}</a>
       {% endif %}
     </div>
 
@@ -62,7 +62,7 @@
                         <a class="link-animation h2">{{ block.settings.heading }}</a>
                       {% endif %}
                       {% if block.settings.card_button_text != blank %}
-                        <div class="custom-collection-list__button">
+                        <div class="custom-collection-list__button custom-button-{{ block.settings.card_button_type }}">
                           <a class="full-unstyled-link" href="{{ block.settings.card_button_link }}">
                             {{ block.settings.card_button_text }}
                           </a>
@@ -107,6 +107,27 @@
       "id": "button_link",
       "label": "Button link"
     },
+     {
+          "type": "select",
+          "id": "button_type",
+          "label": "Choose Button Type",
+          "default": "primary",
+          "info": "Choose Between the Customized Buttons to Style the Button",
+          "options": [
+            {
+            "value": "primary",
+            "label": "Primary"
+            },
+            {
+            "value": "secondary",
+            "label": "Secondary"
+            },
+            {
+            "value": "secondary_color",
+            "label": "Tertiary"
+            }
+          ]
+        },
      {
       "type": "header",
       "content": "Slider Options"
@@ -191,6 +212,27 @@
           "type": "url",
           "id": "card_button_link",
           "label": "Card Button Link"
+        },
+         {
+          "type": "select",
+          "id": "card_button_type",
+          "label": "Choose Button Type",
+          "default": "primary",
+          "info": "Choose Between the Customized Buttons to Style the Button",
+          "options": [
+            {
+            "value": "primary",
+            "label": "Primary"
+            },
+            {
+            "value": "secondary",
+            "label": "Secondary"
+            },
+            {
+            "value": "secondary_color",
+            "label": "Tertiary"
+            }
+          ]
         }
       ]
     }

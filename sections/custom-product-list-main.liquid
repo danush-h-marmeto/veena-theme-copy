@@ -1,0 +1,143 @@
+{{ 'custom-product-list.css' |  asset_url |  stylesheet_tag }}
+{% style %}
+    .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+{% endstyle %} 
+
+<div class="custom-product-list padding-{{ section.id }}">
+  <div class="page-width">
+    <div class="custom-product-list__header">
+      {% if section.settings.title_text != blank %}
+        <h2 class="h1">{{ section.settings.title_text }}</h2>
+      {% endif %}
+      {% if section.settings.button_text != blank %}
+         <a href="{{ section.settings.button_link }}" class="custom-button-secondary">{{ section.settings.button_text }} </a>
+      {% endif %}
+
+    </div>
+  <div class="grid grid--4-col-desktop grid--2-col">
+    {% if section.settings.product_list != blank %}
+      {% for product in section.settings.product_list %} 
+        <div class="grid__item custom-product-card">
+           {% render 'custom-product-card', product: product, section_id: section.id %}
+        </div>
+      {% endfor %}  
+      {% else %}
+        {% for i in (1..4) %}
+      <div class="grid__item media media--portrait custom-border-radius-sm">
+        {{  'product-' | append: i | placeholder_svg_tag }}
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Custom Product List",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "default": "Featured Collection",
+      "id": "title_text",
+      "label": "Title text"
+    },
+    {
+      "type": "text",
+      "default": "See All Products",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Card Image",
+      "info": "Desktop Image Suggested Settings 1240*650"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Card Image (Mobile)",
+      "info": "Mobile Image Suggested Settings 450*450"
+    },
+    {
+      "type": "text",
+      "id": "card_badge_text",
+      "default": "Trendy Classics",
+      "label": "Card Badge Text"
+    },
+    {
+      "type": "text",
+      "id": "card_title_text",
+      "label": "Card Image Title",
+      "default": "exclusive Best & New Arrivals collection"
+    },
+    {
+      "type": "text",
+      "id": "card_button_text",
+      "default": "Shop Now",
+      "label": "Card Button Text"
+    },
+    {
+      "type": "url",
+      "id": "card_button_link",
+      "label": "Card Button Link"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Products"
+    },
+    {
+      "type": "checkbox",
+      "id": "layout_type",
+      "label": "Enable Slider",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Product List"
+    }
+  ]
+}
+{% endschema %}

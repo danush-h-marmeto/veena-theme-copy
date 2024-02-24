@@ -15,7 +15,5 @@
 }
 
 @media only screen and (max-width: 750px) {
-    .custom-product-list__header{
-        display: block;
-    }
+    
 }

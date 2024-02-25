@@ -40,7 +40,7 @@
                             </div>
 
                         {% else %}
-                            <div class="custom-image-grid__image-container media media--{{ block.settings.media_size }} custom-border-radius-sm">
+                            <div class="media media--{{ block.settings.media_size }} custom-border-radius-sm">
                                 {{ 'image' | placeholder_svg_tag }}
                             </div>
                         {% endif %}
@@ -71,12 +71,6 @@
                     </div>
                 {% endif %}
            {% endfor %}
-           {% else %}
-             {% for i in (1..2) %}
-          <div class="grid__item">
-            {{ 'detailed-apparel-1' | placeholder_svg_tag }}
-          </div>
-          {% endfor %}
           {% endif %}
         </div>
     </div>

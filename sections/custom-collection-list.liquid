@@ -51,7 +51,7 @@
           <div class="splide__track">
             <ul class="splide__list">
               {% for block in section.blocks %}
-                <li class="custom-collection-list__card splide__slide text-{{ section.settings.text_alignment }}">
+                <li class="custom-collection-list__card splide__slide">
                   {% if block.settings.image != blank %}
                     <div class="splide__image-wrapper">
                       {% render "responsive-picture", desktopImage: block.settings.image, class: 'media media--portrait custom-border-radius-sm' %}

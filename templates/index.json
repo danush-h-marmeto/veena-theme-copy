@@ -363,10 +363,7 @@
         "title_text": "Featured Collection",
         "button_text": "See All Products",
         "button_link": "",
-        "card_badge_text": "Trendy Classics",
-        "card_title_text": "exclusive Best & New Arrivals collection",
-        "card_button_text": "Shop Now",
-        "card_button_link": "",
+        "button_type": "secondary",
         "product_list": [
           "classic-baseball-hat",
           "cotton-style-bucket-hat",
@@ -377,7 +374,6 @@
           "travel-handy-hiking-zip-pouch",
           "womens-oversized-hoodie"
         ],
-        "layout_type": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -568,6 +564,22 @@
         "padding_bottom": 36
       }
     },
+    "custom_image_text_BaEDpV": {
+      "type": "custom-image-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/4_0d5cc573-820a-4e7b-8f22-af8438216522.webp",
+        "badge_text": "Introduce",
+        "title_text": "<p>We Believe in the Power of Fashion<\/p>",
+        "description_text": "<p>fashion emerges as the universal language that speaks volumes without words.<\/p>",
+        "button_text": "Shop Now",
+        "block_button_link": "",
+        "button_type": "primary",
+        "text_alignment": "center",
+        "text_position": "bottom-center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "testimonials_fwQF6R": {
       "type": "testimonials",
       "blocks": {
@@ -708,6 +720,7 @@
     "custom_usp_dCfdgh",
     "lookbook_ij4NnJ",
     "logo_list_i4kJCX",
+    "custom_image_text_BaEDpV",
     "testimonials_fwQF6R",
     "custom_blog_KKbd7f",
     "custom_questions_tWfaJg"

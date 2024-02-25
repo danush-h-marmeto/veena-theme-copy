@@ -139,16 +139,18 @@ ul.product-card__option {
     display: flex;
     gap: 5px;
 }
-
+.product-card-varients{
+  height: 40px;
+}
 span.product-card__swatch {
-    min-height: 24px;
-    min-width: 24px;
+    min-height: 5px;
+    min-width: 5px;
     display: flex;
     cursor: pointer;
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border: 1px solid lightgray;
+    border: 3px solid white;
     font-size: 0;
     background-repeat: no-repeat;
     background-position: 50%;

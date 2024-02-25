@@ -357,6 +357,31 @@
         "padding_bottom": 36
       }
     },
+    "custom_product_list_main_idwXCw": {
+      "type": "custom-product-list-main",
+      "settings": {
+        "title_text": "Featured Collection",
+        "button_text": "See All Products",
+        "button_link": "",
+        "card_badge_text": "Trendy Classics",
+        "card_title_text": "exclusive Best & New Arrivals collection",
+        "card_button_text": "Shop Now",
+        "card_button_link": "",
+        "product_list": [
+          "classic-baseball-hat",
+          "cotton-style-bucket-hat",
+          "full-sleeve-high-neck-t-shirt",
+          "long-casual-hooded-coat",
+          "men-winter-jacket",
+          "nylon-waist-bag",
+          "travel-handy-hiking-zip-pouch",
+          "womens-oversized-hoodie"
+        ],
+        "layout_type": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "custom_usp_dCfdgh": {
       "type": "custom-usp",
       "blocks": {
@@ -679,6 +704,7 @@
     "running_text_Eynba4",
     "custom_image_grid_XCXzNR",
     "custom_countdown_TC6ei7",
+    "custom_product_list_main_idwXCw",
     "custom_usp_dCfdgh",
     "lookbook_ij4NnJ",
     "logo_list_i4kJCX",

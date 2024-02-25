@@ -12,6 +12,10 @@
     grid-template-columns: 40% 60%;
     align-items: center;
 }
+.custom-timer__colon{
+    font-size: 20px;
+    
+}
 
 .custom-countdown__time-wrapper {
     display: flex;
@@ -89,7 +93,7 @@
     }
 }
 @media (max-width: 767px) {
-    .count_t {
+    .custom-countdown__wrapper{
         grid-template-columns: auto;
         gap: 15px;
     }
@@ -97,7 +101,7 @@
         justify-content: start;
     }
 }
-@media (min-width: 576px) and (max-width: 767px) {
+@media (min-width: 576px) and (max-width: 750px) {
     .custom-countdown__time-wrapper .custom-countdown__card {
         min-width: 100px;
         padding: 18px 0;
@@ -111,20 +115,17 @@
 }
 @media (max-width: 576px) {
     .custom-countdown__time-wrapper .custom-countdown__card {
-        min-width: 60px;
-        padding: 7px 0;
+       margin-top: 15px;
+    min-width: 60px;
+    padding: 13px 20px;
+    font-size: 20px;
     }
-    .custom-countdown__time-wrapper span .custom-countdown__time {
-        font-size: 20px;
-    }
+
     .custom-countdown__time-wrapper span {
-        font-size:  12px;
+        font-size:  16px;
         margin-top: 2px;
     }
     .custom-countdown__time-wrapper {
-        gap: 15px;
-    }
-    .custom-countdown__time-wrapper .custom-countdown__card:after {
-        right: -10px;
+        gap: 4px;
     }
 }

@@ -170,3 +170,21 @@ span.product-card__swatch {
 .product-card__colorswatch {
     border-radius: 50%;
 }
+.image-hover-swap .image-secondary-hidden {
+  display: none;
+}
+
+.image-hover-swap:hover .image-secondary-hidden {
+  display: block;
+}
+
+.image-hover-swap:hover .image-featured-hidden {
+  display: none;
+}
+.media--transparent {
+  background-color: transparent;
+}
+
+.media.media--hover-effect > img + img {
+  opacity: 0;
+}

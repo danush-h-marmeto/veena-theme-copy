@@ -6,41 +6,11 @@
   border: 0.1rem solid rgba(var(--color-foreground), 0.2);
   aspect-ratio: 1/1;
 }
-.filter-color-container{
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-span.filter__swatch {
-    min-height: 30px;
-    min-width: 30px;
-    font-size: 10px;
-    display: flex;
-    margin-right: 10px;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    border: 1px solid lightgray;
-}
-.filter__colorswatch {
-    border-radius: 50%;
-}
-.filter-color-container :hover{
-  
-}
+
 .visual-display.empty {
   border-style: dashed;
 }
-.facet-checkbox {
-    padding: 8px 0;
-    flex-grow: 1;
-    position: relative;
-    display: flex;
-    align-items: center;
-    word-break: break-word;
-    margin: 0;
-    font-size: calc(var(--font-body-scale) * 14px);
-}
+
 .visual-display--presentation-swatch {
   --visual-display__size: min(2.4rem, 100%);
 
@@ -56,7 +26,8 @@ span.filter__swatch {
 :is(
     .visual-display-parent:hover .visual-display--presentation-swatch,
     .visual-display-parent.active .visual-display--presentation-swatch,
-    .visual-display-parent:has(:focus-visible) .visual-display--presentation-swatch
+    .visual-display-parent:has(:focus-visible)
+      .visual-display--presentation-swatch
   ) {
   outline-style: solid;
 }
@@ -74,10 +45,12 @@ span.filter__swatch {
 }
 
 /* Focus state */
-.visual-display-parent:has(:focus-visible) .visual-display--presentation-swatch {
+.visual-display-parent:has(:focus-visible)
+  .visual-display--presentation-swatch {
   outline-width: 0.2rem;
   outline-color: rgb(var(--color-foreground), 0.4);
-  box-shadow: 0 0 0 0.6rem rgb(var(--color-background)), 0 0 0 0.8rem rgba(var(--color-foreground), 0.5),
+  box-shadow: 0 0 0 0.6rem rgb(var(--color-background)),
+    0 0 0 0.8rem rgba(var(--color-foreground), 0.5),
     0 0 1.2rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
 
@@ -86,7 +59,8 @@ span.filter__swatch {
   .visual-display-parent:focus-within .visual-display--presentation-swatch {
     outline-offset: 0.2rem;
     outline: 0.2rem solid rgb(var(--color-foreground), 0.4);
-    box-shadow: 0 0 0 0.6rem rgb(var(--color-background)), 0 0 0 0.8rem rgba(var(--color-foreground), 0.5),
+    box-shadow: 0 0 0 0.6rem rgb(var(--color-background)),
+      0 0 0 0.8rem rgba(var(--color-foreground), 0.5),
       0 0 1.2rem 0.4rem rgba(var(--color-foreground), 0.3);
   }
 }
@@ -99,7 +73,7 @@ span.filter__swatch {
 /* Used to display the disabled dash */
 .visual-display-parent.disabled .visual-display::after {
   display: block;
-  content: '';
+  content: "";
 
   /* 1.414 is not a magic number, it's the square root of 2, or the length of the diagonal */
   width: calc(var(--visual-display__size) * 1.414);
@@ -117,4 +91,37 @@ span.filter__swatch {
 
 .visual-display--presentation-swatch .visual-display__image {
   object-fit: cover;
+}
+
+.facets__custom-checkbox {
+  border-radius: 50%;
+}
+
+summary a {
+  color: red;
+  text-decoration: none;
+  color: gray;
+  font-size: 20px;
+}
+.nav-menu {
+  /* min-height: 260px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30rem;
+}
+.nav-menu > details > summary {
+  background-color: #f5f5f5;
+  border-radius: 13px;
+  padding: 5px 25px 5px 15px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.menu-border[open] {
+  border-radius: 13px;
+  margin-bottom: 10px;
+}
+.sub-link-summary {
+  padding-left: 15px;
 }

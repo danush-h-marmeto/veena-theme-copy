@@ -8,20 +8,28 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "Qualify for complimentary shipping on orders totaling $50 or more.",
+            "link": ""
+          }
+        },
+        "announcement_fH4d6L": {
+          "type": "announcement",
+          "settings": {
+            "text": "Flash Sale Alert: Save Big for the Next 24 Hours!",
             "link": ""
           }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_fH4d6L"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-ccce06c7-8ace-4d8f-9abd-cfefb7d93821",
         "show_line_separator": true,
         "show_social": false,
         "auto_rotate": false,
-        "change_slides_speed": 5,
+        "change_slides_speed": 10,
         "enable_country_selector": false,
         "enable_language_selector": false
       }
@@ -30,8 +38,8 @@
       "type": "header",
       "settings": {
         "logo_position": "middle-center",
-        "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
+        "menu": "side-menu",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",

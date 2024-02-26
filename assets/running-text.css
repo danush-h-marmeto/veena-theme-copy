@@ -21,7 +21,7 @@
 .scrolling-banner__scrolling-items-wrapper {
   display: flex;
   white-space: nowrap;
-  animation: scroll-left 10s linear infinite;
+  animation: scroll-left 40s linear infinite;
 }
 
 .scrolling-banner__scrolling-item {
@@ -33,10 +33,10 @@
 
 @keyframes scroll-left {
   0% {
-    transform: translateX(0%);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-220%);
   }
 }
 

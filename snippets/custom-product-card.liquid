@@ -17,11 +17,15 @@
 
 <product-card class="product-card" data-product-handle="{{ product.url |  within: collection }}" data-section-id="{{ section_id }}">
   <a href="{{ product.url }}">
-    <div class="image-hover-swap">
-        {% render 'responsive-picture' desktopImage:featured_image, class: "media media--portrait custom-border-radius-sm media--transparent media--hover-effect image-featured-hidden" %}
-        {% render 'responsive-picture' desktopImage:secondary_image, class: "media media--portrait custom-border-radius-sm media--transparent media--hover-effect image-secondary-hidden" %}
+  <div class="product-card__image custom-border-radius">
+      {% render 'responsive-picture',
+        desktopImage: featured_image,
+        class: 'media media--portrait'
+      %}
+      <div class="product-card__secondary-image">
+        {% render "responsive-picture", desktopImage: secondary_image, class:"media media--portrait" %}
       </div>
-
+    </div>
     
   </a>
 

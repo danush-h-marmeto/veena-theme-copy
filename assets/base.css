@@ -3511,6 +3511,7 @@ details-disclosure > details {
   .change-button {
     display: flex;
     justify-content: center;
+    cursor: pointer;
   }
   .custom-grid-change-container {
     display: flex;

@@ -223,6 +223,13 @@ class QuantityInput extends HTMLElement {
       const buttonPlus = this.querySelector(".quantity__button[name='plus']");
       buttonPlus.classList.toggle("disabled", value >= max);
     }
+    const addButtonText = document.querySelector('[name="add"] > span');
+    const price = document.getElementById(`price-${this.dataset.section}`);
+    const currentPrice = price.querySelector(".price-item").textContent;
+    const finalPrice =
+      value *
+      parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
+    addButtonText.textContent = window.variantStrings.addToCart + " Rs. " + finalPrice;
   }
 }
 

@@ -3965,12 +3965,12 @@ input[type="radio"]:checked + label {
 .payment__options {
   display: flex;
   padding: 0;
-  flex-wrap: wrap;
 }
 .payment__options li {
   list-style: none;
 }
 .payment-option__wrapper span {
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;

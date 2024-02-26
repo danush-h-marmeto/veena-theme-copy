@@ -74,7 +74,7 @@
                   </summary>
                     {% for sub_sub_link in sub_link.links %}
                       <details>
-                        <summary>{{ sub_sub_link.title |  link_to: sub_sub_link.url }}
+                        <summary class="sub-sub-link">{{ sub_sub_link.title |  link_to: sub_sub_link.url }}
                         {% if sub_sub_link.links.size > 0 %}
                           <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
@@ -760,8 +760,8 @@
                   {% endif %}
                 </summary>
                 {% for sub_link in link.links %}
-                  <details class="sub-sub-link" >
-                    <summary>{{ sub_link.title | link_to: sub_link.url}}
+                  <details >
+                    <summary class="sub-sub-link" >{{ sub_link.title | link_to: sub_link.url}}
                     {% if sub_link.links.size > 0 %}
                       <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
@@ -769,8 +769,8 @@
                       {% endif %}
                   </summary>
                     {% for sub_sub_link in sub_link.links %}
-                      <details class="sub-sub-link">
-                        <summary>{{ sub_sub_link.title |  link_to: sub_sub_link.url }}
+                      <details >
+                        <summary class="sub-sub-link">{{ sub_sub_link.title |  link_to: sub_sub_link.url }}
                         {% if sub_sub_link.links.size > 0 %}
                           <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>

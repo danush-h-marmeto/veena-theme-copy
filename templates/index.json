@@ -13,8 +13,7 @@
             "block_button_link": "",
             "button_type": "primary",
             "text_alignment": "center",
-            "vertical_alignment": "center",
-            "horizantal_alignment": "center"
+            "content_position": "middle-center"
           }
         },
         "slider_elements_gJbfeh": {
@@ -27,8 +26,7 @@
             "block_button_link": "",
             "button_type": "primary",
             "text_alignment": "start",
-            "vertical_alignment": "center",
-            "horizantal_alignment": "start"
+            "content_position": "middle-left"
           }
         },
         "slider_elements_JqF6G7": {
@@ -41,8 +39,7 @@
             "block_button_link": "",
             "button_type": "primary",
             "text_alignment": "center",
-            "vertical_alignment": "center",
-            "horizantal_alignment": "start"
+            "content_position": "middle-left"
           }
         }
       },
@@ -52,9 +49,9 @@
         "slider_elements_JqF6G7"
       ],
       "settings": {
-        "autoplay": true,
+        "autoplay": false,
         "show_pagination": true,
-        "autoplay_duration": 3000,
+        "autoplay_duration": 1000,
         "padding_top": 0,
         "padding_bottom": 0
       }

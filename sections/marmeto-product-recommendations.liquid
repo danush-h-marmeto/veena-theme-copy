@@ -3,17 +3,19 @@
 
   {%- if recommendations.performed -%}
     {%- if recommendations.products_count > 0 -%}
-      <div class="mm-recommendations__inner">
+      <div class="mm-recommendations__inner page-width">
         {%- if section.settings.title != blank -%}
           <h2 class="mm-recommendations__title">
             {{ section.settings.title | escape }}
           </h2>      
         {%- endif -%}
         
-        <div class="mm-recommendations__products grid grid--1-col grid--4-col-desktop">
+        <div class="mm-recommendations__products grid grid--2-col grid--4-col-desktop">
           {%- for product in recommendations.products -%}
-            {%- render 'marmeto-product-item', product: product -%}
-          {%- endfor -%}
+            <div class="grid__item">
+              {%- render 'custom-product-card', product: product, section_id: section.id -%}
+              </div>
+            {%- endfor -%}
         </div>
       </div>
     {%- endif -%}

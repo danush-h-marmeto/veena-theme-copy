@@ -47,7 +47,7 @@
                         <div class="custom-image-grid__text content-{{ block.settings.text_position }} ">
                         <div class="custom-image-grid__text-wrapper text-{{ block.settings.text_alignment  }}">
                           {% if block.settings.tagline_text  != blank %}
-                                    <ul class="bnr_caption out-text-secondary">
+                                    <ul class="custom-image-grid__label bnr_caption out-text-secondary">
                                         <li>{{ block.settings.tagline_text }}</li>
                                     </ul>
                                 {% endif %}
@@ -55,7 +55,7 @@
                                     <h3 class="h1 hl richtext custom-image-grid__heading custom-image-grid__heading-{{ block.id }} "> {{ block.settings.heading_text }}</h3>
                                 {% endif %}
                                 {% if block.settings.button_label != blank %}
-                                    <a class="custom-button-{{ block.settings.button_type }}" href="{{ block.settings.button_link }}">
+                                    <a class="custom-image-grid__button custom-button-{{ block.settings.button_type }}" href="{{ block.settings.button_link }}">
                                         {{ block.settings.button_label }}
                                     </a>
                                 {% endif %}

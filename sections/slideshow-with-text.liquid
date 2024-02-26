@@ -12,15 +12,7 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
    }
-   {% for block in section.blocks %}
-      .slideshow-with-text__textContent-inner-{{block.id}}{
-          text-align: {{ block.settings.text_alignment }};
-      }
-    .slideshow-with-text__textContent-{{ block.id }}{
-        justify-content: {{ block.settings.horizantal_alignment }};
-        align-items:  {{ block.settings.vertical_alignment }};
-    }
-    {% endfor %}
+  
 {% endstyle %}
 
 {% capture sliderSettings %}
@@ -41,6 +33,7 @@
       <section class="splide" data-slider-settings='{{ sliderSettings }}' aria-label="Slide Show Content">
         <div class="splide__track custom-border-radius">
           <ul class="splide__list">
+            {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
               <li class="splide__slide">
                 <div class="splide__wrapper-image">
@@ -51,8 +44,8 @@
                     %}
                   {%- endif -%}
                 </div>
-                <div class="slideshow-with-text__textContent slideshow-with-text__textContent-{{ block.id }}">
-                  <div class="slideshow-with-text__textContent-inner slideshow-with-text__textContent-inner-{{ block.id }}">
+                <div class="slideshow-with-text__textContent content-{{ block.settings.content_position }}">
+                  <div class="slideshow-with-text__textContent-inner text-{{ block.settings.text_alignment }}">
                     {% if block.settings.block_badge_text != blank %}
                       <ul class="bnr_caption inline-richtext out-text ">
                         <li>{{ block.settings.block_badge_text }}</li>
@@ -79,6 +72,7 @@
                 </li>
               {% endfor %}
             {% endfor %}
+          {% endif %}
           </ul>
         </div>
       </section>
@@ -227,46 +221,51 @@
         "default": "center"
         },
 
+       
+   {
+      "type": "select",
+      "id": "content_position",
+      "label": "Content Position",
+      "default": "middle-center",
+      "options": [
         {
-        "type": "select",
-        "id": "vertical_alignment",
-        "label": "Vertical alignment",
-        "options": [
-            {
-            "value": "start",
-            "label": "Top"
-            },
-            {
-            "value": "center",
-            "label": "Center"
-            },
-            {
-            "value": "end",
-            "label": "End"
-            }
-        ],
-        "default": "center"
+          "value": "top-left",
+          "label": "Top Left"
         },
         {
-        "type": "select",
-        "id": "horizantal_alignment",
-        "label": "Horizantal alignment",
-        "options": [
-            {
-            "value": "start",
-            "label": "Left"
-            },
-            {
-            "value": "center",
-            "label": "Center"
-            },
-            {
-            "value": "end",
-            "label": "Right"
-            }
-        ],
-        "default": "center"
+          "value": "top-center",
+          "label": "Top Center"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "middle-left",
+          "label": "Middle Left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle Center"
+        },
+        {
+          "value": "middle-right",
+          "label": "Middle Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom Center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
         }
+      ]
+    }
       ]
     }
   ],

@@ -2,16 +2,10 @@
   position: relative;
 }
 .slideshow-with-text__textContent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px 35px;
-  height: 100%;
-  width: 100%;
-  display: flex;
+  padding: 35px;
 }
 .slideshow-with-text__textContent-inner {
-  width: 50%;
+  width: 100%;
 }
 .slideshow-with-text__title p {
   margin: 0;
@@ -91,9 +85,13 @@
 @media only screen and (max-width: 750px) {
   .slideshow-with-text__title {
     font-size: 26px;
+    margin: 0;
   }
-  .slideshow-with-text__textContent-inner {
+  .slideshow-with-text__textContent {
     width: 100%;
+    top: 50%;
+    right: 0;
+
   }
   .splide__wrapper-image {
     position: relative;

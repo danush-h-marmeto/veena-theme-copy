@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.custom-image-grid__image-container{
+.custom-image-grid__image-container {
   background: none;
 }
 .custom-image-grid__image-container img {
@@ -19,14 +19,22 @@
   display: flex;
   padding: 30px;
   position: absolute;
- width: 100%;
+  width: 100%;
 }
 .custom-image-grid__heading {
   margin-bottom: 20px;
 }
 
- @media (max-width: 750px) {
-      .custom-image-grid__heading {
-  margin-bottom: 5px;
+@media (max-width: 750px) {
+  .custom-image-grid__heading {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .custom-image-grid__button{
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .custom-image-grid__label{
+    font-size: 12px;
+  }
 }
-    }

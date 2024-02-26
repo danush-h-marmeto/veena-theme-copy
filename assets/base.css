@@ -3865,35 +3865,14 @@ input[type="radio"]:checked + label {
   margin: 1px;
 }
 
-.flex-end {
-  align-items: flex-end;
-}
-.flex-start {
-  align-items: flex-start;
-}
-.align-center {
-  align-items: center;
-}
-.justify-center {
-  justify-content: center;
-}
-.justify-start {
-  justify-content: flex-start;
-}
 
-.justify-center {
-  justify-content: center;
-}
-.justify-end {
-  justify-content: flex-end;
-}
 /* Center */
 
 /* Top Left */
 .content-top-left {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0%;
+  right: 50%;
 }
 
 /* Top Center */
@@ -3908,14 +3887,14 @@ input[type="radio"]:checked + label {
 .content-top-right {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 50%;
 }
 
 /* Middle Left */
 .content-middle-left {
   position: absolute;
   top: 50%;
-  left: 0;
+  right: 50%;
   transform: translateY(-50%);
 }
 
@@ -3931,7 +3910,7 @@ input[type="radio"]:checked + label {
 .content-middle-right {
   position: absolute;
   top: 50%;
-  right: 0;
+  left: 50%;
   transform: translateY(-50%);
 }
 
@@ -3939,7 +3918,7 @@ input[type="radio"]:checked + label {
 .content-bottom-left {
   position: absolute;
   bottom: 0;
-  left: 0;
+  right: 50%;
 }
 
 /* Bottom Center */
@@ -3954,7 +3933,7 @@ input[type="radio"]:checked + label {
 .content-bottom-right {
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 50%;
 }
 .list-menu--inline {
   font-weight: 600;
@@ -4011,4 +3990,10 @@ input[type="radio"]:checked + label {
 .scroll-line-animation a:hover::before {
   transform-origin: left;
   transform: scaleX(1);
+}
+.mm-recommendations__products{
+display: flex;
+}
+.product-card{
+  width: 100%;
 }

@@ -154,13 +154,7 @@
     align-items: center;
   }
 
-  .section-collection__button {
-    font-size: 14px;
-    min-width: calc(10rem + 2);
-    min-height: calc(3.2rem + 2);
-    padding: 5px 8px;
-    text-align: center;
-  }
+  
 
   .product-list-two__sidebar-button {
   padding: 16px 30px;

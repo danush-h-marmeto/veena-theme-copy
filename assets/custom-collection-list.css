@@ -129,8 +129,20 @@
     font-size: 24px;
     letter-spacing: 0.3px;
     line-height: 31.2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 15px;
   }
+  .section-collection__button {
+    font-size: 14px;
+    min-width: 12rem;
+    padding: 5px 8px;
+    text-align: center;
+  }
+  .custom-collection-list__header {
+  display: flex;
+    flex-wrap: wrap;
+}
+.custom-collection-list .splide__arrow--next{
+   width: 34px;
+  height: 34px;
+}
 }

@@ -5,7 +5,7 @@ function getFocusableElements(container) {
     )
   );
 }
-
+document.querySelector(".quantity__input").innerHTML;
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.setAttribute("role", "button");
@@ -223,13 +223,6 @@ class QuantityInput extends HTMLElement {
       const buttonPlus = this.querySelector(".quantity__button[name='plus']");
       buttonPlus.classList.toggle("disabled", value >= max);
     }
-    const addButtonText = document.querySelector('[name="add"] > span');
-    const price = document.getElementById(`price-${this.dataset.section}`);
-    const currentPrice = price.querySelector(".price-item").textContent;
-    const finalPrice =
-      value *
-      parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
-    addButtonText.textContent = window.variantStrings.addToCart + " Rs. " + finalPrice;
   }
 }
 
@@ -1447,12 +1440,9 @@ class VariantSelects extends HTMLElement {
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
 
-      const qntity = document.querySelector(".quantity__input").innerHTML;
-    
-
     const price = document.getElementById(`price-${this.dataset.section}`);
     const currentPrice = price.querySelector(".price-item").textContent;
-const totalPrice = parseInt(currentPrice * qntity);
+
     if (!addButton) return;
 
     if (disable) {

@@ -760,7 +760,7 @@
                   {% endif %}
                 </summary>
                 {% for sub_link in link.links %}
-                  <details >
+                  <details class="sub-sub-link" >
                     <summary>{{ sub_link.title | link_to: sub_link.url}}
                     {% if sub_link.links.size > 0 %}
                       <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
@@ -769,7 +769,7 @@
                       {% endif %}
                   </summary>
                     {% for sub_sub_link in sub_link.links %}
-                      <details>
+                      <details class="sub-sub-link">
                         <summary>{{ sub_sub_link.title |  link_to: sub_sub_link.url }}
                         {% if sub_sub_link.links.size > 0 %}
                           <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
@@ -785,56 +785,6 @@
             {% endfor %}
           </div>
 
-              {% comment %}
-                <ul>
-                  {%- for link in linklists['sidebar-menu'].links -%}
-                    <li>
-                      <a
-                        href="{{ link.url }}"
-                        {% if link.active %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ link.title }}
-                      </a>
-
-                      {%- if link.links != blank -%}
-                        <ul>
-                          {%- for child_link in link.links -%}
-                            <li>
-                              <a
-                                href="{{ child_link.url }}"
-                                {% if child_link.active %}
-                                  aria-current="page"
-                                {% endif %}
-                              >
-                                {{ child_link.title }}
-                              </a>
-
-                              {%- if child_link.links != blank -%}
-                                <ul>
-                                  {%- for grandchild_link in child_link.links -%}
-                                    <li>
-                                      <a
-                                        href="{{ grandchild_link.url }}"
-                                        {% if grandchild_link.active %}
-                                          aria-current="page"
-                                        {% endif %}
-                                      >
-                                        {{ grandchild_link.title }}
-                                      </a>
-                                    </li>
-                                  {%- endfor -%}
-                                </ul>
-                              {%- endif -%}
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      {%- endif -%}
-                    </li>
-                  {%- endfor -%}
-                </ul>
-                {% endcomment %}
                 
               {%- if enable_filtering -%}
                 {%- for filter in results.filters -%}

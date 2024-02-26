@@ -700,7 +700,7 @@
         "section_title": "<p>FAQ<\/p>",
         "section_description": "Ensure that your FAQs are regularly updated based on common customer queries and changes in your business operations.",
         "padding_top": 16,
-        "padding_bottom": 16
+        "padding_bottom": 1
       }
     }
   },

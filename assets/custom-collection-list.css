@@ -145,4 +145,8 @@
    width: 34px;
   height: 34px;
 }
+.custom-collection-list .splide__arrow--prev{
+   width: 34px;
+  height: 34px;
+}
 }

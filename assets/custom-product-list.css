@@ -1,6 +1,7 @@
 .custom-product-list__header{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
 }
 .product-card__title{

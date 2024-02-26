@@ -127,7 +127,7 @@
   .product-list-two__wrapper {
     display: flex;
     flex-direction: column;
-    height: 80vh; 
+    height: 600px; 
   }
 
   .product-list-two__sidebar {

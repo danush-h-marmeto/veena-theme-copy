@@ -1,7 +1,6 @@
 {{ 'custom-countdown.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'custom-countdown.js' |  asset_url  }}" defer></script>
 {% style %}
-  /* Add your custom styles here */
   .padding-{{ section.id }} {
     padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
     padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;

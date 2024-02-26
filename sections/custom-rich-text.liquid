@@ -18,10 +18,6 @@
   .custom-richtext__text{
     color: {{ section.settings.heading_text_color }}
   }
-  .custom-richtext__button{
-    color: {{ section.settings.button_color }};
-    background :{{ section.settings.button_background }}
-  }
 {% endstyle %}
 
 <div class="custom-richtext padding-{{ section.id }}">
@@ -30,7 +26,7 @@
             <p class="custom-richtext__pre-heading" >{{ section.settings.pre_heading }}</p>
         {% endif %}
          {% if section.settings.heading_text != blank %}
-            <div class="hxl richtext h1 custom-richtext__heading">
+            <div class="hxl richtext h1 scroll-line-animation custom-richtext__heading">
               {{ section.settings.heading_text }}
             </div>
          {% endif %}

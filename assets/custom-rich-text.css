@@ -15,21 +15,6 @@
   position: relative;
 }
 
-.custom-richtext__heading a::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(to right, transparent 50%, #d03c3f 50%);
-  background-size: 200% 100%;
-  transition: background-position 0.3s ease-in-out;
-}
-
-.custom-richtext__heading a:hover::before {
-  background-position: -100% 0;
-}
 .custom-richtext__button:hover {
   background-position: -100% 0;
   background-image: linear-gradient(to right, transparent 50%, black 50%);

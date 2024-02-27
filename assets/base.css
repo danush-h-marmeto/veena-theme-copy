@@ -3514,6 +3514,7 @@ details-disclosure > details {
   details.menu-border[open] {
     border: 1px solid rgba(var(--color-foreground),.04);
     overflow: hidden;
+    transition: height .3s ease-out;
     border-radius: 13px;
 }
   .change-button {
@@ -3949,9 +3950,7 @@ color: red;
 .list-menu--inline {
   font-weight: 600;
 }
-.icon {
-  width: 3.125em;
-}
+
 .payment__options {
   display: flex;
   padding: 0;

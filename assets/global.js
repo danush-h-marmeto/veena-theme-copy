@@ -5,7 +5,7 @@ function getFocusableElements(container) {
     )
   );
 }
-document.querySelector(".quantity__input").innerHTML;
+
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.setAttribute("role", "button");
@@ -1321,10 +1321,11 @@ class VariantSelects extends HTMLElement {
         if (this.currentVariant.id !== requestedVariantId) return;
 
         const html = new DOMParser().parseFromString(responseText, "text/html");
+        document.querySelector('#custom-atk').dataset.id = html.querySelector('#custom-atk').dataset.id
+
 
         document.querySelector("#meta-product__description").innerHTML =
           html.querySelector("#meta-product__description").innerHTML;
-
         const destination = document.getElementById(
           `price-${this.dataset.section}`
         );
@@ -1460,7 +1461,7 @@ class VariantSelects extends HTMLElement {
     } else {
       addButton.removeAttribute("disabled");
       addButtonText.textContent =
-        window.variantStrings.addToCart + " " + currentPrice;
+        window.variantStrings.addToCart;
     }
 
     if (!modifyClass) return;
@@ -1555,3 +1556,37 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define("product-recommendations", ProductRecommendations);
+
+const btn = document.getElementById('custom-atk');
+
+btn.addEventListener('click',()=>{
+
+  let formData = {
+    items: [
+      {
+        id: btn.dataset.id,
+        quantity: btn.dataset.qnty,
+        properties: {
+          "First name": "Danush",
+          "_Last Name": "Hari"
+        },
+      },
+    ],
+  };
+
+  fetch("/cart/add.js", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((response) => {
+      console.log(response)
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+})

@@ -176,6 +176,7 @@
                   {%- endif -%}
                 {%- endif -%}
               </p>
+          
               
             {%- when 'description' -%}
               {%- if product.description != blank and product.selected_or_first_available_variant.metafields.custom.variant_description != blank -%}
@@ -415,7 +416,10 @@
 
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-            {%- when 'buy_buttons' -%}
+              {%- when 'buy_buttons' -%}
+              <buttton class="button" id="custom-atk" data-id='{{ product.selected_or_first_available_variant.id }}' data-qnty ="2" >
+                Add to Cart
+             </buttton>
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
         
 

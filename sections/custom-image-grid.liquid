@@ -22,56 +22,53 @@
   {% endfor %}
 {% endstyle %}
 
-
 <div class="custom-image-grid padding-{{ section.id }}">
     <div class="page-width">
         <div class="grid grid--1-col grid--2-col-desktop">
-          {% if section.blocks.size > 0  %}
-           {% for block in section.blocks %}
+            {% if section.blocks.size > 0  %}
+            {% for block in section.blocks %}
+            {% if block.settings.image != blank %}
+            <div class="grid__item custom-image-grid__wrapper">
                 {% if block.settings.image != blank %}
-                    <div class="grid__item custom-image-grid__wrapper">
-                        {% if block.settings.image != blank %}
-                            <div class="custom-image-grid__image-container media media--{{ block.settings.media_size }}">
-                                {% render 'responsive-picture',
-                                    class: 'media media--{{ block.settings.media_size }} custom-border-radius-sm custom-image-grid__image',
-                                    desktopImage: block.settings.image,
-                                    mobileImage: block.settings.mobile_image
-                                %}
-                            </div>
-
-                        {% else %}
-                            <div class="media media--{{ block.settings.media_size }} custom-border-radius-sm">
-                                {{ 'image' | placeholder_svg_tag }}
-                            </div>
-                        {% endif %}
-                        <div class="custom-image-grid__text content-{{ block.settings.text_position }} ">
-                        <div class="custom-image-grid__text-wrapper text-{{ block.settings.text_alignment  }}">
-                          {% if block.settings.tagline_text  != blank %}
-                                    <ul class="custom-image-grid__label bnr_caption out-text-secondary">
-                                        <li>{{ block.settings.tagline_text }}</li>
-                                    </ul>
-                                {% endif %}
-                                {% if block.settings.heading_text != blank %}
-                                    <h3 class="h1 hl richtext custom-image-grid__heading custom-image-grid__heading-{{ block.id }} "> {{ block.settings.heading_text }}</h3>
-                                {% endif %}
-                                {% if block.settings.button_label != blank %}
-                                    <a class="custom-image-grid__button custom-button-{{ block.settings.button_type }}" href="{{ block.settings.button_link }}">
-                                        {{ block.settings.button_label }}
-                                    </a>
-                                {% endif %}
-                        </div>      
-                          
-                      </div>
-                        </div>
+                <div class="custom-image-grid__image-container media media--{{ block.settings.media_size }}">
+                    {% render 'responsive-picture',
+                    class: 'media media--{{ block.settings.media_size }} custom-border-radius-sm custom-image-grid__image',
+                    desktopImage: block.settings.image,
+                    mobileImage: block.settings.mobile_image
+                    %}
+                </div>
                 {% else %}
-                    <div class="grid__item custom-border-radius custom-image-grid__wrapper">
-                        <div class="custom-image-grid__image-container">
-                            {{ 'image' | placeholder_svg_tag }}
-                        </div>
-                    </div>
+                <div class="media media--{{ block.settings.media_size }} custom-border-radius-sm">
+                    {{ 'image' | placeholder_svg_tag }}
+                </div>
                 {% endif %}
-           {% endfor %}
-          {% endif %}
+                <div class="custom-image-grid__text content-{{ block.settings.text_position }} ">
+                    <div class="custom-image-grid__text-wrapper text-{{ block.settings.text_alignment  }}">
+                        {% if block.settings.tagline_text  != blank %}
+                        <ul class="custom-image-grid__label bnr_caption out-text-secondary">
+                            <li>{{ block.settings.tagline_text }}</li>
+                        </ul>
+                        {% endif %}
+                        {% if block.settings.heading_text != blank %}
+                        <h3 class="h1 hl richtext custom-image-grid__heading custom-image-grid__heading-{{ block.id }} "> {{ block.settings.heading_text }}</h3>
+                        {% endif %}
+                        {% if block.settings.button_label != blank %}
+                        <a class="custom-image-grid__button custom-button-{{ block.settings.button_type }}" href="{{ block.settings.button_link }}">
+                        {{ block.settings.button_label }}
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="grid__item custom-border-radius custom-image-grid__wrapper">
+                <div class="custom-image-grid__image-container">
+                    {{ 'image' | placeholder_svg_tag }}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>
@@ -121,28 +118,28 @@
           "label": "Image (Mobile)",
           "info": "Mobile Image Suggested Size 450*450"
         },
-         {
-        "type": "header",
-        "content": "Modify Media Sizes"
-      },
-      {
-        "type": "select",
-        "id": "media_size",
-        "label": "Choose Media Sizes",
-        "default": "portrait",
-        "info": "Choose Between the Customized Media Sizes",
-        "options": [
+        {
+          "type": "header",
+          "content": "Modify Media Sizes"
+        },
+        {
+          "type": "select",
+          "id": "media_size",
+          "label": "Choose Media Sizes",
+          "default": "portrait",
+          "info": "Choose Between the Customized Media Sizes",
+          "options": [
             {
-            "value": "square",
-            "label": "Square"
+              "value": "square",
+              "label": "Square"
             },
             {
-            "value": "landscape",
-            "label": "Landscape"
+              "value": "landscape",
+              "label": "Landscape"
             },
             {
-            "value": "portrait",
-            "label": "Portrait"
+              "value": "portrait",
+              "label": "Portrait"
             }
           ]
         },
@@ -188,64 +185,64 @@
           "info": "Choose Between the Customized Buttons to Style the Button",
           "options": [
             {
-            "value": "primary",
-            "label": "Primary"
+              "value": "primary",
+              "label": "Primary"
             },
             {
-            "value": "secondary",
-            "label": "Secondary"
+              "value": "secondary",
+              "label": "Secondary"
             },
             {
-            "value": "secondary_color",
-            "label": "Tertiary"
+              "value": "secondary_color",
+              "label": "Tertiary"
             }
           ]
         },
-         {
-      "type": "select",
-      "id": "text_position",
-      "label": "Text Position",
-      "default": "middle-center",
-      "options": [
         {
-          "value": "top-left",
-          "label": "Top Left"
+          "type": "select",
+          "id": "text_position",
+          "label": "Text Position",
+          "default": "middle-center",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top Left"
+            },
+            {
+              "value": "top-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "top-right",
+              "label": "Top Right"
+            },
+            {
+              "value": "middle-left",
+              "label": "Middle Left"
+            },
+            {
+              "value": "middle-center",
+              "label": "Middle Center"
+            },
+            {
+              "value": "middle-right",
+              "label": "Middle Right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bottom-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom Right"
+            }
+          ]
         },
         {
-          "value": "top-center",
-          "label": "Top Center"
-        },
-        {
-          "value": "top-right",
-          "label": "Top Right"
-        },
-        {
-          "value": "middle-left",
-          "label": "Middle Left"
-        },
-        {
-          "value": "middle-center",
-          "label": "Middle Center"
-        },
-        {
-          "value": "middle-right",
-          "label": "Middle Right"
-        },
-        {
-          "value": "bottom-left",
-          "label": "Bottom Left"
-        },
-        {
-          "value": "bottom-center",
-          "label": "Bottom Center"
-        },
-        {
-          "value": "bottom-right",
-          "label": "Bottom Right"
-        }
-      ]
-    },
-          {
           "type": "select",
           "id": "text_alignment",
           "label": "Text Alignment",

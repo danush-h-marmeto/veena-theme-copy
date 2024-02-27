@@ -14,32 +14,31 @@
 {% endstyle %} 
 
 <div class="custom-product-list padding-{{ section.id }}">
-  <div class="page-width">
-    <div class="custom-product-list__header">
-      {% if section.settings.title_text != blank %}
-        <h2 class="h1">{{ section.settings.title_text }}</h2>
-      {% endif %}
-      {% if section.settings.button_text != blank %}
-         <a href="{{ section.settings.button_link }}" class="section-collection__button custom-button-{{ section.settings.button_type }}">{{ section.settings.button_text }} </a>
-      {% endif %}
-
-    </div>
-  <div class="grid grid--4-col-desktop grid--2-col">
-    {% if section.settings.product_list != blank %}
-      {% for product in section.settings.product_list %} 
-        <div class="grid__item custom-product-card">
-           {% render 'custom-product-card', product: product, section_id: section.id %}
+    <div class="page-width">
+        <div class="custom-product-list__header">
+            {% if section.settings.title_text != blank %}
+            <h2 class="h1">{{ section.settings.title_text }}</h2>
+            {% endif %}
+            {% if section.settings.button_text != blank %}
+            <a href="{{ section.settings.button_link }}" class="section-collection__button custom-button-{{ section.settings.button_type }}">{{ section.settings.button_text }} </a>
+            {% endif %}
         </div>
-      {% endfor %}  
-      {% else %}
-        {% for i in (1..4) %}
-      <div class="grid__item media media--portrait custom-border-radius-sm">
-        {{  'product-' | append: i | placeholder_svg_tag }}
-      </div>
-      {% endfor %}
-    {% endif %}
-  </div>
-  </div>
+        <div class="grid grid--4-col-desktop grid--2-col">
+            {% if section.settings.product_list != blank %}
+            {% for product in section.settings.product_list %} 
+            <div class="grid__item custom-product-card">
+                {% render 'custom-product-card', product: product, section_id: section.id %}
+            </div>
+            {% endfor %}  
+            {% else %}
+            {% for i in (1..4) %}
+            <div class="grid__item media media--portrait custom-border-radius-sm">
+                {{  'product-' | append: i | placeholder_svg_tag }}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% schema %}
 {
@@ -63,27 +62,27 @@
       "id": "button_link",
       "label": "Button link"
     },
-     {
-          "type": "select",
-          "id": "button_type",
-          "label": "Choose Button Type",
-          "default": "secondary",
-          "info": "Choose Between the Customized Buttons to Style the Button",
-          "options": [
-            {
-            "value": "primary",
-            "label": "Primary"
-            },
-            {
-            "value": "secondary",
-            "label": "Secondary"
-            },
-            {
-            "value": "secondary_color",
-            "label": "Tertiary"
-            }
-          ]
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "Choose Button Type",
+      "default": "secondary",
+      "info": "Choose Between the Customized Buttons to Style the Button",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
         },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "secondary_color",
+          "label": "Tertiary"
+        }
+      ]
+    },
     {
       "type": "image_picker",
       "id": "image",

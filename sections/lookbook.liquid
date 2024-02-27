@@ -11,12 +11,12 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
    }
-{% for block in section.blocks %}
-.lookbookdot__position__one-{{ block.id }}{
+  {% for block in section.blocks %}
+  .lookbookdot__position__one-{{ block.id }}{
   top:{{ block.settings.top_position_one }}%;
   left: {{ block.settings.left_position_one }}%;
-}
-.lookbookdot__position__two-{{ block.id }}{
+  }
+  .lookbookdot__position__two-{{ block.id }}{
   top:{{ block.settings.top_position_two }}%;
   left: {{ block.settings.left_position_two }}%;
 }

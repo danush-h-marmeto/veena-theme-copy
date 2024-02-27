@@ -60,7 +60,6 @@
                             </details>   
                         {% endif %}
                     </div>
-
                 {% endfor %}
             </div>
 
@@ -68,87 +67,78 @@
     </div>
 </div> 
 
-
-
-
-
-
 {% schema %}
+ {
+  "name": "Custom faq",
+  "tag": "section",
+  "settings": [
     {
-        "name":"Custom faq",
-        "tag":"section",
-        "settings":[
-            {
-                "type": "color",
-                "id": "background_color",
-                "label": "Background color",
-                "default": "#f5f5f5"
-            },
-            {
-                "type": "richtext",
-                "id": "section_title",
-                "label": "Title",
-                "default":"<p>FAQ</p>"
-            },
-            {
-                "type": "text",
-                "id": "section_description",
-                "label": "Description",
-                "default": "Ensure that your FAQs are regularly updated based on common customer queries and changes in your business operations."
-            },
-            {
-                "type":"header",
-                "content":"Section padding"
-            },
-            {
-                "type": "range",
-                "id": "padding_top",
-                "min": 1,
-                "max": 100,
-                "step": 1,
-                "unit": "px",
-                "label": "Padding top",
-                "default": 16
-            },
-            {
-                "type": "range",
-                "id": "padding_bottom",
-                "min": 1,
-                "max": 100,
-                "step": 1,
-                "unit": "px",
-                "label": "Padding bottom",
-                "default": 16
-            }
-        ],
-        "blocks":[
-            {
-                "type":"faq-with-ans",
-                "name":"Faq",
-                "settings":[
-                    {
-                        "type": "text",
-                        "id": "block_heading",
-                        "label": "Question",
-                        "default":"How can I track my order ?"
-                    },
-                    {
-                        "type": "textarea",
-                        "id": "block_description",
-                        "label": "Description",
-                        "default": "Once your order has been processed and shipped, you will receive a confirmation email with a tracking number. You can use this tracking number to monitor the status and location of your package through our shipping carrier's website."
-                    }
-                ]
-            }
-        ],
-        "presets":[
-            {
-                "name":"Custom faq"
-            }
-        ]
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "richtext",
+      "id": "section_title",
+      "label": "Title",
+      "default": "<p>FAQ</p>"
+    },
+    {
+      "type": "text",
+      "id": "section_description",
+      "label": "Description",
+      "default": "Ensure that your FAQs are regularly updated based on common customer queries and changes in your business operations."
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 16
     }
-
-
-
-
+  ],
+  "blocks": [
+    {
+      "type": "faq-with-ans",
+      "name": "Faq",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_heading",
+          "label": "Question",
+          "default": "How can I track my order ?"
+        },
+        {
+          "type": "textarea",
+          "id": "block_description",
+          "label": "Description",
+          "default": "Once your order has been processed and shipped, you will receive a confirmation email with a tracking number. You can use this tracking number to monitor the status and location of your package through our shipping carrier's website."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom faq"
+    }
+  ]
+}
 {% endschema %}

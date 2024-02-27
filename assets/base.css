@@ -3511,6 +3511,11 @@ details-disclosure > details {
   .sub-sub-link {
     padding-left: 25px;
   }
+  details.menu-border[open] {
+    border: 1px solid rgba(var(--color-foreground),.04);
+    overflow: hidden;
+    border-radius: 13px;
+}
   .change-button {
     display: flex;
     justify-content: center;

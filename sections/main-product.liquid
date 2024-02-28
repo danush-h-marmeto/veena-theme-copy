@@ -414,12 +414,37 @@
                 share_link: share_url
               %}
 
-            {%- when 'variant_picker' -%}
-              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-              {%- when 'buy_buttons' -%}
-              <buttton class="button" id="custom-atk" data-id='{{ product.selected_or_first_available_variant.id }}' data-qnty ="2" >
+              {%- when 'variant_picker' -%}
+                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+                <label for="user-input">
+                User Additional Information
+                  <input id="user-input" type='text' class="input">
+                </label>
+                <br>
+              <custom-atc-button class="custom-button-secondary" id="custom-atc" data-id='{{ product.selected_or_first_available_variant.id }}' type="submit" >
                 Add to Cart
-             </buttton>
+             </custom-atc-button>
+
+
+           {%- when 'coupon_code' -%}
+            {%- if product.selected_or_first_available_variant.metafields.custom.coupon_code != blank -%}
+            <div class="coupon-container" style="background: {{ block.settings.coupon_bg_color }}">
+            <div class="coupon-container__inner">
+                <h2 class="coupon-container__inner-title">{{ block.settings.heading_text }}</h2>
+            <div class="coupon-container__inner-content">
+                <div id="coupon_code_text" class="coupon-dotted__text">
+                    {{ product.selected_or_first_available_variant.metafields.custom.coupon_code }}
+                </div>
+                <div id="coupon_code_copy" class="coupon-normal__text">
+                  copy code
+                  </div>
+                  </div>
+                    <div class="coupon-cut coupon-cut-one">s</div>
+                    <div class="coupon-cut coupon-cut-two">g</div>
+                  </div>
+                  </div>
+                {%- endif -%}
+              {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
         
 
@@ -744,6 +769,25 @@
       "name": "t:sections.main-product.blocks.price.name",
       "limit": 1
     },
+   {
+      "type": "coupon_code",
+      "name": "Coupon Code",
+      "limit": 1,
+      "settings": [
+          {
+            "type": "richtext",
+            "id": "heading_text",
+            "label": "Heading Text",
+            "default": "<p> Claim Coupon </p>"
+          },
+          {
+            "type": "color_background",
+            "id": "coupon_bg_color",
+            "label": "Coupon Background color",
+            "default": "#8e02c9"
+          }
+      ]
+    },
     {
       "type": "sku",
       "name": "t:sections.main-product.blocks.sku.name",
@@ -814,6 +858,7 @@
         }
       ]
     },
+    
     {
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
@@ -2396,6 +2441,7 @@
       "default": false,
       "label": "t:sections.main-product.settings.enable_video_looping.label"
     },
+    
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"

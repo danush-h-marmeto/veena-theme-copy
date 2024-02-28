@@ -33,6 +33,13 @@
           "settings": {
           }
         },
+        "coupon_code_YxGgEf": {
+          "type": "coupon_code",
+          "settings": {
+            "heading_text": "<p> Claim Coupon <\/p>",
+            "coupon_bg_color": "linear-gradient(228deg, rgba(21, 209, 252, 1) 14%, rgba(187, 48, 254, 1) 83%)"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -76,6 +83,7 @@
         "variant_picker",
         "inventory_W64TVq",
         "quantity_selector",
+        "coupon_code_YxGgEf",
         "buy_buttons",
         "description",
         "icon_with_text_7h8zF8",

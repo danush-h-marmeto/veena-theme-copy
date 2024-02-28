@@ -4007,3 +4007,55 @@ display: flex;
 .product-card{
   width: 100%;
 }
+
+.coupon-container__inner-title{
+  color: #ffffff;
+}
+.coupon-container__inner-content{
+  display:flex;
+}
+.coupon-dotted__text{
+  color: #ffffff;
+  border: 2px dashed #fff;
+  padding: 5px;
+}
+.coupon-container{
+  display:flex;
+  padding: 30px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+}
+.coupon-normal__text{
+  background:#fff;
+  color:#8E02C9;
+  padding: 5px;
+  cursor: pointer;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coupon-cut{
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  background: #ffffff;
+  color:#ffffff;
+  position: absolute;
+}
+.coupon-cut-one{
+  top:35%;
+  left:-3%;
+}
+.coupon-cut-two{
+  top:35%;
+  right: -3%;
+}
+.coupon-container__inner{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

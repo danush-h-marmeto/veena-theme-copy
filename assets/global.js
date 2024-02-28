@@ -223,6 +223,8 @@ class QuantityInput extends HTMLElement {
       const buttonPlus = this.querySelector(".quantity__button[name='plus']");
       buttonPlus.classList.toggle("disabled", value >= max);
     }
+    const btn = document.getElementById("custom-atk");
+      btn.setAttribute('data-quantity', value);
      const addButtonText = document.querySelector('[name="add"] > span');
      const price = document.getElementById(`price-${this.dataset.section}`);
      const currentPrice = price.querySelector(".price-item").textContent;
@@ -1324,8 +1326,11 @@ class VariantSelects extends HTMLElement {
         document.querySelector('#custom-atk').dataset.id = html.querySelector('#custom-atk').dataset.id
 
 
-        document.querySelector("#meta-product__description").innerHTML =
-          html.querySelector("#meta-product__description").innerHTML;
+        // document.querySelector("#meta-product__description").innerHTML =
+        //   html.querySelector("#meta-product__description").innerHTML;
+          document.getElementById("coupon_code_text").innerHTML =
+            html.getElementById("coupon_code_text").innerHTML;
+            console.log('new',html.querySelector("#coupon_code_text").innerHTML);
         const destination = document.getElementById(
           `price-${this.dataset.section}`
         );
@@ -1557,19 +1562,23 @@ class ProductRecommendations extends HTMLElement {
 
 customElements.define("product-recommendations", ProductRecommendations);
 
-const btn = document.getElementById('custom-atk');
+const userInput = document.getElementById('user-input')
+
+const btn = document.getElementById('custom-atc');
+const cart = document.querySelector('cart-drawer')
 
 btn.addEventListener('click',()=>{
-
+ 
   let formData = {
     items: [
       {
         id: btn.dataset.id,
-        quantity: btn.dataset.qnty,
+        quantity: btn.dataset.quantity,
         properties: {
-          "First name": "Danush",
-          "_Last Name": "Hari"
+          "First name": userInput.value,
+          "_Last Name": "Hari",
         },
+        section: cart.getSectionsToRender().map((section)=> section.id),
       },
     ],
   };
@@ -1590,3 +1599,25 @@ btn.addEventListener('click',()=>{
     });
 
 })
+
+  document
+    .getElementById("coupon_code_copy")
+    .addEventListener("click", copyCouponCode);
+  function copyCouponCode() {
+    var couponCodeText =
+      document.getElementById("coupon_code_text").textContent;
+    writeClipboardText(couponCodeText);
+  }
+  async function writeClipboardText(text) {
+    try {
+      await navigator.clipboard.writeText(text).then(()=>{
+          document.getElementById("coupon_code_copy").innerHTML = 'Copied !'
+          setTimeout(()=>{
+            document.getElementById("coupon_code_copy").innerHTML = "copy code";
+          },3000)
+      }
+      )
+    } catch (error) {
+      console.error(error.message);
+    }
+  }

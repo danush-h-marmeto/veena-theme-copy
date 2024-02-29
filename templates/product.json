@@ -28,11 +28,6 @@
             "show_inventory_quantity": true
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {
-          }
-        },
         "coupon_code_YxGgEf": {
           "type": "coupon_code",
           "settings": {
@@ -40,16 +35,17 @@
             "coupon_bg_color": "linear-gradient(228deg, rgba(21, 209, 252, 1) 14%, rgba(187, 48, 254, 1) 83%)"
           }
         },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
           }
         },
         "icon_with_text_7h8zF8": {
@@ -70,10 +66,31 @@
             "heading_4": "Help center 24\/7"
           }
         },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
             "share_label": "Share"
+          }
+        },
+        "collapsible_tab_MndpnE": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Product Details",
+            "icon": "lightning_bolt",
+            "content": "<p>dhsdvsdkdnv<\/p>",
+            "page": ""
+          }
+        },
+        "custom_atc_zfCg6i": {
+          "type": "custom_atc",
+          "disabled": true,
+          "settings": {
           }
         }
       },
@@ -82,12 +99,14 @@
         "price",
         "variant_picker",
         "inventory_W64TVq",
-        "quantity_selector",
         "coupon_code_YxGgEf",
+        "quantity_selector",
         "buy_buttons",
-        "description",
         "icon_with_text_7h8zF8",
-        "share"
+        "description",
+        "share",
+        "collapsible_tab_MndpnE",
+        "custom_atc_zfCg6i"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -105,11 +124,10 @@
         "padding_bottom": 12
       }
     },
-    "product-upsell": {
-      "type": "wizaah-upsell",
+    "wizaah_recently_viewed_products_FxMa6k": {
+      "type": "wizaah-recently-viewed-products",
       "settings": {
-        "enable_product_upselling": true,
-        "title": "Upsell Products"
+        "title": "Recently viewed"
       }
     },
     "related-products": {
@@ -194,12 +212,6 @@
         "padding_bottom": 36
       }
     },
-    "wizaah_recently_viewed_products_FxMa6k": {
-      "type": "wizaah-recently-viewed-products",
-      "settings": {
-        "title": "Recently viewed"
-      }
-    },
     "marmeto_product_recommendations_XPLGKw": {
       "type": "marmeto-product-recommendations",
       "settings": {
@@ -210,11 +222,10 @@
   },
   "order": [
     "main",
-    "product-upsell",
+    "wizaah_recently_viewed_products_FxMa6k",
     "related-products",
     "custom_image_grid_jQJ3Mp",
     "multicolumn_mPCHRY",
-    "wizaah_recently_viewed_products_FxMa6k",
     "marmeto_product_recommendations_XPLGKw"
   ]
 }

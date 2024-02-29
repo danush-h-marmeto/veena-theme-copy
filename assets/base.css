@@ -551,13 +551,51 @@ hr {
   height: 0.1rem;
   background-color: rgba(var(--color-foreground), 0.2);
   display: block;
-  margin: 5rem 0;
+  /* margin: 5rem 0; */
 }
 
+
+/*======================
+    404 page
+=======================*/
+
+
+.page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+}
+
+.page_404  img{ width:100%;}
+
+.four_zero_four_bg{
+ 
+ background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center;
+ }
+ 
+ 
+ .four_zero_four_bg h1{
+ font-size:80px;
+ }
+ 
+  .four_zero_four_bg h3{
+			 font-size:80px;
+			 }
+			 
+			 .link_404{			 
+	color: #fff!important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;}
+	.contant_box_404{ margin-top:-50px;}
 @media screen and (min-width: 750px) {
   hr {
-    margin: 7rem 0;
+    /* margin: 7rem 0; */
   }
+}
+.cta__wrapper{
+  display: flex;
+  gap: 30px;
 }
 
 .full-unstyled-link {
@@ -3954,6 +3992,7 @@ color: red;
 .payment__options {
   display: flex;
   padding: 0;
+  gap: 10px;
 }
 .payment__options li {
   list-style: none;
@@ -3963,13 +4002,14 @@ color: red;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
 }
 .payment-option__wrapper {
   border-radius: 10px;
   border: 1px solid rgba(var(--color-foreground), 0.1);
   display: flex;
   justify-content: space-between;
-  padding: 8px 35px;
+  padding: 8px 13px;
   column-gap: 20px;
 }
 .scroll-line-animation a {

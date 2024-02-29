@@ -60,7 +60,7 @@
         </div>
       {%- endif -%}
       <div class="drawer__header">
-        <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
+        <h2 class="drawer__heading">Shopping cart </h2>
         <button
           class="drawer__close"
           type="button"
@@ -492,7 +492,7 @@
           </div>
 
           <small class="tax-note caption-large rte">
-            {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+            {% comment %} {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
               {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
             {%- elsif cart.taxes_included -%}
               {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
@@ -500,15 +500,19 @@
               {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
             {%- else -%}
               {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
-            {%- endif -%}
+            {%- endif -%} {% endcomment %}
           </small>
         </div>
 
         <!-- CTAs -->
-
-        <div class="cart__ctas" {{ block.shopify_attributes }}>
+        <div class="cta__wrapper">
+            <div>
+               <a href="/cart" class="full-unstyled-link custom-button-secondary">View Cart</a> 
+            </div>
+            <div class="cart__ctas" {{ block.shopify_attributes }}>
+        </div>
           <noscript>
-            <button type="submit" class="cart__update-button button button--secondary" form="CartDrawer-Form">
+            <button type="submit" class="cart__update-button custom-button-secondary" form="CartDrawer-Form">
               {{ 'sections.cart.update' | t }}
             </button>
           </noscript>

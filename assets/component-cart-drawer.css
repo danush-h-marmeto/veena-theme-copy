@@ -18,6 +18,7 @@
 .drawer__inner {
   height: 100%;
   width: 50rem;
+  border-radius: 16px 0px;
   max-width: calc(100vw - 3rem);
   padding: 0 1.5rem;
   border: 0.1rem solid rgba(var(--color-foreground), 0.2);
@@ -219,6 +220,7 @@ cart-drawer-items {
 
 .cart-drawer .cart-item__image {
   max-width: 100%;
+  border-radius: 16px;
 }
 
 .cart-drawer .cart-items thead {
@@ -325,7 +327,8 @@ cart-drawer-items {
 }
 
 .cart-drawer .cart__checkout-button {
-  max-width: none;
+    display: flex;
+    width: 100%;
 }
 
 .drawer__footer .cart__dynamic-checkout-buttons {

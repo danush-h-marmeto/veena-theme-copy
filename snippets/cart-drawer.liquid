@@ -113,6 +113,7 @@
                   </thead>
 
                   <tbody role="rowgroup">
+                    {% render 'countdown' , target: target_date %}
                     {%- for item in cart.items -%}
                       <tr id="CartDrawer-Item-{{ item.index | plus: 1 }}" class="cart-item" role="row">
                         <td class="cart-item__media" role="cell" headers="CartDrawer-ColumnProductImage">
@@ -492,6 +493,14 @@
           </div>
 
           <small class="tax-note caption-large rte">
+            {% comment %} {% liquid
+              assign maxTh = 1500
+              assign cv = cart.total_price
+
+              assign final = cv  | times: 100 | divided_by: maxTh
+            %}
+
+            {{ final |  money_without_trailing_zeros }} {% endcomment %}
             {% comment %} {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
               {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
             {%- elsif cart.taxes_included -%}
@@ -503,11 +512,11 @@
             {%- endif -%} {% endcomment %}
           </small>
         </div>
-
+{%  render 'free-shipping'  %}
         <!-- CTAs -->
         <div class="cta__wrapper">
-            <div>
-               <a href="/cart" class="full-unstyled-link custom-button-secondary">View Cart</a> 
+            <div style="width: 100%;">
+               <a href="/cart" class="full-unstyled-link custom-button-secondary"style="width: 100%;" >View Cart</a> 
             </div>
             <div class="cart__ctas" {{ block.shopify_attributes }}>
         </div>
@@ -520,7 +529,7 @@
           <button
             type="submit"
             id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
+            class="custom-button-secondary cart__checkout-button button"
             name="checkout"
             form="CartDrawer-Form"
             {% if cart == empty %}
@@ -531,6 +540,7 @@
           </button>
         </div>
       </div>
+      
     </div>
   </div>
 </cart-drawer>

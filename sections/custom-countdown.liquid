@@ -1,4 +1,4 @@
-{{ 'custom-countdown.css' | asset_url | stylesheet_tag }}
+
 <script src="{{ 'custom-countdown.js' |  asset_url  }}" defer></script>
 {% style %}
   .padding-{{ section.id }} {
@@ -14,7 +14,7 @@
   }
 {% endstyle %}
 
-{% assign date = section.settings.target_date %}
+{% assign custom_date = section.settings.target_date %}
 
 <div class="custom-countdown padding-{{ section.id }}">
     <div class="page-width">
@@ -33,9 +33,10 @@
                         >
                         {{ section.settings.button_label }}
                     </a>
-                {% endif %}
-            </div>   
-            <div data-target-date="{{ date }}" class="custom-countdown__time-wrapper">
+                  {% endif %}
+                  </div>   
+                  
+         <div data-target-date="{{ custom_date }}" class="custom-countdown__time-wrapper">
                 <div class="custom-countdown__card custom-border-radius">
                     <span class="custom-countdown__time " id="days">00</span>
                     <span class="h4">Days</span>
@@ -56,6 +57,7 @@
                     <span class="h4">Sec</span>
                 </div>
             </div>     
+            {% comment %} {% render 'countdown', target_date: custom_date %} {% endcomment %}
         </div>
     </div>
 </div>

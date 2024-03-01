@@ -269,8 +269,8 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   padding-right: 40px;
   overflow: hidden;
 }
-.cart__footer .wbshipinner svg {
-  fill: black;
+.wbshipinner svg {
+    fill: white;
 }
 .wbshipinner svg {
   position: absolute;
@@ -279,7 +279,16 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   opacity: 0;
   width: 24px;
   height: 24px;
-  fill: black
+  
+}
+.cart-drawer-payment{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    background: rgba(var(--color-foreground),.04);
 }
 .wbshipinner span::after {
     content: "";
@@ -291,20 +300,26 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     padding-left: 20px;
     display: flex;
     align-items: center;
-    background: linear-gradient(90deg, transparent 0, rgba(var(--color-button),var(--alpha-button-background)) 10%);
+    background: linear-gradient(90deg, transparent 0, rgba(var(208,60,63),var(1)) 10%);
     transition: 0.2s;
     opacity: 1;
     animation: fadeInLeftBig 2.5s ease-out 0s 1;
     animation-fill-mode: forwards;
 }
-.cart__footer-wrapper .wbshipinner span::after {
-  background: linear-gradient(90deg, transparent 0, rgba(var(--color-background)) 10%);
+ .wbshipinner span::after {
+  background: linear-gradient(90deg, transparent 0, rgba(var(255,255,255)) 10%);
 }
 .wbshipinner b {
     animation: shipColor 3s linear infinite;
 }
 .drawer__inner .wbship {
   margin-top: 5px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .wbshipinner svg {
+    animation: fadeInLeft 1.5s ease-out 0s 1;
+    animation-fill-mode: forwards;
+  }
 }
 
 @keyframes fadeInLeft {
@@ -335,13 +350,13 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 @keyframes shipColor {
   0% {
-      color: rgb(var(--color-button-text));
+      color: rgb(var(255,255,255));
   }
   50% {
       color: #0cae61;
   }
   100% {
-      color: rgb(var(--color-button-text));
+      color: rgb(var(255,255,255));
   }
 }
 
@@ -3868,7 +3883,59 @@ a {
 .richtext p {
   margin: 0;
 }
-
+  .cart-drawer .cart-item cart-remove-button{
+  min-width: auto;
+  margin-bottom: 10px;
+}
+cart-drawer-items cart-remove-button .icon-remove {
+  height: 1.6rem;
+  width: 1.6rem;
+  fill: white;
+}
+.icon-remove__btn{
+   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10rem;
+  fill: white;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  text-decoration: none;
+}
+.icon-remove__btn:after{
+ content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d03c3f;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.icon-remove__btn:before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #000;
+  transition: all 0.3s ease;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.icon-remove__btn:hover:before {
+  width: 100%;
+}
+.icon-remove__btn:hover{
+  fill: white;
+}
 .section-collection__button {
   padding: 5px 33px;
   display: flex;

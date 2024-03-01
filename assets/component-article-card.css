@@ -29,6 +29,7 @@
     background-color: gainsboro;
   }
 
+
 .article-card__title a:after {
   bottom: 0;
   content: '';

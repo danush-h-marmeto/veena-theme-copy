@@ -30,7 +30,7 @@
     >
       <div class="drawer__header-wrapper">
         <div class="drawer__header">
-          <h2 class="drawer__heading">Shopping cart</h2>
+          <h2 class="drawer__heading">Shopping cart ({{ cart.item_count }})</h2>
           <button
           class="drawer__close"
           type="button"
@@ -336,7 +336,9 @@
                                   aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                                   data-variant-id="{{ item.variant.id }}"
                                 >
+                                <div class="icon-remove__btn">
                                   {% render 'icon-remove' %}
+                                </div>
                                 </button>
                               </cart-remove-button>
                             </div>
@@ -547,7 +549,13 @@
           </button>
         </div>
       </div>
-      
+        <div class= "cart-drawer-payment">
+        {%- for type in shop.enabled_payment_types -%}
+          <span>
+            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+          </span>
+        {%- endfor -%}
+      </div>
     </div>
   </div>
 </cart-drawer>

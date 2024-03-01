@@ -102,6 +102,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 .drawer__close svg {
   height: 1.4rem;
   width: 2.4rem;
+  color: white;
 }
 
 .drawer__contents {
@@ -331,6 +332,16 @@ cart-drawer-items {
 
 .cart-drawer details[open] > summary .icon-caret {
   transform: rotate(180deg);
+}
+
+.cart-drawer-payment{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    background: rgba(var(--color-foreground),.04);
 }
 
 .cart-drawer .cart__checkout-button {

@@ -25,6 +25,9 @@
   text-decoration: none;
   word-break: break-word;
 }
+.tabs li.active {
+    background-color: gainsboro;
+  }
 
 .article-card__title a:after {
   bottom: 0;

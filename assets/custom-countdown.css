@@ -49,7 +49,9 @@
 .count_t .heading {
     margin: 0;
 }
-
+.shipping-bar__message{
+    color: white;
+}
 .custom-countdownSnippet__time-wrapper{
      display: flex;
     align-items: center;

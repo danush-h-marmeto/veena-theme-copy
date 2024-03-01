@@ -40,7 +40,10 @@
  {% section 'color-swatch' %}
  {{ 'product-card.css' | asset_url | stylesheet_tag }}
  <script src="{{'custom-product-card.js' | asset_url }}" defer></script>
+ <script src="{{ 'snippetTimer.js' |  asset_url }}" defer></script>
+
  {{ 'custom-countdown.css' | asset_url | stylesheet_tag }}
+ {{ 'snippet-countdown.css'| asset_url | stylesheet_tag }}
     {{ content_for_header }}
 
     {%- liquid

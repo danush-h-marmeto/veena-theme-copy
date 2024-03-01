@@ -281,6 +281,31 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   height: 24px;
   
 }
+p.email_title {
+  display: flex;
+  align-items: center;
+}
+
+p.email_title:before {
+  margin: 0 15px 0 0;
+  content: "";
+    width: 10%;
+    height: 1px;
+    background: rgba(0,0,0, .2);
+    width: 50%;
+  }
+  
+  p.email_title:after {
+    margin: 0 0 0 15px;
+    content: "";
+      width: 10%;
+      height: 1px;
+      background: rgba(0,0,0, .2);
+  width: 50%;
+}
+.link-style a {
+  text-decoration: none;
+}
 .cart-drawer-payment{
     padding: 20px;
     display: flex;
@@ -656,7 +681,7 @@ h6:empty {
   text-underline-offset: 0.3rem;
   color: rgb(var(--color-link));
   background-color: transparent;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-family: inherit;
 }
 
@@ -812,6 +837,7 @@ details > * {
 .underlined-link,
 .customer a {
   color: rgba(var(--color-link), var(--alpha-link));
+  
 }
 
 .inline-richtext a,
@@ -822,7 +848,7 @@ details > * {
 .underlined-link:hover,
 .customer a:hover,
 .inline-richtext a:hover {
-  color: rgb(var(--color-link));
+  color:  #d03c3f;
   text-decoration-thickness: 0.2rem;
 }
 
@@ -1963,6 +1989,7 @@ details[open] > .share-button__fallback {
   flex-grow: 1;
   text-align: left;
   padding: 1.5rem;
+  background: transparent;
   margin: var(--inputs-border-width);
   transition: box-shadow var(--duration-short) ease;
 }

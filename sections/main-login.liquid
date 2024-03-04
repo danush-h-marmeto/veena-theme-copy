@@ -13,8 +13,12 @@
     }
   }
 {%- endstyle -%}
-
+<div class="page-width">
+  {% render 'breadcrumbs' %}
+  </div>
 <div class="customer login section-{{ section.id }}-padding">
+  <div class="customer__wrapper">
+    <div class="customer__wrapper-inner">
   <h1 id="recover" tabindex="-1">
     {{ 'customer.recover_password.title' | t }}
   </h1>
@@ -60,10 +64,13 @@
       <button>
         {{ 'customer.login_page.submit' | t }}
       </button>
-
-      <a href="#login">
-        {{ 'customer.login_page.cancel' | t }}
-      </a>
+<div>
+<div class="link-style">
+  <a  href="#login">
+    {{ 'customer.login_page.cancel' | t }}
+  </a>
+</div>
+</div>
     {%- endform -%}
   </div>
 
@@ -131,19 +138,22 @@
             {{ 'customer.login_page.password' | t }}
           </label>
         </div>
-
-        <a href="#recover">
-          {{ 'customer.login_page.forgot_password' | t }}
-        </a>
+<div class="link-style">
+  <a class="link-style" href="#recover">
+    {{ 'customer.login_page.forgot_password' | t }}
+  </a>
+</div>
       {%- endif -%}
 
       <button>
         {{ 'customer.login_page.sign_in' | t }}
       </button>
 
-      <a href="{{ routes.account_register_url }}">
+      <p class="email_title">Or</p>
+
+      <span  class="create_account custom-button-secondary_color link-unstyled" href="{{ routes.account_register_url }}">
         {{ 'customer.login_page.create_account' | t }}
-      </a>
+      </span>
     {%- endform -%}
   </div>
 
@@ -159,6 +169,8 @@
       {%- endform -%}
     </div>
   {%- endif -%}
+  </div>
+  </div>
 </div>
 
 {% schema %}

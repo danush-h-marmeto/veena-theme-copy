@@ -4,6 +4,15 @@
   column-gap: var(--grid-mobile-horizontal-spacing);
   row-gap: var(--grid-mobile-vertical-spacing);
 }
+.tabs{
+  display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+.tabs li{
+  
+}
 
 .blog-articles .card-wrapper {
   width: 100%;

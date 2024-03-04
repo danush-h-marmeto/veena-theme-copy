@@ -1,0 +1,25 @@
+.sidebar-links{
+    list-style: none;
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+}
+.tabs-hover:hover{
+    border-left: 8px solid #BC9891;
+    color: white;
+    background: #895E59;
+    padding: 0px 20px;
+}
+.account-page-account-btn.active {
+    background:  #895E59;
+    color: #fff;
+    border-left: 8px solid #BC9891;
+    padding: 0 20px;
+    cursor: pointer;
+}
+.account-btn-logo svg {
+    height: 20px;
+    width: 20px;
+}

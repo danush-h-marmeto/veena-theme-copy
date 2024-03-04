@@ -5,7 +5,6 @@ function getFocusableElements(container) {
     )
   );
 }
-document.querySelector(".quantity__input").innerHTML;
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.setAttribute("role", "button");
@@ -223,15 +222,24 @@ class QuantityInput extends HTMLElement {
       const buttonPlus = this.querySelector(".quantity__button[name='plus']");
       buttonPlus.classList.toggle("disabled", value >= max);
     }
-     const addButtonText = document.querySelector('[name="add"] > span');
-     const price = document.getElementById(`price-${this.dataset.section}`);
-     const currentPrice = price.querySelector(".price-item").textContent;
-     const finalPrice =
-       value *
-       parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
-       addButtonText.textContent =
-       window.variantStrings.addToCart + " Rs. " + finalPrice;
 
+    if(document.getElementById("custom-atc")){
+      const btn = document.getElementById("custom-atc");
+      btn.setAttribute("data-quantity", value);
+    }
+         const addButtonText = document.querySelector('[name="add"] > span');
+         const price = document.getElementById(`price-${this.dataset.section}`);
+         // const qty = document.querySelector('[data-cart-quantity]').value;
+         // console.log(qty);
+         const currentPrice = price.querySelector(".price-item").textContent;
+         const finalPrice =
+           value *
+           parseInt(
+             currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, "")
+           );
+         // console.log((parseInt(currentPrice.split("Rs. ")[1].split('.')[0].replace(/,/g, ''))));
+         addButtonText.textContent =
+           window.variantStrings.addToCart + " Rs. " + finalPrice;
   }
 }
 
@@ -1321,10 +1329,26 @@ class VariantSelects extends HTMLElement {
         if (this.currentVariant.id !== requestedVariantId) return;
 
         const html = new DOMParser().parseFromString(responseText, "text/html");
-
-        document.querySelector("#meta-product__description").innerHTML =
-          html.querySelector("#meta-product__description").innerHTML;
-
+        // document.querySelector("#custom-atc").dataset.id =
+        //   html.querySelector("#custom-atc").dataset.id;
+        if (document.querySelector("#custom_button")) {
+          document
+            .querySelector("#custom_button")
+            .setAttribute(
+              "data-variant-id",
+              html.querySelector("#custom_button").dataset.variantId
+            );
+        }
+        if (document.querySelector("#meta-product__description")) {
+          document.querySelector("#meta-product__description").innerHTML =
+            html.querySelector("#meta-product__description").innerHTML;
+        }
+        // document.getElementById("coupon_code_text").innerHTML =
+        //   html.getElementById("coupon_code_text").innerHTML;
+        if (document.querySelector("#coupon_wrapper")){
+          document.querySelector("#coupon_wrapper").innerHTML =
+            html.querySelector("#coupon_wrapper").innerHTML;
+        }
         const destination = document.getElementById(
           `price-${this.dataset.section}`
         );
@@ -1459,8 +1483,7 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute("disabled");
-      addButtonText.textContent =
-        window.variantStrings.addToCart + " " + currentPrice;
+      addButtonText.textContent = window.variantStrings.addToCart;
     }
 
     if (!modifyClass) return;
@@ -1555,3 +1578,66 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define("product-recommendations", ProductRecommendations);
+
+const userInput = document.getElementById("user-input");
+
+if (document.querySelector(".custom_button_container")) {
+  const customBtnContainer = document.querySelector(".custom_button_container");
+  customBtnContainer.addEventListener("click", (event) => {
+    let customBtn = event.target;
+    let variantId = customBtn.dataset.variantId;
+    let quantity = customBtn.dataset.quantity;
+    let cart =
+      document.querySelector("cart-notification") ||
+      document.querySelector("cart-drawer");
+    console.log(cart);
+    let formData = {
+      items: [
+        {
+          id: variantId,
+          quantity: quantity,
+          properties: {
+            Additional: userInput.value,
+          },
+        },
+      ],
+      sections: cart.getSectionsToRender().map((section) => section.id),
+    };
+    fetch("/cart/add.js", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        cart.renderContents(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+}
+
+document
+  .getElementById("coupon_code_copy")
+  .addEventListener("click", copyCouponCode);
+function copyCouponCode() {
+  var couponCodeText = document.getElementById("coupon_code_text").textContent;
+  writeClipboardText(couponCodeText);
+}
+async function writeClipboardText(text) {
+  try {
+    await navigator.clipboard.writeText(text).then(() => {
+      document.getElementById("coupon_code_copy").innerHTML = "Copied !";
+      setTimeout(() => {
+        document.getElementById("coupon_code_copy").innerHTML = "copy code";
+      }, 3000);
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+}

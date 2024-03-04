@@ -17,6 +17,8 @@ cart-items .title-wrapper-with-link {
 
 .cart-item__quantity-wrapper {
   display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .cart-item__totals {

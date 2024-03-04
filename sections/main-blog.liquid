@@ -16,8 +16,37 @@
   }
 {%- endstyle -%}
 
+
+
+
 {%- paginate blog.articles by 6 -%}
+  
   <div class="main-blog page-width section-{{ section.id }}-padding">
+    {% render 'breadcrumbs' %}
+
+
+
+    
+<ul class="tabs">
+  <li>
+    <a href="{{ blog.url }}">All Posts</a>
+  </li>
+  {% for tag in blog.all_tags %}
+    {% if tag contains 'category' %}
+      {% assign tagItem = tag | split: '_' | last %}
+      <li>
+        <a aria-selected="" href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tagItem }}</a>
+      </li>
+    {% else %}
+      {%- assign tagItem = tag -%}
+    {% endif %}
+  {% endfor %}
+</ul>
+
+
+
+
+
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
     </h1>

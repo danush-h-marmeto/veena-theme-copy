@@ -102,9 +102,7 @@
 .facet-filters__sort {
   background-color: transparent;
   border: 0;
-  font-size: 1.4rem;
-    background: white;
-  padding: 4px 10px;
+  font-size: 1.4rem;    background: white;
   border-radius: 20px !important;
   height: auto;
   line-height: calc(1 + 0.5 / var(--font-body-scale));

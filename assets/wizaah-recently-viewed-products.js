@@ -48,8 +48,8 @@ wizaah.RecentlyViewedProducts = (function () {
         blankDivElement.innerHTML = content;
 
         _this.container.querySelector(".recentlyviewed__container").innerHTML =
-          blankDivEl2ement.querySelector(
-            '[data-section-type="wizaah-recently-viewed-products"] .recentlyviewed__container'
+          blankDivElement.querySelector(
+            '[data-section-type= "wizaah-recently-viewed-products"] .recentlyviewed__container'
           ).innerHTML;
         _this.container.parentNode.style.display = "block";
 
@@ -75,7 +75,7 @@ wizaah.RecentlyViewedProducts = (function () {
     try {
       localStorage.setItem(
         "mmRecentlyViewedProducts",
-        JSON.stringify(items.slice(0, 8))
+        JSON.stringify(items.slice(0, 5))
       );
     } catch (error) {}
   };

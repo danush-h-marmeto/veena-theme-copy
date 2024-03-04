@@ -13,9 +13,13 @@
     }
   }
 {%- endstyle -%}
-
+<div class="page-width">
+  {% render 'breadcrumbs' %}
+  </div>
 <div class="customer register section-{{ section.id }}-padding">
-  <svg style="display: none">
+  <div class="customer__wrapper">
+    <div class="customer__wrapper-inner">
+ <svg style="display: none">
     <symbol id="icon-error" viewBox="0 0 13 13">
       <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
       <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
@@ -49,7 +53,11 @@
         {%- endfor -%}
       </ul>
     {%- endif -%}
+    <div class="register_label">
+        First Name
+    </div>
     <div class="field">
+  
       <input
         type="text"
         name="customer[first_name]"
@@ -63,6 +71,9 @@
       <label for="RegisterForm-FirstName">
         {{ 'customer.register.first_name' | t }}
       </label>
+    </div>
+     <div class="register_label">
+        Last Name
     </div>
     <div class="field">
       <input
@@ -78,6 +89,9 @@
       <label for="RegisterForm-LastName">
         {{ 'customer.register.last_name' | t }}
       </label>
+    </div>
+     <div class="register_label">
+       Email
     </div>
     <div class="field">
       <input
@@ -110,6 +124,9 @@
         {{ form.errors.messages.email }}.
       </span>
     {%- endif -%}
+     <div class="register_label">
+        Password
+    </div>
     <div class="field">
       <input
         type="password"
@@ -139,6 +156,9 @@
       {{ 'customer.register.submit' | t }}
     </button>
   {%- endform -%}
+  </div>
+    Have an account? <a class="account-footer__link" href="/account/login">Log in</a>  to checkout faster.
+</div>
 </div>
 
 {% schema %}

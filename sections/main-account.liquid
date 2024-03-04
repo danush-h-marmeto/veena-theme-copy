@@ -32,13 +32,13 @@
         </span>
         <span>
            {{ customer.default_address | format_address }}
-
-      <a href="{{ routes.account_addresses_url }}">
-        {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
-      </a>
         </span>
       </div>
-    </span>
+      <span class="account_image">
+           {% render "responsive-picture", desktopImage: customer.metafields.custom.account_marketing_img, class:'media media--16-9' %}
+      </span>
+      </span>
+
 
   {% comment %} <div>
     <div>

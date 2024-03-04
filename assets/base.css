@@ -2215,6 +2215,10 @@ input[type="checkbox"] {
       width: 19.5px;
     height: 20.5px;
 }
+.account_image{
+  height: auto;
+  width: 100%;
+}
 .customer_info{
   display: flex;
   flex-direction: column;
@@ -2234,6 +2238,20 @@ input[type="checkbox"] {
   background: #e3dbd3;
   padding: 0 30px;
   cursor: pointer;
+}
+.main-address__wrapper{
+  padding:28px 25px 25px;
+}
+.address__header{
+      display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 0;
+    padding-bottom: 32px;
+}
+.address__header svg{
+      width: 32px;
+    height: 32px;
 }
 .account-page-account-btn {
   min-width: 286px;

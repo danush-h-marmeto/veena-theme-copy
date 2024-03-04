@@ -2241,6 +2241,7 @@ input[type="checkbox"] {
 }
 .main-address__wrapper{
   padding:28px 25px 25px;
+  width: 70%;
 }
 .address__header{
       display: flex;

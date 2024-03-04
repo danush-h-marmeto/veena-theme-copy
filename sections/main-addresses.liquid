@@ -28,10 +28,9 @@
       {% render 'location' %}
       <h2>Address Book</h2>
     </div>
-
-    <div>
+    <div class="">
  {%- paginate customer.addresses by 5 -%}
-  <div class="customer addresses section-{{ section.id }}-padding" data-customer-addresses>
+  <div class="custom-customer-address customer addresses section-{{ section.id }}-padding" data-customer-addresses>
     <div data-address>
       <button
         type="button"
@@ -174,9 +173,27 @@
       </div>
     </div>
   </div>
-{%- endpaginate -%} 
-
+   <div class="main-address__container grid grid--3-col-desktop">
+    {% if  customer.addresses != blank %}
+      {% for address in customer.addresses  %}
+        {% if address.address1 and address.address2 != blank %}
+          <div class="customer-address grid__item">
+            <p>{{ address.first_name }} {{ address.last_name }}</p>
+            <p>{{ address.address2 }}</p>
+            <p>{{ address.address1 }}</p>
+             <p>{{ address.country }}</p>
+            <div class="customer-address__footer">
+              <div class="custom-button-secondary">Edit</div>
+              <div class="custom-button-secondary_color">Delete</div>
+            </div>
+            </div>
+          {% endif %}
+       {% endfor %}
+    {% endif %}
     </div>
+{%- endpaginate -%} 
+    </div>
+   
   </div>
 </div>
 </div>

@@ -14,10 +14,23 @@ function updateCountdown() {
   const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
   // Update HTML elements with the calculated values
-  document.getElementById("daysDrawer").textContent = formatTime(days);
-  document.getElementById("hoursDrawer").textContent = formatTime(hours);
-  document.getElementById("minutesDrawer").textContent = formatTime(minutes);
-  document.getElementById("secondsDrawer").textContent = formatTime(seconds);
+
+  if (document.getElementById("daysDrawer")){
+
+    document.getElementById("daysDrawer").textContent = formatTime(days);
+  }
+  if (document.getElementById("hoursDrawer")){
+
+    document.getElementById("hoursDrawer").textContent = formatTime(hours);
+  }
+  if (document.getElementById("minutesDrawer")){
+
+    document.getElementById("minutesDrawer").textContent = formatTime(minutes);
+  }
+  if (document.getElementById("secondsDrawer")){
+    
+    document.getElementById("secondsDrawer").textContent = formatTime(seconds);
+  }
 }
 
 function formatTime(time) {

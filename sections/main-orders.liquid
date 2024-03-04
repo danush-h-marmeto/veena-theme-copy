@@ -1,0 +1,102 @@
+{{ 'my-orders.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="page-width">
+    {% render 'breadcrumbs' %}
+</div>
+
+<div class="my-orders section-{{ section.id }}-padding">
+    <div class="page-width my-orders__wrapper">
+        <aside>
+            {% render "sidebar" %}
+        </aside>
+        <div class="my-orders__content">
+            {% if customer %}
+                <h4 class="my-orders__content-title">
+                    Hi, {{ customer.first_name }} {{ customer.last_name }}
+                </h4>
+                <span>{{ customer.email }}</span>
+                <span>{{ customer.phone }}</span>
+
+                <div>
+                    <h4 class="h2">Orders </h4>
+                    <table class="my-orders__content-table">
+                        <thead>
+                            <tr class="my-orders__table-header">
+                                <th>Order Number</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           {% for order in customer.orders %}
+                              <tr class="order-row">
+                                  <td>{{ order.order_number }}</td>
+                                  <td>{{ order.created_at | date: "%Y-%m-%d" }}</td>
+                                  <td>{{ order.fulfillment_status }}</td>
+                                  <td>{{ order.total_price | money }}</td>
+                                  <td class="my-orders__table-options">
+                                      <a href="/orders/{{ order.order_number }}">View</a>
+                                      <a href="/track/{{ order.order_number }}">Track</a>
+                                      <a href="/cancel/{{ order.order_number }}">Cancel</a>
+                                      <a href="/return/{{ order.order_number }}">Return</a>
+                                  </td>
+                              </tr>
+                          {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                  <span>You have No Orders !</span>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "t:sections.main-my-orders.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

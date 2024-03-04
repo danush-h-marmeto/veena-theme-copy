@@ -8,10 +8,38 @@
 .register_label{
   display: flex;
 }
+.custom-customer-address{
+  max-width: 0;
+  width: 100%;
+     
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.main-address__container{
+  display: flex;
+
+}
+.customer-address__footer{
+  display: flex;
+   margin: 20px;
+   justify-content: space-between;
+}
+.main-address__container .customer-address p{
+  margin: 20px;
+}
+.customer-address{
+  border: 1px solid black;
+  border-radius: 12px;
+}
 @media screen and (min-width: 750px) {
   .customer:not(.account):not(.order) {
-    max-width: 100%;
+    padding: 0;
+    margin: 0;
+     display: flex;
+    justify-content: flex-start;
     width: 100%;
+    max-width: 100%;
   }
 }
 

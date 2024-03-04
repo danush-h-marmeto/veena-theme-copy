@@ -1,0 +1,36 @@
+.my-orders__content{
+    text-align: center;
+    width: 100%;
+}
+.my-orders__wrapper{
+        display: flex;
+    width: 100%;
+}
+.my-orders__content-title{
+    padding: 18px 8px;
+}
+
+.my-orders__content-table{
+        width: 100%;
+    margin-left: 30px;
+}
+
+.my-orders__table-header {
+    background-color: #DCD6D3;
+    
+}
+.my-orders__table-header th{
+padding: 15px;
+}
+
+.my-orders__table-options {
+    padding-top: 10px;
+}
+.my-orders__table-options a{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.order-row {
+    border-bottom: 1px solid #ddd;
+  }

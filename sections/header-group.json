@@ -51,10 +51,18 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "custom-header":{
+      "type": "custom-header",
+      "settings": {
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "custom-header"
   ]
 }

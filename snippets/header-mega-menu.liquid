@@ -36,16 +36,36 @@
                 >
                   {%- for childlink in link.links -%}
                     <li>
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title | escape }}
-                      </a>
+                      {% if childlink.title == 'Mens' or childlink.title == 'Womens' %}
+                        {%- assign collection_handle = childlink.title | handleize -%}
+                        {%- assign products = collections[collection_handle].products -%}
+
+                        <div class="grid grid--5-col-desktop">
+                          {%- assign product_count = 0 -%}
+                          {%- for product in products -%}
+                            {% if product_count < 5 %}
+                              <div class="grid__item grid__item--col-span-2">
+                                <a href="{{ product.url }}" class="mega-menu__link link">
+                                  {% render 'custom-product-card', product: product, section_id: section.id %}
+                                </a>
+                              </div>
+                              {%- assign product_count = product_count | plus: 1 -%}
+                            {% endif %}
+                          {%- endfor -%}
+                        </div>
+
+                      {% else %}
+                        <a
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          href="{{ childlink.url }}"
+                          class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                          {% if childlink.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ childlink.title | escape }}
+                        </a>
+                      {% endif %}
                       {%- if childlink.links != blank -%}
                         <ul class="list-unstyled" role="list">
                           {%- for grandchildlink in childlink.links -%}
@@ -67,12 +87,12 @@
                     </li>
                   {%- endfor -%}
                   {% if link.title == 'Trends' %}
-                    {% for block in section.blocks %}
-                      <div class="media media--square">
-                        {% render 'responsive-picture', desktopImage: block.settings.mega_menu_image, class:'media media--square' %}
-                        </div>
-                      {% endfor %}
-                    {% endif %}
+                    {%- for block in section.blocks -%}
+                      <div class="media media--portrait custom-border-radius-sm">
+                        {% render 'responsive-picture', desktopImage: block.settings.mega_menu_image, class:'media media--portrait' %}
+                      </div>
+                    {%- endfor -%}
+                  {%- endif -%}
                 </ul>
                 <div>
 
@@ -101,5 +121,4 @@
       </li>
     {%- endfor -%}
   </ul>
- 
 </nav>

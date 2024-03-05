@@ -1,47 +1,50 @@
+{% assign url = canonical_url | split: "/" | last %}
+
+  
 <aside>
     <ul class="sidebar-links">
-      <a href="/account">
-      <li class="account-page-account-btn tabs-hover">
+      <a class="full-unstyled-link" href="/account">
+      <li class=" account-page-account-btn {% if url == "account" %} active {% endif %} tabs-hover">
         <span class="account-btn-logo">
           {% render 'custom-account-2' %}
         </span>
        <span>Account Details</span>
        </li>
        </a>
-    <a href="/pages/orders">
-     <li class="account-page-account-btn tabs-hover">
+    <a class="full-unstyled-link" href="/pages/orders">
+     <li class="account-page-account-btn {% if url == "orders" %} active {% endif %} tabs-hover">
          <span class="account-btn-logo">
           {% render 'box' %}
         </span>
       <span>My Orders</span>
       </li>
     </a>  
-      <a href="/account/addresses">
-      <li class="account-page-account-btn tabs-hover">
+      <a class="full-unstyled-link" href="/account/addresses">
+      <li class="account-page-account-btn {% if url == "addresses" %} active {% endif %} tabs-hover">
            <span class="account-btn-logo">
             {% render 'location' %}
           </span>
          <span>View Address</span> 
         </li>
       </a>
-      <a href="/pages/wishlist">
-        <li class="account-page-account-btn tabs-hover">
+      <a class="full-unstyled-link" href="/pages/wishlist">
+        <li class="account-page-account-btn {% if url == "wishlist" %} active {% endif %} tabs-hover">
             <span class="account-btn-logo">
               {% render 'heart' %}
            </span>
         <span>WishList</span>
          </li>
       </a>
-      <a href="/pages/faq">
-        <li class="account-page-account-btn tabs-hover">
+      <a class="full-unstyled-link" href="/pages/faq">
+        <li class="account-page-account-btn {% if url == "faq" %} active {% endif %} tabs-hover">
              <span class="account-btn-logo">
              {% render 'info' %}
             </span>
           <a href="/pages/faq">Need Help ?</a> 
           </li>
       </a>
-      <a class="/account/logout">
-        <li class="account-page-account-btn tabs-hover">
+      <a class="full-unstyled-link" class="/account/logout">
+        <li class="account-page-account-btn {% if url == "logout" %} active {% endif %} tabs-hover">
              <span class="account-btn-logo">
               {% render 'door' %}
             </span>

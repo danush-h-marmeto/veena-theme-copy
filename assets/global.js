@@ -1621,10 +1621,11 @@ if (document.querySelector(".custom_button_container")) {
       });
   });
 }
+if (document.getElementById("coupon_code_copy")){
 
-document
-  .getElementById("coupon_code_copy")
-  .addEventListener("click", copyCouponCode);
+  document
+    .getElementById("coupon_code_copy")
+    .addEventListener("click", copyCouponCode);
 function copyCouponCode() {
   var couponCodeText = document.getElementById("coupon_code_text").textContent;
   writeClipboardText(couponCodeText);
@@ -1640,4 +1641,33 @@ async function writeClipboardText(text) {
   } catch (error) {
     console.error(error.message);
   }
+}
+}
+
+if (document.querySelectorAll(".customer-addressess_edit-button")){
+  document.addEventListener("DOMContentLoaded", function () {
+    document
+      .querySelectorAll(".customer-addressess_edit-button")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          var editSectionId = button.getAttribute("data-edit-button");
+          var editSection = document.querySelector(
+            '[data-edit-section="' + editSectionId + '"]'
+          );
+
+         
+          if (editSection.style.display === "block") {
+            editSection.style.display = "none";
+          } else {
+         
+            document
+              .querySelectorAll("[data-edit-section]")
+              .forEach(function (section) {
+                section.style.display = "none";
+              })
+            editSection.style.display = "block";
+          }
+        });
+      });
+  });
 }

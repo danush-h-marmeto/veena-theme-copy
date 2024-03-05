@@ -682,8 +682,8 @@ h6:empty {
   display: inline-block;
   border: none;
   box-shadow: none;
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  /* text-decoration: underline; */
+  /* text-underline-offset: 0.3rem; */
   color: rgb(var(--color-link));
   background-color: transparent;
   font-size: 1.6rem;
@@ -2200,6 +2200,16 @@ input[type="checkbox"] {
   grid-template-columns: 30% 70%;
   gap: 20px;
 }
+@media screen and (max-width: 750px) {
+.custom-account{
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .customer ul {
+    padding-left: 0;
+  }
+}
 .account-header__wrapper {
   display: flex;
   gap: 10px;
@@ -2238,6 +2248,9 @@ input[type="checkbox"] {
   background: #e3dbd3;
   padding: 0 30px;
   cursor: pointer;
+}
+.account-page-account-btn .active{
+  
 }
 .main-address__wrapper{
   padding:28px 25px 25px;
@@ -2737,6 +2750,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
   .header--has-app {
     grid-template-columns: auto 1fr auto;
   }
+  
 }
 
 @media screen and (min-width: 990px) {
@@ -4416,3 +4430,4 @@ input[type="radio"]:checked + label {
   justify-content: center;
   align-items: center;
 }
+

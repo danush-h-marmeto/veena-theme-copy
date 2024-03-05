@@ -1,45 +1,17 @@
 .customer:not(.account):not(.order) {
   margin: 0 auto;
-  max-width: 33.4rem;
+  /* max-width: 33.4rem; */
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   text-align: center;
+  max-width: 50%;
 }
-.register_label{
-  display: flex;
-}
-.custom-customer-address{
-  max-width: 0;
-  width: 100%;
-     
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-.main-address__container{
-  display: flex;
 
-}
-.customer-address__footer{
-  display: flex;
-   margin: 20px;
-   justify-content: space-between;
-}
-.main-address__container .customer-address p{
-  margin: 20px;
-}
-.customer-address{
-  border: 1px solid black;
-  border-radius: 12px;
-}
 @media screen and (min-width: 750px) {
   .customer:not(.account):not(.order) {
-    padding: 0;
-    margin: 0;
-     display: flex;
-    justify-content: flex-start;
-    width: 100%;
+    /* max-width: 47.8rem; */
     max-width: 100%;
+    max-height: 100%;
   }
 }
 
@@ -54,8 +26,7 @@
 
 .customer button {
   margin: 4rem 0 1.5rem;
-     display: flex;
-    width: 100%;
+  width: 30%;
 }
 
 .customer ul {
@@ -64,33 +35,9 @@
   text-align: left;
   margin-bottom: 4rem;
 }
-.customer__wrapper-inner{
-  
-}
-.create_account{
-  border: 1px solid black;
-    color: black;
-    display: flex;
-    background: transparent;
-    background-color: transparent;;
-}
-.create_account:after{
-  content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    border-radius: 10rem;
-    z-index: -2;
-}
-.link-unstyled{
-  text-decoration: none;
-}
+
 .customer ul a {
   display: inline;
-  text-decoration: none;
 }
 
 .customer strong {
@@ -101,22 +48,15 @@
 .customer h2.form__message {
   font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
-.link-style a{
-  padding-top: 10px;
-  font-weight: 800;
-  text-decoration: none;
-}
 
 @media only screen and (min-width: 750px) {
   .customer h2.form__message {
     font-size: calc(var(--font-heading-scale) * 2.2rem);
   }
 }
-.account-footer__link:hover{
-  color: #d03c3f;
-}
+
 .customer .field {
-  margin: 1rem 0 0 0;
+  margin: 0 0 2rem 0;
 }
 
 .customer .field:first-of-type {
@@ -178,7 +118,7 @@
 .customer thead th {
   font-size: 1.2rem;
   letter-spacing: 0.07rem;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .customer tbody td:first-of-type {
@@ -274,7 +214,7 @@
 /* works around colspan phantom border issues */
 .customer thead::after,
 .customer tfoot::before {
-  content: ' ';
+  content: " ";
   height: 0.1rem;
   width: 100%;
   display: block;
@@ -381,7 +321,7 @@
 }
 
 .customer .pagination li [aria-current]::after {
-  content: '';
+  content: "";
   display: block;
   width: 2rem;
   height: 0.01rem;
@@ -399,7 +339,7 @@
   width: fit-content;
 }
 
-.login a[href='#recover'] {
+.login a[href="#recover"] {
   margin-left: 0;
   margin-right: 0;
 }
@@ -449,15 +389,18 @@
   margin-bottom: 0;
 }
 
-.activate button[name='decline'],
+.activate button[name="decline"],
 .addresses li > button,
 .addresses form button[type] {
-  background-color: rgba(var(--color-background), var(--alpha-button-background));
+  background-color: rgba(
+    var(--color-background),
+    var(--alpha-button-background)
+  );
   color: rgb(var(--color-link));
 }
 
 @media only screen and (min-width: 750px) {
-  .activate button[name='decline'] {
+  .activate button[name="decline"] {
     margin-top: inherit;
     margin-left: 1rem;
   }
@@ -481,7 +424,7 @@
 @media screen and (min-width: 990px) {
   :is(.account, .order) > div:nth-of-type(2) {
     display: flex;
-    margin-top: 2rem;
+    margin-top: 5rem;
   }
 }
 
@@ -737,8 +680,8 @@
   margin-right: 1rem;
 }
 
-label[for='AddressCountryNew'],
-label[for='AddressProvinceNew'] {
+label[for="AddressCountryNew"],
+label[for="AddressProvinceNew"] {
   display: block;
   font-size: 1.4rem;
   margin-bottom: 0.6rem;
@@ -764,11 +707,11 @@ li[data-address] {
   margin-top: 5rem;
 }
 
-.addresses [aria-expanded='false'] ~ div[id] {
+.addresses [aria-expanded="false"] ~ div[id] {
   display: none;
 }
 
-.addresses [aria-expanded='true'] ~ div[id] {
+.addresses [aria-expanded="true"] ~ div[id] {
   display: block;
 }
 
@@ -792,7 +735,7 @@ li[data-address] > h2 {
   margin-bottom: 0;
 }
 
-.addresses input[type='checkbox'] {
+.addresses input[type="checkbox"] {
   margin-top: 2rem;
   margin-left: 0;
 }
@@ -818,10 +761,299 @@ li[data-address] > h2 {
   margin-top: 1.5rem;
 }
 
-.customer__wrapper{
-    max-width: 60%;
-    margin: 0 auto;
-   padding: 10px 90px 40px 90px;
-    background: #f5f5f5;
-    border-radius: 16px;
+.login-main-form {
+  width: 100%;
+}
+
+.login-form-wrapper {
+  background: rgb(245, 245, 245);
+  padding: 30px 120px;
+  border-radius: 16px;
+  width: 100%;
+  margin: auto;
+}
+
+.pwd_or_email-wrapper {
+  width: 100%;
+}
+.customer-create-ac-button a {
+  color: black;
+  text-decoration: none;
+}
+
+.customer-create-ac-button {
+  display: inline-block;
+  border-radius: 10rem;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  border: 1px solid black !important;
+  text-decoration: none;
+  padding: 5px 15px 5px 15px;
+  letter-spacing: 0.3px;
+  line-height: 28.8px;
+  text-transform: capitalize;
+  width: 100%;
+  background: transparent !important;
+  color: black;
+}
+.customer-create-ac-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: none;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.customer-create-ac-button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #d03c3f;
+  transition: all 0.3s ease;
+  border-radius: 10rem;
+  z-index: -1;
+  color: white;
+}
+.customer-create-ac-button:hover {
+  color: white;
+}
+.customer-create-ac-button:hover:before {
+  width: 100%;
+}
+p.email_title {
+  display: flex;
+  align-items: center;
+}
+
+p.email_title:before {
+  margin: 0 15px 0 0;
+  content: "";
+  width: 10%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  width: 50%;
+}
+
+p.email_title:after {
+  margin: 0 0 0 15px;
+  content: "";
+  width: 10%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  width: 50%;
+}
+.forgot-password a {
+  text-decoration: none;
+  font-size: 16px;
+}
+.forgot-password a:hover {
+  color: #d03c3f;
+}
+.input-labels-text {
+  display: flex;
+  font-weight: 600;
+}
+.customer__wrapper {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 30px 90px 30px 90px;
+  background: #f5f5f5;
+  border-radius: 16px;
+}
+
+.customer-create-black-button {
+  display: inline-block;
+  border-radius: 10rem;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  border: 1px solid black !important;
+  text-decoration: none;
+  padding: 5px 15px 5px 15px;
+  letter-spacing: 0.3px;
+  line-height: 28.8px;
+  text-transform: capitalize;
+  width: 100%;
+  background: black !important;
+  color: white;
+}
+.customer-create-black-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: none;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.customer-create-black-button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #d03c3f;
+  transition: all 0.3s ease;
+  border-radius: 10rem;
+  z-index: -1;
+  color: white;
+}
+.customer-create-black-button:hover {
+  color: white;
+}
+.customer-create-black-button:hover:before {
+  width: 100%;
+}
+.main-account-container {
+  display: flex;
+  width: 100%;
+}
+.main-account-sidebar {
+  width: 25%;
+}
+.main-account-sidebar-details {
+  width: 75%;
+  padding: 22px 28px 33px;
+}
+
+@media screen and (min-width: 1024px) {
+}
+.account-page-subtitle-block {
+  padding: 10px 24px;
+  margin-bottom: 24px;
+}
+.account-page-subtitle-block {
+  border-radius: 8px;
+  border: 1px solid #d0bbba;
+  padding: 10px 24px;
+  margin-bottom: 24px;
+}
+
+.account-page-account-title {
+  padding-bottom: 18px;
+}
+.account-customer-fullname {
+  padding-bottom: 14px;
+  padding-top: 18px;
+}
+
+/*--------------------------------------------orders-page----------------------------------*/
+
+.main-orders-name-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 1024px) {
+}
+.account-page-subtitle-order {
+  padding-top: 38px;
+  padding-bottom: 28px;
+}
+.main-orders-title {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.main-orders-table-header {
+  background: #d03c3f;
+  color: white;
+}
+/*--------------------------------------------orders-page-details----------------------------------*/
+.customer-orders_container {
+  background: #fcfcfc;
+  padding: 28px 25px 25px;
+  border-radius: 16px;
+}
+.customer-details_header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+.customer-details_header a {
+  width: 15%;
+}
+.customer-details_heading{
+  width: 65%;
+  text-align: center;
+}
+.order-address-details-card{
+  border: 1px solid #d03c3f;
+  background: #fff;
+  padding: 20px 33px 20px 32px;
+  margin-top: 36px;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.order-view-button{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.order-view-button a{
+  text-decoration: none;
+  margin-left:auto;
+}
+/*--------------------------------------------addressess-page----------------------------------*/
+.customer-addressess_heading {
+  /* text-align: left; */
+}
+.customer-addressess_add-button {
+  width: 100%;
+}
+.customer-addressess_add-button-text {
+  text-transform: uppercase;
+}
+
+.customer-addressess_address-list li {
+  border: 1px solid black;
+  background: #fff;
+  padding: 20px 33px 20px 32px;
+  margin-top: 36px;
+  order: -1;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.customer-addressess_address-button{
+ display: flex;
+  justify-content: space-around;
+  gap: 10px;
+} 
+
+.customer-addressess_defult {
+  text-align: left !important;
+}
+.customer-addressess_address {
+  flex-grow: 1;
+}
+
+.customer-addressess_container {
+  background: #fcfcfc;
+  padding: 28px 25px 25px;
+  border-radius: 16px;
 }

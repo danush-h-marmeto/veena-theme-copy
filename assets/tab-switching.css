@@ -1,0 +1,42 @@
+    .main-tabcollections__tabs{
+        width:100%
+    }
+    .main-tabcollections__tabs ul{
+    display: flex;
+    align-items: center;
+    background: #f5f8fa;
+    border-radius: 2rem;
+    max-width: 65rem;
+    margin: 0 auto 3.5rem;
+    justify-content: center;
+    }
+    .tab__active{
+    background: #e1e6eb;
+    border-radius: 2rem;
+    color: #111314;
+    }
+    .main-tabcollections__tabs-title:hover{
+        background: #e1e6eb;
+    border-radius: 2rem;
+    color: #111314;
+    }
+    .main-tabcollections__tabs ul{
+        padding: 0;
+    }
+    .main-tabcollections__tabs ul li{
+     width: 100%;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.8rem;
+    letter-spacing: .065rem;
+    padding: 1.2rem;
+    transition: background .2s ease;
+    color: #565d66;
+    }
+    .main-tabcollections__title{
+        display:flex;
+        width: 100%;
+        align-items: center;
+        text-align:center;
+        justify-content: center;
+    }

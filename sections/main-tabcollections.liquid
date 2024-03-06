@@ -1,1 +1,165 @@
-<h1>hidfighjohgfghj</h1>
+{{ 'tab-switching.css' |  asset_url |  stylesheet_tag }}
+
+{%  style  %}
+    .padding-{{section.id}} {
+        padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+        .padding-{{section.id}} {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+    }
+
+{% endstyle %}
+{% capture sliderOptionsData %}
+  {
+    "autoplay": {{ section.settings.autoplay }},
+    "interval": {{ section.settings.autoplay_duration }},
+    "pagination": {{ section.settings.show_pagination }},
+    "type": "slide",
+    "perPage": 5,
+    "gap": "20px",
+    "arrows": {{ section.settings.show_arrows }},
+    "perMove": 1,
+     "breakpoints": {
+		"640": {
+			"perPage": 1
+		}
+  }
+  }
+{% endcapture %}
+
+<div class="main-tabcollections padding-{{ section.id}}">
+    <div class="page-width">
+    <div class="main-tabcollections__tabs">
+        {% if section.settings.heading_text != blank %}
+            <h1 class="main-tabcollections__title">{{ section.settings.heading_text }}</h1>
+        {% endif %}
+        <ul class="">
+            {% for block in section.blocks %}
+                <li class="main-tabcollections__tabs-title ">{{ block.settings.tab_title }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% for block in section.blocks %}
+          <div class="tab-slider {% unless forloop.first %}hidden{% endunless %}">
+             <slide-slider>
+                <section class="splide" aria-label="SildeShow" data-slider-settings='{{ sliderOptionsData }}'>
+                   <div class="splide__track">
+                      <ul class="splide__list ">
+                         {% for product in block.settings.collection_list.products %}
+                            <li class="splide__slide custom-border-radius-sm">
+                               {% render 'custom-product-card', product: product, section_id: section.id %}
+                            </li>
+                         {% else %}
+                            {% for i in (1..4) %}
+                               <li class="splide__slide custom-border-radius">
+                                  {{ 'product-' | append: i | placeholder_svg_tag }}
+                               </li>
+                            {% endfor %}
+                         {% endfor %}
+                      </ul>
+                   </div>
+                </section>
+             </slide-slider>
+          </div>
+       {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collections Switching",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Heading Text",
+      "id": "heading_text",
+      "default": "Fresh From The Source"
+    },
+     {
+      "type": "header",
+      "content": "Slider Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show Pagination Dots",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show Arrows",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_duration",
+      "min": 1000,
+      "max": 9000,
+      "step": 1000,
+      "unit": "ms",
+      "label": "Autoplay Duration",
+      "info": "ms - milliseconds",
+      "default": 5000
+    },
+      {
+            "type": "range",
+            "id": "padding_top",
+            "label": "Padding top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "default": 20
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "default": 20
+        }   
+  ],
+  "blocks":[
+    {
+            "name": "Collections Blocks",
+            "type": "collection",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "tab_title",
+                    "label": "Tabs Title",
+                    "default": "SYRUPS"
+                },
+                {
+                    "type": "collection",
+                    "id": "collection_list",
+                    "label": "Collections List",
+                    "info": "Select the Respective Collection"
+                }
+            ]
+        }
+    ],
+  "presets": [
+    {
+      "name": "Collections Switching"
+    }
+  ]
+}
+{% endschema %}
+

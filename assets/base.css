@@ -1424,6 +1424,9 @@ deferred-media {
 
 /* component-button */
 /* Button - default */
+ul{
+      list-style-type:none
+}
 
 .button--secondary,
 .button--tertiary {

@@ -1671,3 +1671,37 @@ if (document.querySelectorAll(".customer-addressess_edit-button")){
       });
   });
 }
+ document.addEventListener("DOMContentLoaded", function () {
+   const tabs = document.querySelectorAll(".main-tabcollections__tabs-title");
+   const sliders = document.querySelectorAll(".tab-slider");
+
+   if (tabs.length > 0) {
+
+     tabs[0].classList.add("tab__active");
+
+     tabs.forEach((tab, index) => {
+       tab.addEventListener("click", function () {
+         tabs.forEach((tab) => {
+           tab.classList.remove("tab__active");
+         });
+
+         this.classList.add("tab__active");
+         showSlider(index);
+       });
+     });
+   }
+
+   function showSlider(index) {
+     sliders.forEach((slider, sliderIndex) => {
+       if (sliderIndex === index) {
+         slider.classList.remove("hidden");
+       } else {
+         slider.classList.add("hidden");
+       }
+     });
+   }
+ });
+ 
+
+ 
+

@@ -54,6 +54,47 @@
                           {%- endfor -%}
                         </div>
 
+                      {% elsif childlink.title == 'blogs' %}
+                        {%- assign blogs = blogs.all -%}
+                        <div class="grid grid--4-col-desktop">
+                        {% if section.settings.blog.articles %}               
+                                {% for article in section.settings.blog.articles %}
+                                    <div class="grid__item mega-menu__blog-wrapper custom-border-radius ">  
+                                                                
+                                        {% if article.image %}
+                                            <div class="media media--square custom-border-radius-sm"> 
+                                                {% render "responsive-picture", 
+                                                    desktopImage: article.image, 
+                                                    mobileImage: article.image,
+                                                    class : "media media--square" %}
+                                            </div>
+                                        {% else %}   
+                                            <div class="custom-border-radius">  
+                                                {{ 'product-3' | placeholder_svg_tag }}
+                                            </div>
+                                        {% endif %}
+                                        <div class="">  
+                                            {% if article.image %}
+                                                <div><b>{{ article.created_at | date: '%B %d, %Y' }}</b></div>
+                                            {% endif %}
+                                            
+                                            {% if article.title %}
+                                                <a href="{{ article.url }}" class = "h4 custom-article__title">{{ article.title }} </a>
+                                            {% endif %}
+                                            
+                                        </div> 
+                                        
+                                    </div>
+                                {% endfor %} 
+                            {% else %}
+                                {% for i in (1..5) %}
+                                    <div class="grid__item">
+                                        {{ 'product-' | append: i | placeholder_svg_tag }}
+                                    </div> 
+                                {% endfor %}            
+                            {%- endif -%}  
+                        </div>
+
                       {% else %}
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
@@ -86,13 +127,14 @@
                       {%- endif -%}
                     </li>
                   {%- endfor -%}
-                  {% if link.title == 'Trends' %}
-                    {%- for block in section.blocks -%}
+                  {%- for block in section.blocks -%}
+                    {% assign title = block.settings.mega_menu_title %}
+                      {% if link.title == title %}
                       <div class="media media--portrait custom-border-radius-sm">
                         {% render 'responsive-picture', desktopImage: block.settings.mega_menu_image, class:'media media--portrait' %}
                       </div>
+                    {%- endif -%}
                     {%- endfor -%}
-                  {%- endif -%}
                 </ul>
                 <div>
 

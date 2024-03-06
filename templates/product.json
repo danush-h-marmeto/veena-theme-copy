@@ -48,6 +48,11 @@
             "show_gift_card_recipient": true
           }
         },
+        "pincode_checker_PqPbnh": {
+          "type": "pincode_checker",
+          "settings": {
+          }
+        },
         "icon_with_text_7h8zF8": {
           "type": "icon-with-text",
           "settings": {
@@ -102,6 +107,7 @@
         "coupon_code_YxGgEf",
         "quantity_selector",
         "buy_buttons",
+        "pincode_checker_PqPbnh",
         "icon_with_text_7h8zF8",
         "description",
         "share",

@@ -495,6 +495,9 @@
                   </div>
                   {% endif %}
                 </div>
+                {% when 'pincode_checker' %}
+                  {% render 'pincode-checker', block:block %}
+                
               {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
         
@@ -841,6 +844,30 @@
             "label": "Coupon Background color",
             "default": "#8e02c9"
           }
+      ]
+    },
+    {
+      "type": "pincode_checker",
+      "name":"Pincode checker",
+      "settings":[
+        {
+          "type": "text",
+          "id":"button_text",
+          "label":"Button label",
+          "default": "Check For Delivery"
+        },
+         {
+          "type": "text",
+          "id":"pincode_available_message",
+          "label":"Pincode available message",
+          "default": "We Deliver to this Location"
+        },
+         {
+          "type": "text",
+          "id":"pincode_unavailable_message",
+          "label":"Pincode unavailable message",
+          "default": "Currently Unavailable in this Location"
+        }
       ]
     },
     {

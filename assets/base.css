@@ -1427,7 +1427,11 @@ deferred-media {
 ul{
       list-style-type:none
 }
-
+.plus-sign{
+  justify-content: center;
+    display: flex;
+    align-items: center;
+}
 .button--secondary,
 .button--tertiary {
   --color-button: var(--color-secondary-button);

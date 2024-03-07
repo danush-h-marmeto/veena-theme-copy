@@ -133,20 +133,11 @@
         "padding_bottom": 12
       }
     },
-    "custom_bundles_pTgQMH": {
-      "type": "custom-bundles",
-      "blocks": {
-        "product_jhKJgK": {
-          "type": "product",
-          "settings": {
-            "product": "full-sleeve-high-neck-t-shirt"
-          }
-        }
-      },
-      "block_order": [
-        "product_jhKJgK"
-      ],
+    "bundles_Bq4dfU": {
+      "type": "bundles",
       "settings": {
+        "section_heading": "Frequently Brought Together",
+        "product": "full-sleeve-high-neck-t-shirt",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -249,7 +240,7 @@
   },
   "order": [
     "main",
-    "custom_bundles_pTgQMH",
+    "bundles_Bq4dfU",
     "wizaah_recently_viewed_products_FxMa6k",
     "related-products",
     "custom_image_grid_jQJ3Mp",

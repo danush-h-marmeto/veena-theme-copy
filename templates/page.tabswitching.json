@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-tab-switching",
+      "blocks": {
+       
+       
+      },
+      "block_order": [
+       
+      ],
+      "settings": {
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

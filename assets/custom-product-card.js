@@ -5,7 +5,7 @@ class ProductCard extends HTMLElement {
     this.sectionId = this.dataset.sectionId;
     this.variantData = JSON.parse(this.querySelector("script").textContent);
     this.addEventListener("change", this.onOptionChange);
-    console.log(this.querySelectorAll('input[type="radio"]:checked'));
+    // console.log(this.querySelectorAll('input[type="radio"]:checked'));
   }
 
   onOptionChange() {
@@ -21,8 +21,8 @@ this.currentVariant = this.variantData.find(
   }
 
   getUpdatedCard() {
-    const url = `${this.productHandle}?variant=${this.currentVariant.id}&section_id=${this.sectionId}`;
-    console.log(url)
+    const url = `/products/${this.productHandle}?variant=${this.currentVariant.id}&section_id=render-product-card`;
+    // console.log(url)
     fetch(url)
       .then((response) => response.text())
       .then((responseText) => {

@@ -1,42 +1,61 @@
-    .main-tabcollections__tabs{
-        width:100%
-    }
-    .main-tabcollections__tabs ul{
-    display: flex;
-    align-items: center;
-    background: #f5f8fa;
-    border-radius: 2rem;
-    max-width: 65rem;
-    margin: 0 auto 3.5rem;
-    justify-content: center;
-    }
-    .tab__active{
-    background: #e1e6eb;
-    border-radius: 2rem;
-    color: #111314;
-    }
-    .main-tabcollections__tabs-title:hover{
-        background: #e1e6eb;
-    border-radius: 2rem;
-    color: #111314;
-    }
-    .main-tabcollections__tabs ul{
-        padding: 0;
-    }
-    .main-tabcollections__tabs ul li{
-     width: 100%;
+.main-tab-switching * {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+.main-tab-switching__tabs {
+  width: 100%;
+}
+.main-tab-switching__tabs ul {
+  display: flex;
+  align-items: center;
+  max-width: 43rem;
+  margin: 4rem auto 0rem;
+  padding: 0;
+  justify-content: space-between;
+}
+.tab__active {
+ opacity: 1 !important;
+ position: relative;
+}
+.tab-slider{
+    margin-top: 3rem;
+}
+.tab__active:after {
+  content: '';
+  position: absolute;
+  bottom: -9px; 
+  left: 0;
+  right: 0;
+  border-bottom: 1.4px solid black; 
+}
+.main-tab-switching__tabs-title{
+    opacity: .5;
+}
+.main-tab-switching__tabs-title:hover {
+    opacity: 1;
+
+}
+
+.main-tab-switching__tabs ul li {
+
     cursor: pointer;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     letter-spacing: .065rem;
-    padding: 1.2rem;
+    padding: 0rem;
     transition: background .2s ease;
-    color: #565d66;
-    }
-    .main-tabcollections__title{
-        display:flex;
-        width: 100%;
-        align-items: center;
-        text-align:center;
-        justify-content: center;
-    }
+    color: black;
+    line-height: 28px;
+}
+
+.main-tab-switching__title  * {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-transform: uppercase;
+  
+}

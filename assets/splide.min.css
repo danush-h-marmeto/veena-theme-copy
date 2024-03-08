@@ -174,36 +174,35 @@
   outline-offset: 3px;
 }
 .splide__pagination {
-  gap: 10px;
-  bottom: 0.5em;
-  left: 0;
-  padding: 0 1em;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-  height: 40px;
+    gap: 10px;
+    bottom: -3.5em;
+    left: 0;
+    padding: 0 1em;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    height: 40px;
   
 }
 .splide__pagination .is-active{
     width: 25px;
-    border-radius: 10px;
+
 }
 .splide__pagination__page {
-  background: transparent;
-  border: 1px solid #ccc;
-  border-radius: 50%;
+ background: rgba(50, 50, 50, 0.6);
   display: inline-block;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   margin: 7px 7px 0px 7px;
   opacity: 1;
   padding: 0;
   position: relative;
   transition: transform 0.2s linear;
-  width: 10px;
 }
 .splide__pagination__page.is-active {
-  background: #fff;
-  border: none;
+background: rgba(50, 50, 50, 1);
+width: 60px;
+height: 3.57px;
   transform: scale(1.4);
   z-index: 1;
 }

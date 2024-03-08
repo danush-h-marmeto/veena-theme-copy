@@ -2,8 +2,8 @@
 
 {%  style  %}
     .padding-{{section.id}} {
-        padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
-        padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom  }}px;
     }
 
     @media screen and (min-width: 750px) {
@@ -12,61 +12,73 @@
             padding-bottom: {{ section.settings.padding_bottom }}px;
         }
     }
-
 {% endstyle %}
+
+
+{% comment %}
+  Capturing silder options 
+{% endcomment %}
+
+
 {% capture sliderOptionsData %}
   {
     "autoplay": {{ section.settings.autoplay }},
     "interval": {{ section.settings.autoplay_duration }},
     "pagination": {{ section.settings.show_pagination }},
     "type": "slide",
-    "perPage": 5,
+    "perPage": 4,
     "gap": "20px",
     "arrows": {{ section.settings.show_arrows }},
     "perMove": 1,
      "breakpoints": {
 		"640": {
-			"perPage": 1
+			"perPage": 2.2
 		}
   }
   }
 {% endcapture %}
 
-<div class="main-tabcollections padding-{{ section.id}}">
+<div class="main-tab-switching padding-{{ section.id}}">
     <div class="page-width">
-    <div class="main-tabcollections__tabs">
-        {% if section.settings.heading_text != blank %}
-            <h1 class="main-tabcollections__title">{{ section.settings.heading_text }}</h1>
-        {% endif %}
-        <ul class="">
-            {% for block in section.blocks %}
-                <li class="main-tabcollections__tabs-title ">{{ block.settings.tab_title }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% for block in section.blocks %}
-          <div class="tab-slider {% unless forloop.first %}hidden{% endunless %}">
-             <slide-slider>
+        <div class="main-tab-switching__tabs">
+            <div class="main-tab-switching__title">
+                {% if section.settings.section_heading_text != blank %}
+                <div class="">{{ section.settings.section_heading_text }}</div>
+                {% endif %}
+                {% if section.settings.section_heading_title != blank %}
+                <div class="h1">{{ section.settings.section_heading_title }}</div>
+                {% endif %}
+            </div>
+            <ul>
+                {% for block in section.blocks %}
+                <li class="main-tab-switching__tabs-title ">{{ block.settings.tab_title }}</li>
+                {% endfor %}
+            </ul>
+            <hr class="hr">
+        </div>
+        {% for block in section.blocks %}
+        <div class="tab-slider {% unless forloop.first %}hidden{% endunless %}">
+            <slide-slider>
                 <section class="splide" aria-label="SildeShow" data-slider-settings='{{ sliderOptionsData }}'>
-                   <div class="splide__track">
-                      <ul class="splide__list ">
-                         {% for product in block.settings.collection_list.products %}
-                            <li class="splide__slide custom-border-radius-sm">
-                               {% render 'custom-product-card', product: product, section_id: section.id %}
+                    <div class="splide__track">
+                        <ul class="splide__list ">
+                            {% for product in block.settings.collection_list.products %}
+                            <li class="splide__slide">
+                                {% render 'tab-switching-productcard', product: product, section_id: section.id %}
                             </li>
-                         {% else %}
+                            {% else %}
                             {% for i in (1..4) %}
-                               <li class="splide__slide custom-border-radius">
-                                  {{ 'product-' | append: i | placeholder_svg_tag }}
-                               </li>
+                            <li class="splide__slide custom-border-radius">
+                                {{ 'product-' | append: i | placeholder_svg_tag }}
+                            </li>
                             {% endfor %}
-                         {% endfor %}
-                      </ul>
-                   </div>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </section>
-             </slide-slider>
-          </div>
-       {% endfor %}
+            </slide-slider>
+        </div>
+        {% endfor %}
     </div>
 </div>
 
@@ -75,19 +87,19 @@
   "name": "Collections Switching",
   "tag": "section",
   "settings": [
-     {
-      "type": "text",
+    {
+      "type": "richtext",
       "label": "Section Heading",
-      "id": "heading_text",
-      "default": "Fresh From The Source"
+      "id": "section_heading_text",
+      "default": "<p>New Arrivals</p>"
     },
     {
       "type": "text",
       "label": "Section Title",
-      "id": "heading_title",
-      "default": "Fresh From The Source"
+      "id": "section_heading_title",
+      "default": "Browse The New Arrivals"
     },
-     {
+    {
       "type": "header",
       "content": "Slider Options"
     },
@@ -120,47 +132,47 @@
       "info": "ms - milliseconds",
       "default": 5000
     },
-      {
-            "type": "range",
-            "id": "padding_top",
-            "label": "Padding top",
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "unit": "px",
-            "default": 20
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Collections Blocks",
+      "type": "collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tabs Title",
+          "default": "Suits"
         },
         {
-            "type": "range",
-            "id": "padding_bottom",
-            "label": "Padding bottom",
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "unit": "px",
-            "default": 20
-        }   
-  ],
-  "blocks":[
-    {
-            "name": "Collections Blocks",
-            "type": "collection",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "tab_title",
-                    "label": "Tabs Title",
-                    "default": "Suits"
-                },
-                {
-                    "type": "collection",
-                    "id": "collection_list",
-                    "label": "Collections List",
-                    "info": "Select the respective collection you want to display"
-                }
-            ]
+          "type": "collection",
+          "id": "collection_list",
+          "label": "Collections List",
+          "info": "Select the respective collection you want to display"
         }
-    ],
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Collections Switching"

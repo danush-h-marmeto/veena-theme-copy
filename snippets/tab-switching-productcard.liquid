@@ -1,0 +1,94 @@
+{% liquid
+  assign current_varient = product.selected_or_first_available_variant
+  assign featured_image = current_varient.image | default : product.featured_image
+  assign secondary_image = product.images[1] | default: product.featured_image
+  assign discountPercentage = current_varient.compare_at_price | minus: current_varient.price | times: 100 | divided_by: current_varient.compare_at_price
+%}
+
+
+<product-card class="product-card" data-product-handle="{{ product.handle }}" data-section-id="{{ section_id }}">
+  <a href="{{ product.url }}">
+  <div class="product-card__image">
+      {% render 'responsive-picture',
+        desktopImage: featured_image,
+        class: 'media media--portrait'
+      %}
+     
+    </div>
+    
+  </a>
+
+  <div class="product-card__cartIcon">
+  
+        {% render 'custom-cartIcon' %}
+  
+  </div>
+
+  <div class="product-card__bottom-tags">   
+  {% render 'custom-heartIcon' %} 
+  </div>
+    
+
+  
+  <div class="product-card__content "> 
+    <h2 class="product-card__tabs-vendor">{{ product.vendor }}</h2>
+    <a class="product-card__link bold" href="{{ current_varient.url }}"> {{ product.title }} </a> 
+     <div class="product-card-varients tabs">
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ current_varient.id }}">
+
+        {% unless product.has_only_default_variant %}
+          <ul class="product-card__options">
+            {% for product_option in product.options_with_values %}
+              {% assign downcased_option_name = product_option.name | handleize %}
+              <li>
+                <ul class="product-card__option">
+                  {% for option_value in product_option.values %}
+                    <li>
+                      {% assign downcased_option_value = option_value | handleize %}
+                  
+                      <label>
+                        <input 
+                          type="radio" 
+                          name="{{ product_option.name | handleize }}" 
+                          value="{{ option_value }}"
+                          {% if product_option.selected_value == option_value %}checked{% endif %}
+                        >
+  
+                        {% if downcased_option_name == 'color' %}
+                          {% comment %} {% assign swatch_image = downcased_option_value | append: '.jpg' | file_url %} {% endcomment %}
+                        
+                          <span
+                            class="product-card__swatch product-card__colorswatch"
+                            style="background-color: {{ downcased_option_value }};"
+                            ></span>
+                          {% comment %} background-image: url({{ swatch_image }}); {% endcomment %}
+                        {% endif %}
+                      </label>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endunless %}
+      {% endform %} 
+    </div>
+    <div class="product-card__prices">
+        <span class="">  {{ current_varient.price | money_with_currency }}</span>   
+      {% if current_varient.compare_at_price > current_varient.price %}
+        <s class=""> {{ current_varient.compare_at_price | money_with_currency }} </s>
+      {% endif %}
+
+      {% if discountPercentage > 0 %}
+        <span class="product-card__discount-rate ">
+          {{ discountPercentage }}% off
+        </span>
+      {% endif %} 
+    </div>
+  </div>
+  
+  <script>
+    {{ product.variants | json }}
+  </script>
+</product-card>

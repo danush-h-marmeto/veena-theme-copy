@@ -3,15 +3,50 @@
     "main": {
       "type": "main-tab-switching",
       "blocks": {
-       
-       
+        "collection_3CGND8": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "Suits",
+            "collection_list": "suits"
+          }
+        },
+        "collection_rfwziV": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "T Shirts",
+            "collection_list": "t-shirts"
+          }
+        },
+        "collection_b79b9e": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "Chinos",
+            "collection_list": "new-colletions"
+          }
+        },
+        "collection_VKmJfx": {
+          "type": "collection",
+          "settings": {
+            "tab_title": "Bottoms",
+            "collection_list": "bottoms"
+          }
+        }
       },
       "block_order": [
-       
+        "collection_3CGND8",
+        "collection_rfwziV",
+        "collection_b79b9e",
+        "collection_VKmJfx"
       ],
       "settings": {
-        "padding_top": 20,
-        "padding_bottom": 20
+        "section_heading_text": "<p>New Arrivals<\/p>",
+        "section_heading_title": "Browse The New Arrivals",
+        "autoplay": true,
+        "show_pagination": true,
+        "show_arrows": false,
+        "autoplay_duration": 5000,
+        "padding_top": 46,
+        "padding_bottom": 49
       }
     }
   },

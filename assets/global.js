@@ -1672,9 +1672,18 @@ if (document.querySelectorAll(".customer-addressess_edit-button")){
   });
 }
  document.addEventListener("DOMContentLoaded", function () {
-   const tabs = document.querySelectorAll(".main-tabcollections__tabs-title");
+   const tabs = document.querySelectorAll(".main-tab-switching__tabs-title");
    const sliders = document.querySelectorAll(".tab-slider");
-
+ const heartIcons = document.querySelectorAll(".heart-icon");
+ if (heartIcons.length > 0) {
+   heartIcons.forEach((heartIcon) => {
+     heartIcon.addEventListener("click", function () {
+       var currentColor = this.getAttribute("fill");
+       var newColor = currentColor === "#ff0000" ? "#858585" : "#ff0000";
+       this.setAttribute("fill", newColor);
+     });
+   });
+ }
    if (tabs.length > 0) {
 
      tabs[0].classList.add("tab__active");
@@ -1701,6 +1710,8 @@ if (document.querySelectorAll(".customer-addressess_edit-button")){
      });
    }
  });
+
+
  
 
  

@@ -44,6 +44,7 @@
 
  {{ 'custom-countdown.css' | asset_url | stylesheet_tag }}
  {{ 'snippet-countdown.css'| asset_url | stylesheet_tag }}
+
  {{ 'sidebar.css' |  asset_url |  stylesheet_tag }}
     {{ content_for_header }}
 
@@ -274,6 +275,10 @@
       {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
 
     {%- if settings.predictive_search_enabled -%}
       <link

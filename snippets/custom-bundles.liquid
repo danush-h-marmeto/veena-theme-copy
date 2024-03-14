@@ -1,0 +1,25 @@
+{% if product.metafields.custom.product_bundles.value != blank %}
+    <div class="bundles">
+        <h2>{{ block.settings.section_heading }}</h2>
+            <div class="grid grid--2-col grid--4-col-desktop">
+                {% for product in product.metafields.custom.product_bundles.value %}
+                    <div class="grid__item bundle__card "> 
+                        {% render 'custom-product-card', product: product, section_id: section.id %}    
+                   <label class="product-card__checkbox">
+                      <input type="checkbox" class="bundle-checkbox" name="bundle_checkbox" value="{{ product.id }}" data-product-id="{{ product.selected_or_first_available_variant.id }}">
+                    </label>
+                    </div>
+                    {% unless forloop.last %}
+                        <span class="plus-sign">+</span>
+                    {% endunless %}
+                {% endfor %}
+                </div>
+        <span id="add-to-cart-btn" class="custom-button-secondary_color">Add to Cart</span>
+    </div>
+{% endif %}
+
+
+
+
+
+

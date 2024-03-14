@@ -81,6 +81,7 @@
         },
         "share": {
           "type": "share",
+          "disabled": true,
           "settings": {
             "share_label": "Share"
           }
@@ -97,8 +98,13 @@
         },
         "custom_atc_zfCg6i": {
           "type": "custom_atc",
-          "disabled": true,
           "settings": {
+          }
+        },
+        "bundles_ecRKkk": {
+          "type": "bundles",
+          "settings": {
+            "section_heading": "Frequently Brought Together"
           }
         }
       },
@@ -115,7 +121,8 @@
         "description",
         "share",
         "collapsible_tab_MndpnE",
-        "custom_atc_zfCg6i"
+        "custom_atc_zfCg6i",
+        "bundles_ecRKkk"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -135,6 +142,7 @@
     },
     "bundles_Bq4dfU": {
       "type": "bundles",
+      "disabled": true,
       "settings": {
         "section_heading": "Frequently Brought Together",
         "product": "full-sleeve-high-neck-t-shirt",

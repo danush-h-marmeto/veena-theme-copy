@@ -3,7 +3,10 @@ class ProductCard extends HTMLElement {
     super();
     this.productHandle = this.dataset.productHandle;
     this.sectionId = this.dataset.sectionId;
-    this.variantData = JSON.parse(this.querySelector("script").textContent);
+    if (this.querySelector("script")){
+      this.variantData = JSON.parse(this.querySelector("script").textContent);
+    }
+    
     this.addEventListener("change", this.onOptionChange);
     // console.log(this.querySelectorAll('input[type="radio"]:checked'));
   }
@@ -26,7 +29,7 @@ this.currentVariant = this.variantData.find(
     fetch(url)
       .then((response) => response.text())
       .then((responseText) => {
-        console.log(responseText)
+        // console.log(responseText)
         const html = new DOMParser().parseFromString(responseText, "text/html");
         this.innerHTML = html.querySelector(
           `[data-product-handle="${this.productHandle}"]`

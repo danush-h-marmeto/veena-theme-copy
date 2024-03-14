@@ -4439,4 +4439,24 @@ input[type="radio"]:checked + label {
   justify-content: center;
   align-items: center;
 }
+.bundle__card{
+  position: relative;
+}
+.bundle__card .product-card__quick-view{
+  display: none;
+  
+}
+.product-card__checkbox{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
 
+.bundles{
+    border: 2px solid;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}

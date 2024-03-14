@@ -500,8 +500,10 @@
                 
               {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
+
+
         {%- when 'bundles' -%}
-          {% render 'custom-bundles' section: section, product: product%}
+          {% render 'custom-bundles' section: section, product: product, block: block%}
         
 
 {%- unless shop.enabled_payment_types == empty -%}
@@ -876,7 +878,7 @@
       "type": "bundles",
       "name":"Product Bundles",
       "settings":[
-        {
+    {
      "type": "text",
      "id": "section_heading",
      "label": "Section Heading",

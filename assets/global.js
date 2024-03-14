@@ -228,18 +228,21 @@ class QuantityInput extends HTMLElement {
       btn.setAttribute("data-quantity", value);
     }
          const addButtonText = document.querySelector('[name="add"] > span');
-         const price = document.getElementById(`price-${this.dataset.section}`);
+         if(document.getElementById(`price-${this.dataset.section}`)){
+
+           const price = document.getElementById(`price-${this.dataset.section}`);
+           const currentPrice = price.querySelector(".price-item").textContent;
+           const finalPrice =
+             value *
+             parseInt(
+               currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, "")
+             );
+           // console.log((parseInt(currentPrice.split("Rs. ")[1].split('.')[0].replace(/,/g, ''))));
+           addButtonText.textContent =
+             window.variantStrings.addToCart + " Rs. " + finalPrice;
+         }
          // const qty = document.querySelector('[data-cart-quantity]').value;
          // console.log(qty);
-         const currentPrice = price.querySelector(".price-item").textContent;
-         const finalPrice =
-           value *
-           parseInt(
-             currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, "")
-           );
-         // console.log((parseInt(currentPrice.split("Rs. ")[1].split('.')[0].replace(/,/g, ''))));
-         addButtonText.textContent =
-           window.variantStrings.addToCart + " Rs. " + finalPrice;
   }
 }
 
@@ -1343,6 +1346,12 @@ class VariantSelects extends HTMLElement {
           document.querySelector("#meta-product__description").innerHTML =
             html.querySelector("#meta-product__description").innerHTML;
         }
+
+        // if (document.querySelector(".bundle-checkbox")) {
+        //   document.querySelector(".bundle-checkbox:checked").dataset.productId =
+        //     html.querySelector(".bundle-checkbox:checked").dataset.productId;
+        // }
+  
         // document.getElementById("coupon_code_text").innerHTML =
         //   html.getElementById("coupon_code_text").innerHTML;
         if (document.querySelector("#coupon_wrapper")){
@@ -1603,6 +1612,7 @@ if (document.querySelector(".custom_button_container")) {
       ],
       sections: cart.getSectionsToRender().map((section) => section.id),
     };
+    console.log(formData)
     fetch("/cart/add.js", {
       method: "POST",
       headers: {
@@ -1621,6 +1631,55 @@ if (document.querySelector(".custom_button_container")) {
       });
   });
 }
+
+
+  let cart =
+    document.querySelector("cart-notification") ||
+    document.querySelector("cart-drawer");
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('add-to-cart-btn').addEventListener('click', function () {
+      var selectedProducts = [];
+      document.querySelectorAll('.bundle-checkbox:checked').forEach(function (checkbox) {
+     console.log(checkbox.dataset.productId);
+        if (checkbox.value) {
+          selectedProducts.push({
+            id: checkbox.dataset.productId,
+            quantity: 1,
+          });
+        }
+      });
+
+      if (selectedProducts.length > 0) {
+        let formData = {
+          items: selectedProducts,
+          sections: cart.getSectionsToRender().map((section) => section.id),
+        };
+        console.log('formdata',formData);
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        })
+          .then((response) => {
+            return response.json()
+          })
+          .then((data) => {
+            cart.renderContents(data);
+          })
+          .catch((error) => {
+            console.log('Errorkjnkjkjkjnkjn:', error);
+          });
+      }
+    });
+  });
+
+
+
+
+
 if (document.getElementById("coupon_code_copy")){
 
   document

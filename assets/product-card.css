@@ -12,7 +12,7 @@
 }
 
 .product-card__prices {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   gap: 12px;

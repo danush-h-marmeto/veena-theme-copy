@@ -1,8 +1,8 @@
 
-  var targetDate = new Date(document.querySelector('.custom-countdown__time-wrapper').dataset.targetDate).getTime();
+  var targetDateOne = new Date(document.querySelector('.custom-countdown__time-wrapper').dataset.targetDate).getTime();
   var x = setInterval(function() {
     var now = new Date().getTime();
-    var distance = targetDate - now;
+    var distance = targetDateOne - now;
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));

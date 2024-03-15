@@ -3,7 +3,7 @@ class SplideSlider extends HTMLElement {
     super();
     this.splideElement = this.querySelector(".splide");
     this.options = JSON.parse(this.splideElement.dataset.sliderSettings);
-    console.log(this.options)
+    // console.log(this.options)
     this.mountSplider();
   }
 

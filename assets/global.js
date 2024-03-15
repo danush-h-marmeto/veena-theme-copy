@@ -213,8 +213,10 @@ class QuantityInput extends HTMLElement {
   validateQtyRules() {
     const value = parseInt(this.input.value);
 
+    if(document.querySelector(".current__product")){
     const currentProduct = document.querySelector(".current__product");
     currentProduct.dataset.currentPrductnty = value;
+    }
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
@@ -1673,58 +1675,57 @@ checkbox.forEach((checkbox) => {
 // console.log(document.querySelectorAll('.bundle-checkbox'))
 
 document.addEventListener("DOMContentLoaded", function () {
-  const currentProduct =
-    document.querySelector(".current__product").dataset.currentProductId;
 
-  // console.log(currentProduct);
-  
-    
-  document
-    .getElementById("add-to-cart-btn")
-    .addEventListener("click", function () {
-      var selectedProducts = [];
+  if(document.querySelector(".current__product")){
+    const currentProduct =
+      document.querySelector(".current__product").dataset.currentProductId;
       document
-        .querySelectorAll(".bundle-checkbox:checked")
-        .forEach(function (checkbox) {
-          console.log(checkbox);
-          if (checkbox.dataset.productId) {
-            selectedProducts.push({
-              id: checkbox.dataset.productId,
-              quantity: 1,
-            });
-          }
-        });
-       const quantity =
-         document.querySelector(".current__product").dataset.currentPrductnty;
-      selectedProducts.push({
-        id: currentProduct,
-        quantity: quantity,
-      });
-
-      if (selectedProducts.length > 0) {
-        let formData = {
-          items: selectedProducts,
-          sections: cart.getSectionsToRender().map((section) => section.id),
-        };
-        console.log("formdata", formData);
-        fetch("/cart/add.js", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            cart.renderContents(data);
-          })
-          .catch((error) => {
-            console.log("Errorkjnkjkjkjnkjn:", error);
+      .getElementById("add-to-cart-btn")
+      .addEventListener("click", function () {
+        var selectedProducts = [];
+        document
+          .querySelectorAll(".bundle-checkbox:checked")
+          .forEach(function (checkbox) {
+            console.log(checkbox);
+            if (checkbox.dataset.productId) {
+              selectedProducts.push({
+                id: checkbox.dataset.productId,
+                quantity: 1,
+              });
+            }
           });
-      }
-    });
+         const quantity =
+           document.querySelector(".current__product").dataset.currentPrductnty;
+        selectedProducts.push({
+          id: currentProduct,
+          quantity: quantity,
+        });
+  
+        if (selectedProducts.length > 0) {
+          let formData = {
+            items: selectedProducts,
+            sections: cart.getSectionsToRender().map((section) => section.id),
+          };
+          console.log("formdata", formData);
+          fetch("/cart/add.js", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((data) => {
+              cart.renderContents(data);
+            })
+            .catch((error) => {
+              console.log("Errorkjnkjkjkjnkjn:", error);
+            });
+        }
+      });
+  } 
 });
 
 

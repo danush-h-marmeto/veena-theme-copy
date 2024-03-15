@@ -60,12 +60,7 @@ s {
 .product-card__cartIcon svg {
   width: 5rem;
 }
-.product-card__checkbox {
-  position: absolute;
-  background: none;
-  top: 3%;
-  right: 0;
-}
+
 
 .product-card__quick-view-button {
   padding: 5px 10px;

@@ -1,4 +1,6 @@
 {% if product.metafields.custom.product_bundles.value != blank %}
+       
+    <input type="hidden" class="current__product" data-current-product-id= {{ product.selected_or_first_available_variant.id }} data-current-prductnty="">
     <div class="bundles">
         <h2>{{ block.settings.section_heading }}</h2>
             <div class="grid grid--2-col grid--4-col-desktop">
@@ -6,7 +8,7 @@
                     <div class="grid__item bundle__card "> 
                         {% render 'custom-product-card', product: product, section_id: section.id %}    
                    <label class="product-card__checkbox">
-                      <input type="checkbox" class="bundle-checkbox" name="bundle_checkbox" value="{{ product.id }}" data-product-id="{{ product.selected_or_first_available_variant.id }}">
+                      <input type="checkbox" class="bundle-checkbox" name="bundle_checkbox" value="{{ product.selected_or_first_available_variant.id }}" data-product-id="{{ product.selected_or_first_available_variant.id }}">
                     </label>
                     </div>
                     {% unless forloop.last %}

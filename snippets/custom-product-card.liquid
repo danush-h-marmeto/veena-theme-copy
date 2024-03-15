@@ -28,7 +28,8 @@
     </div>
     
   </a>
-
+  <input type="hidden" class="product__variant-id" data-varient-id="{{ product.selected_or_first_available_variant.id }}">
+   
   <div class="product-card__quick-view">
     <a href="{{ product.url }}" class="product-card__quick-view-button"> Quick Look</a>    
     <svg viewBox="0 0 511.999 511.999"><path d="M508.745,246.041c-4.574-6.257-113.557-153.206-252.748-153.206S7.818,239.784,3.249,246.035
@@ -110,6 +111,7 @@
       {% else %}
         <span class="h3">  {{ current_varient.price | money_with_currency }}</span>   
       {% endif %}  
+    
       
       {% if current_varient.compare_at_price > current_varient.price %}
         <s class="h4 product-card__compare-price"> {{ current_varient.compare_at_price | money_with_currency }} </s>

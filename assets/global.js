@@ -212,6 +212,9 @@ class QuantityInput extends HTMLElement {
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
+
+    const currentProduct = document.querySelector(".current__product");
+    currentProduct.dataset.currentPrductnty = value;
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
@@ -223,26 +226,23 @@ class QuantityInput extends HTMLElement {
       buttonPlus.classList.toggle("disabled", value >= max);
     }
 
-    if(document.getElementById("custom-atc")){
+    if (document.getElementById("custom-atc")) {
       const btn = document.getElementById("custom-atc");
       btn.setAttribute("data-quantity", value);
     }
-         const addButtonText = document.querySelector('[name="add"] > span');
-         if(document.getElementById(`price-${this.dataset.section}`)){
-
-           const price = document.getElementById(`price-${this.dataset.section}`);
-           const currentPrice = price.querySelector(".price-item").textContent;
-           const finalPrice =
-             value *
-             parseInt(
-               currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, "")
-             );
-           // console.log((parseInt(currentPrice.split("Rs. ")[1].split('.')[0].replace(/,/g, ''))));
-           addButtonText.textContent =
-             window.variantStrings.addToCart + " Rs. " + finalPrice;
-         }
-         // const qty = document.querySelector('[data-cart-quantity]').value;
-         // console.log(qty);
+    const addButtonText = document.querySelector('[name="add"] > span');
+    if (document.getElementById(`price-${this.dataset.section}`)) {
+      const price = document.getElementById(`price-${this.dataset.section}`);
+      const currentPrice = price.querySelector(".price-item").textContent;
+      const finalPrice =
+        value *
+        parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
+      // console.log((parseInt(currentPrice.split("Rs. ")[1].split('.')[0].replace(/,/g, ''))));
+      addButtonText.textContent =
+        window.variantStrings.addToCart + " Rs. " + finalPrice;
+    }
+    // const qty = document.querySelector('[data-cart-quantity]').value;
+    // console.log(qty);
   }
 }
 
@@ -1334,6 +1334,16 @@ class VariantSelects extends HTMLElement {
         const html = new DOMParser().parseFromString(responseText, "text/html");
         // document.querySelector("#custom-atc").dataset.id =
         //   html.querySelector("#custom-atc").dataset.id;
+
+        document
+          .querySelectorAll(".bundle-checkbox")
+          .forEach(function (checkbox) {
+            const variantId = checkbox
+              .closest(".bundle__card")
+              .querySelector(".product__variant-id").dataset.variantId;
+            checkbox.dataset.productId = variantId;
+          });
+
         if (document.querySelector("#custom_button")) {
           document
             .querySelector("#custom_button")
@@ -1342,22 +1352,38 @@ class VariantSelects extends HTMLElement {
               html.querySelector("#custom_button").dataset.variantId
             );
         }
+
+       
+
         if (document.querySelector("#meta-product__description")) {
           document.querySelector("#meta-product__description").innerHTML =
             html.querySelector("#meta-product__description").innerHTML;
+        }
+
+        if (document.querySelector(".current__product")) {
+          document.querySelector(".current__product").dataset.currentProductId =
+            html.querySelector(".current__product").dataset.currentProductId;
+
+          document.querySelector(
+            ".current__product"
+          ).dataset.currentPrductQnty =
+            html.querySelector(".current__product").dataset.currentPrductQnty;
         }
 
         // if (document.querySelector(".bundle-checkbox")) {
         //   document.querySelector(".bundle-checkbox:checked").dataset.productId =
         //     html.querySelector(".bundle-checkbox:checked").dataset.productId;
         // }
-  
+
         // document.getElementById("coupon_code_text").innerHTML =
         //   html.getElementById("coupon_code_text").innerHTML;
-        if (document.querySelector("#coupon_wrapper")){
+        if (document.querySelector("#coupon_wrapper")) {
           document.querySelector("#coupon_wrapper").innerHTML =
             html.querySelector("#coupon_wrapper").innerHTML;
         }
+
+      
+
         const destination = document.getElementById(
           `price-${this.dataset.section}`
         );
@@ -1612,7 +1638,7 @@ if (document.querySelector(".custom_button_container")) {
       ],
       sections: cart.getSectionsToRender().map((section) => section.id),
     };
-    console.log(formData)
+    console.log(formData);
     fetch("/cart/add.js", {
       method: "POST",
       headers: {
@@ -1633,21 +1659,46 @@ if (document.querySelector(".custom_button_container")) {
 }
 
 
-  let cart =
-    document.querySelector("cart-notification") ||
-    document.querySelector("cart-drawer");
 
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('add-to-cart-btn').addEventListener('click', function () {
+let cart =
+  document.querySelector("cart-notification") ||
+  document.querySelector("cart-drawer");
+
+const checkbox = document.querySelectorAll(".bundle-checkbox");
+checkbox.forEach((checkbox) => {
+  checkbox.addEventListener("click", (e) => {
+    console.log(e.target.value);
+  });
+});
+// console.log(document.querySelectorAll('.bundle-checkbox'))
+
+document.addEventListener("DOMContentLoaded", function () {
+  const currentProduct =
+    document.querySelector(".current__product").dataset.currentProductId;
+
+  // console.log(currentProduct);
+  
+    
+  document
+    .getElementById("add-to-cart-btn")
+    .addEventListener("click", function () {
       var selectedProducts = [];
-      document.querySelectorAll('.bundle-checkbox:checked').forEach(function (checkbox) {
-     console.log(checkbox.dataset.productId);
-        if (checkbox.value) {
-          selectedProducts.push({
-            id: checkbox.dataset.productId,
-            quantity: 1,
-          });
-        }
+      document
+        .querySelectorAll(".bundle-checkbox:checked")
+        .forEach(function (checkbox) {
+          console.log(checkbox);
+          if (checkbox.dataset.productId) {
+            selectedProducts.push({
+              id: checkbox.dataset.productId,
+              quantity: 1,
+            });
+          }
+        });
+       const quantity =
+         document.querySelector(".current__product").dataset.currentPrductnty;
+      selectedProducts.push({
+        id: currentProduct,
+        quantity: quantity,
       });
 
       if (selectedProducts.length > 0) {
@@ -1655,55 +1706,54 @@ if (document.querySelector(".custom_button_container")) {
           items: selectedProducts,
           sections: cart.getSectionsToRender().map((section) => section.id),
         };
-        console.log('formdata',formData);
-        fetch('/cart/add.js', {
-          method: 'POST',
+        console.log("formdata", formData);
+        fetch("/cart/add.js", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
         })
           .then((response) => {
-            return response.json()
+            return response.json();
           })
           .then((data) => {
             cart.renderContents(data);
           })
           .catch((error) => {
-            console.log('Errorkjnkjkjkjnkjn:', error);
+            console.log("Errorkjnkjkjkjnkjn:", error);
           });
       }
     });
-  });
+});
 
 
+        
 
-
-
-if (document.getElementById("coupon_code_copy")){
-
+if (document.getElementById("coupon_code_copy")) {
   document
     .getElementById("coupon_code_copy")
     .addEventListener("click", copyCouponCode);
-function copyCouponCode() {
-  var couponCodeText = document.getElementById("coupon_code_text").textContent;
-  writeClipboardText(couponCodeText);
-}
-async function writeClipboardText(text) {
-  try {
-    await navigator.clipboard.writeText(text).then(() => {
-      document.getElementById("coupon_code_copy").innerHTML = "Copied !";
-      setTimeout(() => {
-        document.getElementById("coupon_code_copy").innerHTML = "copy code";
-      }, 3000);
-    });
-  } catch (error) {
-    console.error(error.message);
+  function copyCouponCode() {
+    var couponCodeText =
+      document.getElementById("coupon_code_text").textContent;
+    writeClipboardText(couponCodeText);
+  }
+  async function writeClipboardText(text) {
+    try {
+      await navigator.clipboard.writeText(text).then(() => {
+        document.getElementById("coupon_code_copy").innerHTML = "Copied !";
+        setTimeout(() => {
+          document.getElementById("coupon_code_copy").innerHTML = "copy code";
+        }, 3000);
+      });
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 }
-}
 
-if (document.querySelectorAll(".customer-addressess_edit-button")){
+if (document.querySelectorAll(".customer-addressess_edit-button")) {
   document.addEventListener("DOMContentLoaded", function () {
     document
       .querySelectorAll(".customer-addressess_edit-button")
@@ -1714,64 +1764,61 @@ if (document.querySelectorAll(".customer-addressess_edit-button")){
             '[data-edit-section="' + editSectionId + '"]'
           );
 
-         
           if (editSection.style.display === "block") {
             editSection.style.display = "none";
           } else {
-         
             document
               .querySelectorAll("[data-edit-section]")
               .forEach(function (section) {
                 section.style.display = "none";
-              })
+              });
             editSection.style.display = "block";
           }
         });
       });
   });
 }
- document.addEventListener("DOMContentLoaded", function () {
-   const tabs = document.querySelectorAll(".main-tab-switching__tabs-title");
-   const sliders = document.querySelectorAll(".tab-slider");
- const heartIcons = document.querySelectorAll(".heart-icon");
- if (heartIcons.length > 0) {
-   heartIcons.forEach((heartIcon) => {
-     heartIcon.addEventListener("click", function () {
-       var currentColor = this.getAttribute("fill");
-       var newColor = currentColor === "#ff0000" ? "#858585" : "#ff0000";
-       this.setAttribute("fill", newColor);
-     });
-   });
- }
-   if (tabs.length > 0) {
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll(".main-tab-switching__tabs-title");
+  const sliders = document.querySelectorAll(".tab-slider");
+  const heartIcons = document.querySelectorAll(".heart-icon");
+  if (heartIcons.length > 0) {
+    heartIcons.forEach((heartIcon) => {
+      heartIcon.addEventListener("click", function () {
+        var currentColor = this.getAttribute("fill");
+        var newColor = currentColor === "#ff0000" ? "#858585" : "#ff0000";
+        this.setAttribute("fill", newColor);
+      });
+    });
+  }
+  if (tabs.length > 0) {
+    tabs[0].classList.add("tab__active");
 
-     tabs[0].classList.add("tab__active");
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", function () {
+        tabs.forEach((tab) => {
+          tab.classList.remove("tab__active");
+        });
 
-     tabs.forEach((tab, index) => {
-       tab.addEventListener("click", function () {
-         tabs.forEach((tab) => {
-           tab.classList.remove("tab__active");
-         });
+        this.classList.add("tab__active");
+        showSlider(index);
+      });
+    });
+  }
 
-         this.classList.add("tab__active");
-         showSlider(index);
-       });
-     });
-   }
+  function showSlider(index) {
+    sliders.forEach((slider, sliderIndex) => {
+      if (sliderIndex === index) {
+        slider.classList.remove("hidden");
+      } else {
+        slider.classList.add("hidden");
+      }
+    });
+  }
+});
 
-   function showSlider(index) {
-     sliders.forEach((slider, sliderIndex) => {
-       if (sliderIndex === index) {
-         slider.classList.remove("hidden");
-       } else {
-         slider.classList.add("hidden");
-       }
-     });
-   }
- });
+
+// Get all checkbox elements
 
 
  
-
- 
-

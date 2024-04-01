@@ -1,6 +1,37 @@
-{% schema %}
-  {
-    "name": "feedback",
-    "settings": []
-  }
-{% endschema %}
+<div class="page-width">
+  <form method="POST" action="https://script.google.com/macros/s/AKfycbzNA5jeyKrBowukhQtbT8sXI-HqMHCr3vSolbG8Fgs_aaOiZcqT338s0chQVfVGPsfU/exec">
+    <div class="grid grid--1-col">
+      <div class="field grid__item">
+        <input name="Name" type="text" id="googleName" placeholder="Name" class="field__input" required>
+        <label class="field__label" for="googleName">Name</label>
+      </div>
+      <div class="field grid__item">
+        <input name="PhoneNumber" type="tel" id="googlePhoneNumber" placeholder="Phone Number" class="field__input" required>
+        <label class="field__label" for="googlePhoneNumber">Phone Number</label>
+      </div>
+      <div class="field grid__item">
+        <textarea name="Additional Feedback" id="googleAdditionalFeedback" placeholder="Additional Feedback" class="field__input" required></textarea>
+        <label class="field__label" for="googleAdditionalFeedback">Additional Feedback</label>
+      </div>
+      <div class="grid__item">
+        <input name="Privacy Policy" type="checkbox" id="privacy_check" required>
+        <label class="" for="privacy_check">I have read and accept the Privacy Policy.</label>
+      </div>
+    </div>
+    <button class="button" type="submit">Send</button>
+  </form>  
+</div>
+
+
+
+
+  {% schema %}
+    {
+      "name": "Google Sheet Form",
+      "presets": [
+        {
+          "name": "Google Sheet Form"
+        }
+      ]
+    }
+  {% endschema %}

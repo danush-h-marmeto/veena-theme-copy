@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "main": {
+      "type": "feedback",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "type": "marmeto-product-recommendations",
+      "settings": {
+        "enable_product_recommendations": true,
+        "title": "You may also like"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-recommendations"
+  ]
+}

@@ -59,24 +59,28 @@
         "image_BDfnjx": {
           "type": "Image",
           "settings": {
+            "mega_menu_title": "",
             "mega_menu_image": "shopify:\/\/shop_images\/1_1d205676-869e-42c8-a7e8-ba22f34a326b.webp"
           }
         },
         "image_zqwAJg": {
           "type": "Image",
           "settings": {
+            "mega_menu_title": "",
             "mega_menu_image": "shopify:\/\/shop_images\/3_63dd8f77-76ff-42e0-a9a3-e20fcf2370f1.webp"
           }
         },
         "image_Qg7UQX": {
           "type": "Image",
           "settings": {
+            "mega_menu_title": "",
             "mega_menu_image": "shopify:\/\/shop_images\/2_73207c1e-c772-4a69-b082-c1a11a40b849.webp"
           }
         },
         "image_epKLtJ": {
           "type": "Image",
           "settings": {
+            "mega_menu_title": "",
             "mega_menu_image": "shopify:\/\/shop_images\/4_2802189f-1334-4e80-ba5e-82dfa1d873d4.webp"
           }
         }
@@ -98,6 +102,7 @@
         "enable_country_selector": true,
         "enable_language_selector": true,
         "mobile_logo_position": "center",
+        "blog": "news",
         "margin_bottom": 0,
         "padding_top": 20,
         "padding_bottom": 20

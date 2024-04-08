@@ -1,3 +1,22 @@
+<style>
+    .rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: left;
+  }
+
+  .rating input {
+    display: none;
+  }
+  .rating label:hover,
+  .rating label:hover ~ label,
+  .rating input:checked ~ label {
+    color: #ffdd00;
+  }
+
+  
+</style>
+
 <div class="page-width">
   <form method="POST" action="https://script.google.com/macros/s/AKfycbzNA5jeyKrBowukhQtbT8sXI-HqMHCr3vSolbG8Fgs_aaOiZcqT338s0chQVfVGPsfU/exec">
     <div class="grid grid--1-col">
@@ -8,6 +27,16 @@
       <div class="field grid__item">
         <input name="PhoneNumber" type="tel" id="googlePhoneNumber" placeholder="Phone Number" class="field__input" required>
         <label class="field__label" for="googlePhoneNumber">Phone Number</label>
+      </div>
+      <div class="">Your service rating</div>
+      <div class="">
+        <div class="rating">
+          <input type="radio" id="star5" name="Rating" value="5" ><label for="star5">☆</label>
+          <input type="radio" id="star4" name="Rating" value="4"><label for="star4">☆</label>
+          <input type="radio" id="star3" name="Rating" value="3"><label for="star3">☆</label>
+          <input type="radio" id="star2" name="Rating" value="2"><label for="star2">☆</label>
+          <input type="radio" id="star1" name="Rating" value="1"><label for="star1">☆</label>
+        </div>
       </div>
       <div class="field grid__item">
         <textarea name="Additional Feedback" id="googleAdditionalFeedback" placeholder="Additional Feedback" class="field__input" required></textarea>

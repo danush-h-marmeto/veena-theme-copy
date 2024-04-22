@@ -4,7 +4,7 @@
       "type": "marmeto-collection-template",
       "settings": {
         "exclude_oos_products": false,
-        "show_oos_last": false,
+        "show_oos_last": true,
         "pagination_type": "infinite_scroll",
         "product_per_page": 48
       }

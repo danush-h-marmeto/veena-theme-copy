@@ -1,0 +1,53 @@
+{
+  "layout": "theme.gsap",
+  "sections": {
+    "main": {
+      "type": "parallax-image",
+      "blocks": {
+        "image_Ngtxkc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_73207c1e-c772-4a69-b082-c1a11a40b849.webp"
+          }
+        },
+        "image_9hiEmi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_63dd8f77-76ff-42e0-a9a3-e20fcf2370f1.webp"
+          }
+        },
+        "image_HFcbea": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_73207c1e-c772-4a69-b082-c1a11a40b849.webp"
+          }
+        },
+        "image_pK3rEY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_63dd8f77-76ff-42e0-a9a3-e20fcf2370f1.webp"
+          }
+        },
+        "image_UqaTyA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_c1c7fe9b-15a8-43a4-8d1a-c53818eda179.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_Ngtxkc",
+        "image_9hiEmi",
+        "image_HFcbea",
+        "image_pK3rEY",
+        "image_UqaTyA"
+      ],
+      "settings": {
+        "section_heading": "Parallax Scrolling ⚡"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

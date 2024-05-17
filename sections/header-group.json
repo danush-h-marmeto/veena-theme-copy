@@ -24,6 +24,7 @@
         "announcement-bar-0",
         "announcement_fH4d6L"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-ccce06c7-8ace-4d8f-9abd-cfefb7d93821",
         "show_line_separator": true,

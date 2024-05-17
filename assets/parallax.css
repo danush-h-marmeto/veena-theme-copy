@@ -1,0 +1,32 @@
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  height: 100%;
+}
+
+.images {
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.images .left,
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.parallax-item {
+  width: 14rem;
+  height: 22rem;
+  border-radius: 16px;
+}
+
+.right {
+  margin-top: 40rem;
+}

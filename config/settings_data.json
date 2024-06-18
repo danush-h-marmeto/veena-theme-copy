@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "logo": "shopify:\/\/shop_images\/n_Veena.webp",
@@ -165,6 +174,12 @@
     "blocks": {
       "14060646107696862457": {
         "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "12439146293631897289": {
+        "type": "shopify:\/\/apps\/blockify-ip-block\/blocks\/app_embed\/2e3e0ba5-0e70-447a-9ec5-3bf76b5ef12e",
         "disabled": false,
         "settings": {
         }

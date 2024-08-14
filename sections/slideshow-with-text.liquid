@@ -56,7 +56,7 @@
                     {% endif %}
                     {% if block.settings.block_button_text != blank %}
                       <a
-                        class="custom-button-{{ block.settings.button_type }}"
+                        class="klaviyo_form_trigger custom-button-{{ block.settings.button_type }}"
                         href=" {{ block.settings.button_link }}"
                       >
                         {{ block.settings.block_button_text }}
@@ -79,6 +79,12 @@
     </slide-slider>
   </div>
 </div>
+<script type="text/javascript">
+	document.querySelector('.klaviyo_form_trigger').addEventListener('click', function (){
+		window._klOnsite = window._klOnsite || []; 
+		window._klOnsite.push(['openForm', 'FORM_ID']);
+	});
+</script>
 
 {% schema %}
 {

@@ -12,9 +12,10 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
    }
+  
 {% endstyle %}
 
-{% capture slidersettings %}
+{% capture sliderSettings %}
             {
                "type": "loop",
                "perPage": 1,
@@ -29,48 +30,47 @@
 <div class="slideshow-with-text padding-{{ section.id }}">
   <div class="page-width">
     <slide-slider class="slideshow-with-text__wrapper">
-      <section class="splide" data-slider-settings="{{ slidersettings }}" aria-label="Slide Show Content">
+      <section class="splide" data-slider-settings='{{ sliderSettings }}' aria-label="Slide Show Content">
         <div class="splide__track custom-border-radius">
           <ul class="splide__list">
             {% if section.blocks.size > 0 %}
-              {% for block in section.blocks %}
+            {% for block in section.blocks %}
+              <li class="splide__slide">
+                <div class="splide__wrapper-image">
+                  {%- if block.settings.image != blank or block.settings.image_mobile != blank -%}
+                    {% render 'responsive-picture',
+                      desktopImage: block.settings.image,
+                      mobileImage: block.settings.image_mobile
+                    %}
+                  {%- endif -%}
+                </div>
+                <div class="slideshow-with-text__textContent content-{{ block.settings.content_position }}">
+                  <div class="slideshow-with-text__textContent-inner text-{{ block.settings.text_alignment }}">
+                    {% if block.settings.block_badge_text != blank %}
+                      <ul class="bnr_caption inline-richtext out-text ">
+                        <li>{{ block.settings.block_badge_text }}</li>
+                      </ul>
+                    {% endif %}
+                    {% if block.settings.block_title_text != blank %}
+                      <h2 class="h1 slideshow-with-text__title">{{ block.settings.block_title_text }}</h2>
+                    {% endif %}
+                    {% if block.settings.block_button_text != blank %}
+                      <a
+                        class="klaviyo_form_trigger custom-button-{{ block.settings.button_type }}">
+                        {{ block.settings.block_button_text }}
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </li>
+            {% else %}
+              {% for i in (1..3) %}
                 <li class="splide__slide">
-                  <div class="splide__wrapper-image">
-                    {%- if block.settings.image != blank or block.settings.image_mobile != blank -%}
-                      {% render 'responsive-picture',
-                        desktopImage: block.settings.image,
-                        mobileImage: block.settings.image_mobile
-                      %}
-                    {%- endif -%}
-                  </div>
-                  <div class="slideshow-with-text__textContent content-{{ block.settings.content_position }}">
-                    <div class="slideshow-with-text__textContent-inner text-{{ block.settings.text_alignment }}">
-                      {% if block.settings.block_badge_text != blank %}
-                        <ul class="bnr_caption inline-richtext out-text ">
-                          <li>{{ block.settings.block_badge_text }}</li>
-                        </ul>
-                      {% endif %}
-                      {% if block.settings.block_title_text != blank %}
-                        <h2 class="h1 slideshow-with-text__title">{{ block.settings.block_title_text }}</h2>
-                      {% endif %}
-                      {% if block.settings.block_button_text != blank %}
-                        <a
-                          class="klaviyo_form_trigger custom-button-{{ block.settings.button_type }}"
-                        >
-                          {{ block.settings.block_button_text }}
-                        </a>
-                      {% endif %}
-                    </div>
-                  </div>
+                  {{ 'collection-' | append: i | placeholder_svg_tag }}
                 </li>
-              {% else %}
-                {% for i in (1..3) %}
-                  <li class="splide__slide">
-                    {{ 'collection-' | append: i | placeholder_svg_tag }}
-                  </li>
-                {% endfor %}
               {% endfor %}
-            {% endif %}
+            {% endfor %}
+          {% endif %}
           </ul>
         </div>
       </section>
@@ -78,10 +78,10 @@
   </div>
 </div>
 <script type="text/javascript">
-  document.querySelector('.klaviyo_form_trigger').addEventListener('click', function (){
-  	window._klOnsite = window._klOnsite || [];
-  	window._klOnsite.push(['openForm', 'RkB3bD']);
-  });
+	document.querySelector('.klaviyo_form_trigger').addEventListener('click', function (){
+		window._klOnsite = window._klOnsite || []; 
+		window._klOnsite.push(['openForm', 'X3i2Lc']);
+	});
 </script>
 
 {% schema %}
@@ -225,7 +225,7 @@
         "default": "center"
         },
 
-
+       
    {
       "type": "select",
       "id": "content_position",

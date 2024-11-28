@@ -2,8 +2,7 @@
   "sections": {
     "main": {
       "type": "feedback",
-      "settings": {
-      }
+      "settings": {}
     },
     "product-recommendations": {
       "type": "marmeto-product-recommendations",

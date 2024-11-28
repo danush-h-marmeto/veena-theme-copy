@@ -1821,5 +1821,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Get all checkbox elements
 
+class CompareProduct extends HTMLElement {
+  constructor() {
+    super();
+    this.querySelector(".compare-checkbox").addEventListener("click", (e) => {
+      const checkbox = e.target;
+      const toast = document.querySelector(".toast.toast--green");
 
- 
+      if (checkbox.checked) {
+        toast.classList.remove("toast-hidden");
+        setTimeout(() => {
+          toast.classList.add("toast-hidden");
+        }, 3000);
+      } else {
+        toast.classList.add("toast-hidden");
+      }
+    });
+  }
+}
+
+customElements.define("compare-product", CompareProduct);

@@ -50,10 +50,27 @@
       ],
       "settings": {
         "autoplay": false,
-        "show_pagination": true,
+        "show_pagination": false,
         "autoplay_duration": 1000,
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "custom_product_list_main_VnKmz6": {
+      "type": "custom-product-list-main",
+      "settings": {
+        "title_text": "Featured Collection",
+        "button_text": "See All Products",
+        "button_link": "",
+        "button_type": "secondary",
+        "product_list": [
+          "iphone-16-128-gb-5g-mobile-phone-with-camera-control-a18-chip-and-a-big-boost-in-battery-life-works-with-airpods-black",
+          "oneplus-12-flowy-emerald-16gb-ram-512gb-storage",
+          "samsung-galaxy-s23-ultra-5g-ai-smartphone-phantom-black-12gb-256gb-storage",
+          "samsung-galaxy-s24-ultra-5g-ai-smartphone-titanium-violet-12gb-512gb-storage"
+        ],
+        "padding_top": 43,
+        "padding_bottom": 46
       }
     },
     "custom_rich_text_MhyHGW": {
@@ -349,7 +366,7 @@
         "button_link": "",
         "button_type": "secondary_color",
         "text_alignment": "left",
-        "target_date": "2024\/08\/26",
+        "target_date": "2025\/08\/26",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -706,6 +723,7 @@
   },
   "order": [
     "slideshow_with_text_JUVc4f",
+    "custom_product_list_main_VnKmz6",
     "custom_rich_text_MhyHGW",
     "custom_image_grid_LDcYjY",
     "custom_collection_list_H6jLEr",

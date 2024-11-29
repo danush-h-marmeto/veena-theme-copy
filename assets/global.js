@@ -213,9 +213,9 @@ class QuantityInput extends HTMLElement {
   validateQtyRules() {
     const value = parseInt(this.input.value);
 
-    if(document.querySelector(".current__product")){
-    const currentProduct = document.querySelector(".current__product");
-    currentProduct.dataset.currentPrductnty = value;
+    if (document.querySelector(".current__product")) {
+      const currentProduct = document.querySelector(".current__product");
+      currentProduct.dataset.currentPrductnty = value;
     }
     if (this.input.min) {
       const min = parseInt(this.input.min);
@@ -1355,8 +1355,6 @@ class VariantSelects extends HTMLElement {
             );
         }
 
-       
-
         if (document.querySelector("#meta-product__description")) {
           document.querySelector("#meta-product__description").innerHTML =
             html.querySelector("#meta-product__description").innerHTML;
@@ -1383,8 +1381,6 @@ class VariantSelects extends HTMLElement {
           document.querySelector("#coupon_wrapper").innerHTML =
             html.querySelector("#coupon_wrapper").innerHTML;
         }
-
-      
 
         const destination = document.getElementById(
           `price-${this.dataset.section}`
@@ -1660,8 +1656,6 @@ if (document.querySelector(".custom_button_container")) {
   });
 }
 
-
-
 let cart =
   document.querySelector("cart-notification") ||
   document.querySelector("cart-drawer");
@@ -1675,11 +1669,10 @@ checkbox.forEach((checkbox) => {
 // console.log(document.querySelectorAll('.bundle-checkbox'))
 
 document.addEventListener("DOMContentLoaded", function () {
-
-  if(document.querySelector(".current__product")){
+  if (document.querySelector(".current__product")) {
     const currentProduct =
       document.querySelector(".current__product").dataset.currentProductId;
-      document
+    document
       .getElementById("add-to-cart-btn")
       .addEventListener("click", function () {
         var selectedProducts = [];
@@ -1694,13 +1687,13 @@ document.addEventListener("DOMContentLoaded", function () {
               });
             }
           });
-         const quantity =
-           document.querySelector(".current__product").dataset.currentPrductnty;
+        const quantity =
+          document.querySelector(".current__product").dataset.currentPrductnty;
         selectedProducts.push({
           id: currentProduct,
           quantity: quantity,
         });
-  
+
         if (selectedProducts.length > 0) {
           let formData = {
             items: selectedProducts,
@@ -1725,11 +1718,8 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
       });
-  } 
+  }
 });
-
-
-        
 
 if (document.getElementById("coupon_code_copy")) {
   document
@@ -1818,23 +1808,52 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-// Get all checkbox elements
-
 class CompareProduct extends HTMLElement {
   constructor() {
     super();
+    this.checkbox = this.querySelector(".compare-checkbox");
+    this.compareDefault = this.checkbox.getAttribute("data-compare-default");
     this.querySelector(".compare-checkbox").addEventListener("click", (e) => {
       const checkbox = e.target;
       const toast = document.querySelector(".toast.toast--green");
-
+      const hideToast = () => {
+        toast.classList.add("toast-hidden");
+      };
+      let hideTimeout;
       if (checkbox.checked) {
         toast.classList.remove("toast-hidden");
-        setTimeout(() => {
-          toast.classList.add("toast-hidden");
-        }, 3000);
+        hideTimeout = setTimeout(hideToast, 3000);
+        toast.addEventListener("mouseenter", () => {
+          clearTimeout(hideTimeout); 
+        });
+        toast.addEventListener("mouseleave", () => {
+          hideTimeout = setTimeout(hideToast, 3000);
+        });
       } else {
         toast.classList.add("toast-hidden");
+      }
+    });
+
+    this.checkbox.addEventListener("change", (e) => {
+      const isChecked = e.target.checked;
+
+      if (isChecked) {
+        const firstSelectedValue = this.compareDefault;
+        document.querySelectorAll("compare-product").forEach((product) => {
+          const otherCheckbox = product.querySelector(".compare-checkbox");
+          const otherDefault = otherCheckbox.getAttribute(
+            "data-compare-default"
+          );
+
+          if (otherDefault !== firstSelectedValue) {
+            otherCheckbox.disabled = true;
+          }
+        });
+      } else {
+        document.querySelectorAll("compare-product").forEach((product) => {
+          const otherCheckbox = product.querySelector(".compare-checkbox");
+          otherCheckbox.disabled = false;
+        });
       }
     });
   }

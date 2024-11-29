@@ -5180,3 +5180,10 @@ input[type="checkbox"]:checked:after {
 .toast--yellow:before{
   background-color:#FFC007;
 }
+input[type=checkbox][disabled]{
+cursor: not-allowed;
+display: none;
+}
+a.toast__message{
+  color: blue;
+}

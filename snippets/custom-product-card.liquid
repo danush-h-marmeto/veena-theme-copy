@@ -34,10 +34,18 @@
     data-varient-id="{{ product.selected_or_first_available_variant.id }}"
   >
 
+  {% assign compare_tags = "" %}
+{% for tag in product.tags %}
+  {% if tag contains "compare_" %}
+    {% assign compare_tags = tag %}
+  {% endif %}
+{% endfor %}
+
+Tag - {{ compare_tags }}
 <compare-product class="product-compare-container">
   <div class="product-compare-checkbox" data-handle="{{ product.handle }}">
     <span class="compare-text">Compare</span>
-    <input type="checkbox" class="compare-checkbox">
+    <input type="checkbox" class="compare-checkbox" data-compare-default="{{ compare_tags}}">
   </div>
 </compare-product>
   <div class="product-card__left-tags">
@@ -51,11 +59,6 @@
       <span class="product-card__discount "> {{ discountPercentage }}% off </span>
     {% endif %}
   </div>
-  {% comment %}
-    <label class="product-card__checkbox">
-      <input type="checkbox" class="bundle-checkbox" name="bundle_checkbox" value="{{ product.selected_or_first_available_variant.id }}" data-product-id="{{ product.selected_or_first_available_variant.id }}">
-    </label>
-  {% endcomment %}
 
   <div class="product-card__content ">
     <div class="product-card-varients">
